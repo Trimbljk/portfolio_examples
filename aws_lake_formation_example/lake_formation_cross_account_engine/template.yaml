@@ -1,0 +1,575 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+
+Description: ""
+
+Parameters:
+  Stage:
+    Default: dev
+    Type: String
+    AllowedValues:
+      - dev
+      - prod
+
+  DevBucket:
+    Type: String
+    Default: lakeformation-metadata-dev
+
+  ChatUrl:
+    Default: ""
+    Type: String
+
+Mappings:
+  StageMap:
+    dev:
+      CreateDeleteRule: "ShareAcrossAccountRule_dev"
+      CreateEventLambda: "ShareResourceAcrossAccount_dev"
+      DeleteEventLambda: "RemoveResourceAcrossAccount_dev"
+      UpdateEventLambda: "UpdateResourceAcrossAccount_dev"
+      DatabaseFunction: ListAllDatabases-dev
+      TableFunction: ListAllTables-dev
+      ListAllLFPermissionsFunction: GetAllLFPermissions-dev
+      WritePermissionsFunction: WriteAllLFPermissions-dev
+      UpdateTablesFunction: UpdateLFTables-dev
+      StateMachineName: LakeFormationPermissions-StateMachine-dev
+      CleanUpFunction: CleanUpOldPermissionsFunction-dev
+      FailureCatch: CatchLFEnginerFailures-dev
+
+
+    prod:
+      CreateDeleteRule: "ShareAcrossAccountRule"
+      CreateEventLambda: "ShareResourceAcrossAccount"
+      DeleteEventLambda: "RemoveResourceAcrossAccount"
+      UpdateEventLambda: "UpdateResourceAcrossAccount"
+      DatabaseFunction: ListAllDatabases
+      TableFunction: ListAllTables
+      ListAllLFPermissionsFunction: GetAllLFPermissions
+      WritePermissionsFunction: WriteAllLFPermissions
+      UpdateTablesFunction: UpdateLFTables
+      StateMachineName: LakeFormationPermissions-StateMachine
+      CleanUpFunction: CleanUpOldPermissionsFunction
+      FailureCatch: CatchLFEnginerFailures
+
+
+Resources:
+
+  TableActionRule:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: "This rule triggers the Lake Formation engine and pipeline."
+      Name: !FindInMap [StageMap, !Ref Stage, CreateDeleteRule]
+      EventPattern:
+        source:
+          - "aws.glue"
+        detail-type:
+          - "AWS API Call via CloudTrail"
+        detail:
+          eventSource:
+            - "glue.amazonaws.com"
+          eventName:
+            - "CreateTable"
+            - "DeleteTable"
+            - "UpdateTable"
+
+      State: "ENABLED"
+      Targets: 
+        - Arn: !GetAtt WriteToLFIngestBucket.Arn
+          Id: "LakeFormationWriteToInjestBucket"
+
+  AllowEventToTriggerWriteFunction:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: "lambda:InvokeFunction"
+      FunctionName: !Ref WriteToLFIngestBucket
+      Principal: "events.amazonaws.com"
+      SourceArn: !GetAtt TableActionRule.Arn
+
+  WriteToLFIngestBucket:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambdas/events.write_events
+      Timeout: 60
+      Runtime: python3.9
+      FunctionName: "WritetoLFIngestBucket"
+      Role: !GetAtt TriggerLakeFormationEngineRole.Arn
+      Environment:
+        Variables:
+          BUCKET: !ImportValue LakeFormationBucket
+          OUTPUT_PATH: 'table_actions'
+
+  TriggerLakeFormationEngineRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: "lambda.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      Policies:
+        - PolicyName: "TriggerLakeFormationLambdaPolicy"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: 'logs:CreateLogGroup'
+                Resource: !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*'
+              - Effect: Allow
+                Action:
+                  - 'logs:CreateLogStream'
+                  - 'logs:PutLogEvents'
+                Resource:
+                  - !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/*:*'
+              - Effect: Allow
+                Action: 
+                  - "s3:PutObject"
+                  - "s3:GetObject"
+                  - "s3:DeleteObject"
+                Resource: 
+                  - !Join
+                    - ''
+                    - - 'arn:aws:s3:::'
+                      - !ImportValue LakeFormationBucket
+                      - '/table_actions/*'
+                  - !Join
+                    - ''
+                    - - 'arn:aws:s3:::'
+                      - !ImportValue LakeFormationBucket
+                      - '/table_type_path/*'
+
+              - Effect: Allow
+                Action: 
+                  - "s3:ListBucket"
+                  - "s3:GetBucketLocation"
+                Resource: !Join
+                  - ''
+                  - - 'arn:aws:s3:::'
+                    - !ImportValue LakeFormationBucket
+              - Effect: Allow
+                Action:
+                  - "states:StartExecution"
+                Resource: !Sub
+                  - "arn:aws:states:us-west-2::stateMachine:${SFN_Name}"
+                  - SFN_Name: !FindInMap [StageMap, !Ref Stage, StateMachineName]
+
+  TriggerLakeFormationEngine:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambdas/state_machine.trigger
+      Timeout: 180
+      Runtime: python3.9
+      FunctionName: "TriggerLakeFormationEngineStateMachine"
+      Role: !GetAtt TriggerLakeFormationEngineRole.Arn
+      Environment:
+        Variables:
+          BUCKET: !ImportValue LakeFormationBucket
+          OUTPUT_PATH: 'table_actions'
+          STATE_MACHINE: !Sub
+            - "arn:aws:states:us-west-2::stateMachine:${SFN_Name}"
+            - SFN_Name: !FindInMap [StageMap, !Ref Stage, StateMachineName]
+
+  CreateTableNotificationLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: "lambda.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      Policies:
+        - PolicyName: "CreateDeleteTablePolicy"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: 'logs:CreateLogGroup'
+                Resource: !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*'
+              - Effect: Allow
+                Action:
+                  - "glue:GetTable"
+                  - "glue:GetTables"
+                  - "glue:GetPartition"
+                  - "glue:GetPartitions"
+                  - "glue:BatchGetPartition"
+                  - "glue:PutResourcePolicy"
+                  - "glue:DeleteResourcePolicy"
+                  - "glue:GetResourcePolicy"
+                  - "glue:GetResourcePolicies"
+                  - "lakeformation:GetDataAccess"
+                  - "lakeformation:BatchGrantPermissions"
+                  - "lakeformation:ListResources"
+                  - "lakeformation:RegisterResource"
+                  - "lakeformation:DeregisterResource"
+                  - "ram:GetResourceShares"
+                  - "ram:CreateResourceShare"
+                  - "ram:AssociateResourceShare"
+                  - "ram:DeleteResourceShare"
+                  - "ram:DisassociateResourceShare"
+                  - "ram:DeleteResourceShare*"
+                  - "ram:DisassociateResourceShare*"
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - "dynamodb:GetItem"
+                  - "dynamodb:PutItem"
+                Resource: !ImportValue LakeFormationDynamoDBArn
+              - Effect: Allow
+                Action:
+                  - 'logs:CreateLogStream'
+                  - 'logs:PutLogEvents'
+                Resource:
+                  - !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/*:*'
+              - Effect: Allow
+                Action:
+                  - 'iam:GetRole'
+                  - 'iam:GetRolePolicy'
+                  - 'iam:PutRolePolicy'
+                Resource:
+                  - 'arn:aws:iam:::role/aws-service-role/lakeformation.amazonaws.com/AWSServiceRoleForLakeFormationDataAccess'
+              - Effect: Allow
+                Action:
+                  - "athena:StartQueryExecution"
+                  - "athena:GetQueryResults"
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - "s3:putObject"
+                  - "s3:getObject"
+                  - "s3:ListBucket"
+                  - "s3:DeleteObject"
+                  - "s3:GetBucketLocation"
+                Resource: 
+                  - "arn:aws:s3:::aws-athena-query-results-*"
+                  - !Join
+                    - ''
+                    - - 'arn:aws:s3:::'
+                      - !ImportValue LakeFormationBucket
+                      - '/*'
+              - Effect: "Allow"
+                Action:
+                  - "s3:PutObject"
+                  - "s3:PutObjectAcl"
+                Resource: "arn:aws:s3:::lakeformation-metadata-dev/*"
+
+  LambdaLakeFormationAdmin:
+    Type: AWS::LakeFormation::DataLakeSettings
+    Properties:
+      Admins:
+        - DataLakePrincipalIdentifier: !GetAtt CreateTableNotificationLambdaRole.Arn
+
+  CreateEventLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambdas/createEvent.create_event
+      Timeout: 180
+      Runtime: python3.9
+      Role: !GetAtt CreateTableNotificationLambdaRole.Arn
+      FunctionName: !FindInMap [StageMap, !Ref Stage, CreateEventLambda]
+      Environment:
+        Variables:
+          ADD_LAMBDA_ROLE: !GetAtt CreateTableNotificationLambdaRole.Arn
+          BUCKET_NAME: !ImportValue LakeFormationBucket
+          TYPE_PATH: "table_type_path"
+          SAVED_STATE: "saved_permission_state"
+          TABLE_ACTION: 'table_actions'
+          OUTPUT_BUCKET: !Ref DevBucket
+          CHAT_URL: !Ref ChatUrl
+
+  DeleteEventLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambdas/deleteEvent.delete_event
+      Timeout: 180
+      Runtime: python3.9
+      Role: !GetAtt CreateTableNotificationLambdaRole.Arn
+      FunctionName: !FindInMap [StageMap, !Ref Stage, DeleteEventLambda]
+      Environment:
+        Variables:
+          BUCKET_NAME: !ImportValue LakeFormationBucket
+          TYPE_PATH: "table_type_path"
+          SAVED_STATE: "saved_permission_state"
+          TABLE_ACTION: 'table_actions'
+          OUTPUT_BUCKET: !Ref DevBucket
+          CHAT_URL: !Ref ChatUrl
+
+  UpdateEventLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambdas/updateEvent.update_event
+      Timeout: 180
+      Runtime: python3.9
+      Role: !GetAtt CreateTableNotificationLambdaRole.Arn
+      FunctionName: !FindInMap [StageMap, !Ref Stage, UpdateEventLambda]
+      Environment:
+        Variables:
+          BUCKET_NAME: !ImportValue LakeFormationBucket
+          TABLE_ACTION: 'table_actions'
+          CHAT_URL: !Ref ChatUrl
+
+#Table Path Permissions
+
+  TablePathPermission:
+    Type: AWS::LakeFormation::PrincipalPermissions
+    Properties:
+      Catalog: !Ref AWS::AccountId
+      Permissions:
+        - "SELECT"
+        - "DESCRIBE"
+      Principal:
+        DataLakePrincipalIdentifier: !GetAtt CreateTableNotificationLambdaRole.Arn
+      Resource:
+        Table:
+          CatalogId: !Ref AWS::AccountId
+          DatabaseName: !ImportValue LakeFormationDatabase
+          Name: !ImportValue TablesPathOutput
+      PermissionsWithGrantOption:
+        - "SELECT"
+
+  TablePathRegisteredResource:
+    Type: AWS::LakeFormation::Resource
+    Properties: 
+      ResourceArn: !ImportValue TablesFullPathArn
+      UseServiceLinkedRole: True
+        
+# Lakeformation Permissions
+
+  TableLakePermissionsPermission:
+    Type: AWS::LakeFormation::PrincipalPermissions
+    Properties:
+      Catalog: !Ref AWS::AccountId
+      Permissions:
+        - "SELECT"
+        - "DESCRIBE"
+      Principal:
+        DataLakePrincipalIdentifier: !GetAtt CreateTableNotificationLambdaRole.Arn
+      Resource:
+        Table:
+          CatalogId: !Ref AWS::AccountId
+          DatabaseName: !ImportValue LakeFormationDatabase
+          Name: !ImportValue PermissionsTablePathOutput
+      PermissionsWithGrantOption:
+        - "SELECT"
+  
+  TableLakePermissionsResource:
+    Type: AWS::LakeFormation::Resource
+    Properties: 
+      ResourceArn: !ImportValue PermissionsTablePathArn
+      UseServiceLinkedRole: True
+
+
+###Registered S3 Resources
+
+  TableS3RegisteredResourcesPermission:
+    Type: AWS::LakeFormation::PrincipalPermissions
+    Properties:
+      Catalog: !Ref AWS::AccountId
+      Permissions:
+        - "SELECT"
+        - "DESCRIBE"
+      Principal:
+        DataLakePrincipalIdentifier: !GetAtt CreateTableNotificationLambdaRole.Arn
+      Resource:
+        Table:
+          CatalogId: !Ref AWS::AccountId
+          DatabaseName: !ImportValue LakeFormationDatabase
+          Name: !ImportValue S3RegisteredResourcesOutput
+      PermissionsWithGrantOption:
+        - "SELECT"
+  
+  TableS3RegisteredResource:
+    Type: AWS::LakeFormation::Resource
+    Properties: 
+      ResourceArn: !ImportValue S3RegisteredResourcesArn
+      UseServiceLinkedRole: True
+
+# RAM Resource 
+
+  TableRAMResourcePermission:
+    Type: AWS::LakeFormation::PrincipalPermissions
+    Properties:
+      Catalog: !Ref AWS::AccountId
+      Permissions:
+        - "SELECT"
+        - "DESCRIBE"
+      Principal:
+        DataLakePrincipalIdentifier: !GetAtt CreateTableNotificationLambdaRole.Arn
+      Resource:
+        Table:
+          CatalogId: !Ref AWS::AccountId
+          DatabaseName: !ImportValue LakeFormationDatabase
+          Name: !ImportValue RamTablePathOutput
+      PermissionsWithGrantOption:
+        - "SELECT"
+  
+  TableRAMResource:
+    Type: AWS::LakeFormation::Resource
+    Properties: 
+      ResourceArn: !ImportValue RamTablePathArn
+      UseServiceLinkedRole: True
+
+  GetLakeFormationInfoAdminRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: "lambda.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      Policies:
+        - PolicyName: lakeformationAdmin
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: 'logs:CreateLogGroup'
+                Resource: !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*'
+              - Effect: Allow
+                Action:
+                  - "glue:GetTables"
+                  - "glue:GetDatabases"
+                  - "lakeformation:GetDataAccess"
+                  - "lakeformation:ListPermissions"
+                  - "lakeformation:ListResources"
+                  - "ram:GetResourceShareAssociations"
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - 'logs:CreateLogStream'
+                  - 'logs:PutLogEvents'
+                Resource:
+                  - !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/*:*'
+              - Effect: Allow
+                Action:
+                  - "s3:PutObject"
+                Resource: !Join
+                  - ''
+                  - - 'arn:aws:s3:::'
+                    - !ImportValue LakeFormationBucket
+                    - '/*'
+                
+  LambdaLakeFormationAdmin2:
+    Type: AWS::LakeFormation::DataLakeSettings
+    Properties:
+      Admins:
+        - DataLakePrincipalIdentifier: !GetAtt GetLakeFormationInfoAdminRole.Arn
+
+  CleanUpOldPermissionsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambdas/get_permissions.clean_up
+      Timeout: 300
+      Runtime: python3.9
+      Role: !GetAtt CreateTableNotificationLambdaRole.Arn
+      FunctionName: !FindInMap [StageMap, !Ref Stage, CleanUpFunction]
+      Environment:
+        Variables:
+          BUCKETNAME: !ImportValue LakeFormationBucket
+          PERMISSIONS_PATH: !ImportValue PermissionsTablePathOutput
+
+  ListAllDatabasesFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambdas/get_permissions.get_databases
+      Timeout: 300
+      Runtime: python3.9
+      Role: !GetAtt GetLakeFormationInfoAdminRole.Arn
+      FunctionName: !FindInMap [StageMap, !Ref Stage, DatabaseFunction]
+      Environment:
+        Variables:
+          BUCKETNAME: !ImportValue LakeFormationBucket
+          PERMISSIONS_PATH: !ImportValue PermissionsTablePathOutput
+
+  ListAllTablesFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambdas/get_permissions.get_tables
+      Timeout: 300
+      Runtime: python3.9
+      Role: !GetAtt GetLakeFormationInfoAdminRole.Arn
+      FunctionName: !FindInMap [StageMap, !Ref Stage, TableFunction]
+      Environment:
+        Variables:
+          BUCKETNAME: !ImportValue LakeFormationBucket
+          PERMISSIONS_PATH: !ImportValue PermissionsTablePathOutput
+  
+  ListAllLFPermissionsFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambdas/get_permissions.get_permissions
+      Timeout: 300
+      Runtime: python3.9
+      Role: !GetAtt GetLakeFormationInfoAdminRole.Arn
+      FunctionName: !FindInMap [StageMap, !Ref Stage, ListAllLFPermissionsFunction]
+      Environment:
+        Variables:
+          BUCKETNAME: !ImportValue LakeFormationBucket
+          PERMISSIONS_PATH: !ImportValue PermissionsTablePathOutput
+
+  UpdateAllLFTablesFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambdas/s3_resources.build_tables
+      Timeout: 300
+      Runtime: python3.9
+      FunctionName: !FindInMap [StageMap, !Ref Stage, UpdateTablesFunction]
+      Role: !GetAtt GetLakeFormationInfoAdminRole.Arn
+      Environment:
+        Variables:
+          BUCKETNAME: !ImportValue LakeFormationBucket
+          S3_PATH: !ImportValue S3RegisteredResourcesOutput
+          TABLES_PATH: !ImportValue TablesPathOutput
+          RESOURCE_PATH: !ImportValue RamTablePathOutput
+
+
+  LakeFormationPipelineStateMachine:
+    Type: AWS::Serverless::StateMachine
+    Properties: 
+      DefinitionUri: ./lakeformation.statemachine.asl.json
+      Name: !FindInMap [StageMap, !Ref Stage, StateMachineName]
+      DefinitionSubstitutions:
+        CreateEventLambdaArn: !GetAtt CreateEventLambda.Arn
+        DeleteEventLambdaArn: !GetAtt DeleteEventLambda.Arn
+        UpdateEventLambdaArn: !GetAtt UpdateEventLambda.Arn
+        CleanUpOldPermissionsFunctionArn: !GetAtt CleanUpOldPermissionsFunction.Arn
+        ListAllDatabasesFunctionArn: !GetAtt ListAllDatabasesFunction.Arn
+        ListAllTablesFunctionArn: !GetAtt ListAllTablesFunction.Arn
+        ListAllLFPermissionsFunctionArn: !GetAtt ListAllLFPermissionsFunction.Arn
+        UpdateAllLFTablesFunctionArn: !GetAtt UpdateAllLFTablesFunction.Arn
+        FailureCatchFunctionArn: !GetAtt LFEngineFailureCatchLambda.Arn
+          
+      Policies:
+        - LambdaInvokePolicy:
+            FunctionName: !Ref CreateEventLambda
+        - LambdaInvokePolicy:
+            FunctionName: !Ref DeleteEventLambda
+        - LambdaInvokePolicy:
+            FunctionName: !Ref UpdateEventLambda
+        - LambdaInvokePolicy:
+            FunctionName: !Ref CleanUpOldPermissionsFunction
+        - LambdaInvokePolicy:
+            FunctionName: !Ref ListAllDatabasesFunction
+        - LambdaInvokePolicy:
+            FunctionName: !Ref ListAllTablesFunction
+        - LambdaInvokePolicy:
+            FunctionName: !Ref ListAllLFPermissionsFunction
+        - LambdaInvokePolicy:
+            FunctionName: !Ref UpdateAllLFTablesFunction
+        - LambdaInvokePolicy:
+            FunctionName: !Ref LFEngineFailureCatchLambda
+              
+  LFEngineFailureCatchLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: lambdas/failure_catch.messenger
+      Timeout: 300
+      Runtime: python3.9
+      FunctionName: !FindInMap [StageMap, !Ref Stage, FailureCatch]
+              

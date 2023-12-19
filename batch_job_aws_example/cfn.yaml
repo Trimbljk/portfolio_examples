@@ -1,0 +1,60 @@
+---
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "This template defines a batch job that creates an 'Internal blast database with all AgBiome's Genomes/AIMs. The intention is to have multiple ways to compare genes and genomes. The ability to compare external genomes to AgBiome's collection will also be available."
+
+Parameters:
+  TAG:
+    Type: String
+    Default: test
+  Stage:
+    Type: String
+    AllowedValues:
+      - dev
+      - prod
+
+Mappings:
+  ResourceNames:
+    dev:
+      jobdefname: awsbatch_update_internal_aim_blast_dev
+      reponame: awsbatch/awsbatch_update_internal_aim_blast_dev
+    prod:
+      jobdefname: awsbatch_update_internal_aim_blast
+      reponame: awsbatch/awsbatch_update_internal_aim_blast
+
+
+Resources:
+  AwsBatchUpdateInternalBlastdbAimJobDefinition:
+    Type: AWS::Batch::JobDefinition
+    Properties:
+      JobDefinitionName: !FindInMap [ResourceNames, !Ref Stage, jobdefname]
+      Type: container
+      ContainerProperties:
+        Image: !Sub "${AWS::AccountId}.dkr.ecr.${AWS::Region}.amazonaws.com/${AwsBatchUpdateInternalBlastdbAimEcrRepository}:${TAG}"
+        Vcpus: 64
+        Memory: 450000
+        Volumes:
+        - Host:
+            SourcePath: /mnt/efs/blastdb
+          Name: efs
+        - Host:
+            SourcePath: /mnt/efs/asms
+          Name: asm
+        MountPoints:
+        - ContainerPath: /blastdb
+          ReadOnly: false
+          SourceVolume: efs 
+        - ContainerPath: /blast/asms
+          ReadOnly: false
+          SourceVolume: asm
+        Environment:
+          - Name: BLASTDB
+            Value: /blastdb
+          - Name: TAG
+            Value: !Ref TAG
+      RetryStrategy:
+        Attempts: 3
+
+  AwsBatchUpdateInternalBlastdbAimEcrRepository:
+    Type: AWS::ECR::Repository
+    Properties: 
+      RepositoryName: !FindInMap [ResourceNames, !Ref Stage, reponame]

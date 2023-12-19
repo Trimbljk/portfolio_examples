@@ -1,0 +1,272 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: "This stack builds a trading platform to check Robinhood. It will purchase and sell shares of crypto."
+
+Parameters:
+  Username:
+    Type: "String"
+    Default: "username"
+  OtpInfo:
+    Type: "String"
+    Default: "otp"
+  Secret:
+    Type: "String"
+    Default: "secret"
+
+Resources:
+  OutputBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: 'jkt-robinhood-stocks'
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: True
+        BlockPublicPolicy: True
+        IgnorePublicAcls: True
+        RestrictPublicBuckets: True
+
+  RHtradeTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: PAY_PER_REQUEST
+      TableName: 'robinhood-stocks-trading'
+      KeySchema:
+        - AttributeName: 'item_id'
+          KeyType: 'HASH'
+        - AttributeName: 'tick'
+          KeyType: 'RANGE'
+      AttributeDefinitions:
+        - AttributeName: 'item_id'
+          AttributeType: 'S'
+        - AttributeName: 'tick'
+          AttributeType: 'S'
+# Below is a custom layer removing the write to disk from the robinhood api package 
+
+  LoginRHLayer:
+    Type: AWS::Lambda::LayerVersion
+    Properties:
+      CompatibleRuntimes: 
+        - python3.8
+      Content:
+        S3Bucket: !Ref OutputBucket
+        S3Key: layers/pythontest.zip
+
+# Below is a function for new purchases of crypto populating the trade database
+  TriggerNewPurchases:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: "This event will trigger the NewPurchases function"
+      Name: "Trigger-New-Purchases"
+      ScheduleExpression: "cron(0 2/12 * * ? *)"
+      State: "ENABLED"
+      Targets:
+        - Arn: !GetAtt NewPurchasesFunction.Arn
+          Id: Trigger-NewPurchases
+ 
+  NewPurchasesFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: buy_new.purchase_new_crypto
+      Timeout: 300
+      Runtime: python3.8
+      Policies:
+        Statement:
+          - Action:
+            - "dynamodb:PutItem"
+            Effect: "Allow"
+            Resource: !GetAtt RHtradeTable.Arn
+          - Action:
+            - "secretsmanager:GetSecretValue"   
+            Effect: "Allow"
+            Resource: !Ref Secret 
+      Environment:
+        Variables:
+          USERNAME: !Ref Username
+          PYOTP: !Ref OtpInfo
+      Layers:
+        - !Ref LoginRHLayer
+ 
+  NewPurchasesPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref NewPurchasesFunction
+      Action: lambda:InvokeFunction
+      Principal: events.amazonaws.com
+      SourceArn: !GetAtt TriggerNewPurchases.Arn
+
+
+# The resources below are for scanning dynamoDB and checking for 'buy' trades.
+# If the price is high enough the checksell function will send the info to sns where
+# the subscribed Sell-Item function will execute a sell, save some profit info and save
+# the data to DynamoDB for future purchases 
+
+  SNSSellTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: db-sell-crypto
+
+  TriggerSellScan:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: "This event will trigger the CheckBuyScan function"
+      Name: "Trigger-Sell-Scan-Event"
+      ScheduleExpression: "cron(0/10 * 1/1 * ? *)"
+      State: "ENABLED"
+      Targets:
+        - Arn: !GetAtt CheckSellScan.Arn
+          Id: Trigger-CheckSellScan
+   
+  CheckSellScan:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: sell-item-check.check_buyside
+      Timeout: 300
+      Runtime: python3.8
+      Policies:
+        Statement:
+          - Action:
+            - "dynamodb:Scan"
+            Effect: "Allow"
+            Resource: !GetAtt RHtradeTable.Arn
+          - Action:
+            - "secretsmanager:GetSecretValue"
+            Effect: "Allow"
+            Resource: !Ref Secret
+          - Action:
+            - "sns:Publish"
+            Effect: "Allow"
+            Resource: !Ref SNSSellTopic
+      Environment:
+        Variables:
+          USERNAME: !Ref Username 
+          PYOTP: !Ref OtpInfo
+      Layers:
+        - !Ref LoginRHLayer
+
+  SellScanPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref CheckSellScan
+      Action: lambda:InvokeFunction
+      Principal: events.amazonaws.com
+      SourceArn: !GetAtt TriggerSellScan.Arn
+
+  SellCrypto:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: sell-crypto.lambda_handler
+      Timeout: 300
+      Runtime: python3.8
+      Policies:
+        Statement:
+          - Action:
+            - "dynamodb:PutItem"
+            - "dynamodb:DeleteItem"
+            Effect: "Allow"
+            Resource: !GetAtt RHtradeTable.Arn
+          - Action:
+            - "secretsmanager:GetSecretValue"
+            Effect: "Allow"
+            Resource: !Ref Secret
+          - Action:
+            - "sns:Subscribe"
+            Effect: "Allow"
+            Resource: !Ref SNSSellTopic
+      Events:
+        SellSNSEvent:
+          Type: SNS 
+          Properties:
+            Topic: !Ref SNSSellTopic
+      Environment:
+        Variables:
+          USERNAME: !Ref Username 
+          PYOTP: !Ref OtpInfo
+      Layers:
+        - !Ref LoginRHLayer 
+
+# The next set of resources build infrastructure for purchasing crypto
+# using the information from DynamoDB
+
+  SNSBuyTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: db-buy-crypto
+
+  TriggerBuyScan:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: "This event will trigger the CheckBuyScan function"
+      Name: "Trigger-Buy-Scan-Event"
+      ScheduleExpression: "cron(5/10 * 1/1 * ? *)"
+      State: "ENABLED"
+      Targets:
+        - Arn: !GetAtt CheckBuyScan.Arn
+          Id: Trigger-CheckBuyScan
+       
+  CheckBuyScan:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: buy-item-check.check_sellside
+      Timeout: 300
+      Runtime: python3.8
+      Policies:
+        Statement:
+          - Action:
+            - "dynamodb:Scan"
+            Effect: "Allow"
+            Resource: !GetAtt RHtradeTable.Arn
+          - Action:
+            - "secretsmanager:GetSecretValue"
+            Effect: "Allow"
+            Resource: !Ref Secret
+          - Action:
+            - "sns:Publish"
+            Effect: "Allow"
+            Resource: !Ref SNSBuyTopic 
+      Environment:
+        Variables:
+          USERNAME: !Ref Username 
+          PYOTP: !Ref OtpInfo
+      Layers:
+        - !Ref LoginRHLayer
+ 
+  BuyScanPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref CheckBuyScan
+      Action: lambda:InvokeFunction
+      Principal: events.amazonaws.com
+      SourceArn: !GetAtt TriggerBuyScan.Arn
+
+  BuyCrypto:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: buy-crypto.lambda_handler
+      Timeout: 300
+      Runtime: python3.8
+      Policies:
+        Statement:
+          - Action:
+            - "dynamodb:PutItem"
+            - "dynamodb:DeleteItem"
+            Effect: "Allow"
+            Resource: !GetAtt RHtradeTable.Arn
+          - Action:
+            - "secretsmanager:GetSecretValue"
+            Effect: "Allow"
+            Resource: !Ref Secret
+          - Action:
+            - "sns:Subscribe"
+            Effect: "Allow"
+            Resource: !Ref SNSBuyTopic
+      Events:
+        SellSNSEvent:
+          Type: SNS 
+          Properties:
+            Topic: !Ref SNSBuyTopic
+      Environment:
+        Variables:
+          USERNAME: !Ref Username 
+          PYOTP: !Ref OtpInfo
+      Layers:
+        - !Ref LoginRHLayer

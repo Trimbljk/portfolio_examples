@@ -1,0 +1,254 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+
+Description: "This template builds all the tables for the lakeformation engine"
+
+Parameters:
+  Stage:
+    Default: dev
+    Type: String
+    AllowedValues:
+      - dev
+      - prod
+Mappings:
+  StageMap:
+    dev:
+      TableLocationsTable: "table_location_paths_dev"
+      RamTable: "resource_shares_dev"
+      PermissionsTable: "lakeformation_permissions_dev"
+      ResourceTable: "registered_s3_resources_dev"
+
+    prod:
+      TableLocationsTable: "table_location_paths"
+      RamTable: "resource_shares"
+      PermissionsTable: "lakeformation_permissions"
+      ResourceTable: "registered_s3_resources"
+        
+Resources:
+
+  RegisteredResourcesTable:
+    Type: AWS::Glue::Table
+    Properties:                                                                                                         
+      CatalogId: !Ref AWS::AccountId
+      DatabaseName: !ImportValue LakeFormationDatabase 
+      TableInput:
+        Name: !FindInMap [StageMap, !Ref Stage, ResourceTable]
+        Description: "This table displays s3 buckets and paths registered with lake formation"
+        StorageDescriptor:
+          InputFormat: "org.apache.hadoop.mapred.TextInputFormat"
+          OutputFormat: "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat"
+          SerdeInfo:
+            SerializationLibrary: "org.openx.data.jsonserde.JsonSerDe"
+          Location: !Join 
+              - ''
+              - - 's3://'
+                - !ImportValue LakeFormationBucket
+                - '/'
+                - !FindInMap [StageMap, !Ref Stage, ResourceTable]
+          Columns:
+            - Name: "arn"
+              Type: string
+              Comment: "The arn of the registered bucket and it's path."
+            - Name: "bucket"
+              Type: string
+              Comment: "The name of the bucket."
+            - Name: "data_path"
+              Type: string
+              Comment: "The bucket and path where data is located."
+        TableType: "EXTERNAL_TABLE"
+        Parameters:
+          classification: "json"
+  
+ 
+  TablesLocationsTable:
+    Type: AWS::Glue::Table
+    Properties:                                                                                                         
+      CatalogId: !Ref AWS::AccountId
+      DatabaseName: !ImportValue LakeFormationDatabase 
+      TableInput:
+        Name: !FindInMap [StageMap, !Ref Stage, TableLocationsTable]
+        Description: "This table displays s3 buckets and paths registered with lake formation"
+        StorageDescriptor:
+          InputFormat: "org.apache.hadoop.mapred.TextInputFormat"
+          OutputFormat: "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat"
+          SerdeInfo:
+            SerializationLibrary: "org.openx.data.jsonserde.JsonSerDe"
+          Location: !Join 
+              - ''
+              - - 's3://'
+                - !ImportValue LakeFormationBucket
+                - '/'
+                - !FindInMap [StageMap, !Ref Stage, TableLocationsTable]
+          Columns:
+            - Name: "table_name"
+              Type: string
+              Comment: "The name displayed in Athena designated a table to query."
+            - Name: "table_location_path"
+              Type: string
+              Comment: "The location in s3 for which Athena reads data."
+            - Name: "database_name"
+              Type: string
+              Comment: "The database in which the table resides."
+        TableType: "EXTERNAL_TABLE"
+        Parameters:
+          classification: "json"
+  
+  ResourceSharesTable:
+    Type: AWS::Glue::Table
+    Properties:                                                                                                         
+      CatalogId: !Ref AWS::AccountId
+      DatabaseName: !ImportValue LakeFormationDatabase 
+      TableInput:
+        Name: !FindInMap [StageMap, !Ref Stage, RamTable]
+        Description: "This table displays all the ram resource shares and their associations."
+        StorageDescriptor:
+          InputFormat: "org.apache.hadoop.mapred.TextInputFormat"
+          OutputFormat: "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat"
+          SerdeInfo:
+            SerializationLibrary: "org.openx.data.jsonserde.JsonSerDe"
+          Location: !Join 
+              - ''
+              - - 's3://'
+                - !ImportValue LakeFormationBucket
+                - '/'
+                - !FindInMap [StageMap, !Ref Stage, RamTable]
+          Columns:
+            - Name: "arn"
+              Type: string
+              Comment: "The amazon resource name given to a resource share."
+            - Name: "associated_entity"
+              Type: string
+              Comment: "The resource associated with a ram resource share."
+            - Name: "resource_share_name"
+              Type: string
+              Comment: "The common name used to refer to the resource share logical entity and it's associations"
+        TableType: "EXTERNAL_TABLE"
+        Parameters:
+          classification: "json"
+
+  LakePermissionsTable:
+    Type: AWS::Glue::Table
+    Properties:
+      CatalogId: !Ref AWS::AccountId
+      DatabaseName: !ImportValue LakeFormationDatabase 
+      TableInput:
+        Name: !FindInMap [StageMap, !Ref Stage, PermissionsTable]
+        Description: "This table displays all lake formation permissions for every role that accesses Athena"
+        StorageDescriptor:
+          InputFormat: "org.apache.hadoop.mapred.TextInputFormat"
+          OutputFormat: "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat"
+          SerdeInfo:
+            SerializationLibrary: "org.openx.data.jsonserde.JsonSerDe"
+          Location: !Join 
+              - ''
+              - - 's3://'
+                - !ImportValue LakeFormationBucket
+                - '/'
+                - !FindInMap [StageMap, !Ref Stage, PermissionsTable]
+          Columns:
+            - Name: "arn"
+              Type: string
+              Comment: "The arn of a role to which lake formation grants permissions"
+            - Name: "role_name"
+              Type: string
+              Comment: "The name of the role"
+            - Name: "resource"
+              Type: string
+              Comment: "Database table or column"
+            - Name: "catalog_id"
+              Type: string
+              Comment: "Accound ID associated with resource"
+            - Name: "table_name"
+              Type: string
+              Comment: "Name given to the resource, database table or column in Athena"
+            - Name: "database_name"
+              Type: string
+              Comment: "Name given to the resource, database table or column in Athena"
+            - Name: "permissions"
+              Type: "array<string>"
+              Comment: "An array of permissions given to a roll"
+            - Name: "grants"
+              Type: "array<string>"
+              Comment: "An array of permissions a role is allowed to give to another resource"
+            - Name: "column_wild"
+              Type: string
+              Comment: "Denotes whether a role is granted access to ALL tables in a database"
+        TableType: "EXTERNAL_TABLE"
+        Parameters:
+          classification: "json"
+
+
+Outputs:
+  TablesPathOutput:
+    Description: "Path location for outputing a file showing all tables in lakeformation"
+    Export:
+      Name: TablesPathOutput
+    Value: !FindInMap [StageMap, !Ref Stage, TableLocationsTable]
+
+  TablesFullPathArn:
+    Description: "Full ARN location for outputing a file showing all tables in lakeformation"
+    Export:
+      Name: TablesFullPathArn
+    Value: !Join 
+            - ''
+            - - 'arn:aws:s3:::'
+              - !ImportValue LakeFormationBucket
+              - '/'
+              - !FindInMap [StageMap, !Ref Stage, TableLocationsTable]
+              - '/'
+
+  RamTablePathOutput:
+    Description: "Path location for outputing a file consisting of all ram resource shares."
+    Export:
+      Name: RamTablePathOutput 
+    Value: !FindInMap [StageMap, !Ref Stage, RamTable]
+  
+  RamTablePathArn:
+    Description: "Full ARN location for outputing a file showing all resource acccess manager shares"
+    Export:
+      Name: RamTablePathArn
+    Value: !Join 
+            - ''
+            - - 'arn:aws:s3:::'
+              - !ImportValue LakeFormationBucket
+              - '/'
+              - !FindInMap [StageMap, !Ref Stage, RamTable]
+              - '/'
+
+  PermissionsTablePathOutput:
+    Description: "Path location for outputing a file consisting of all lake formation permissions."
+    Export:
+      Name: PermissionsTablePathOutput 
+    Value: !FindInMap [StageMap, !Ref Stage, PermissionsTable]
+  
+  PermissionsTablePathArn:
+    Description: "Full ARN location for outputing a file showing all permissions in lakeformation"
+    Export:
+      Name: PermissionsTablePathArn
+    Value: !Join 
+            - ''
+            - - 'arn:aws:s3:::'
+              - !ImportValue LakeFormationBucket
+              - '/'
+              - !FindInMap [StageMap, !Ref Stage, PermissionsTable]
+              - '/'
+
+  S3RegisterResourcesOutput:
+    Description: "Path location for outputing a file consisting of all lake formation registered resources."
+    Export:
+      Name: S3RegisteredResourcesOutput 
+    Value: !FindInMap [StageMap, !Ref Stage, ResourceTable]
+
+  S3RegisteredResourcesArn:
+    Description: "Full ARN location for outputing a file showing all registered s3 resources"
+    Export:
+      Name: S3RegisteredResourcesArn
+    Value: !Join 
+            - ''
+            - - 'arn:aws:s3:::'
+              - !ImportValue LakeFormationBucket
+              - '/'
+              - !FindInMap [StageMap, !Ref Stage, ResourceTable]
+              - '/'
+
+

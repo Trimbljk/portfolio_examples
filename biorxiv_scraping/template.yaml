@@ -1,0 +1,78 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+Description: AWS SAM Template for Lambda function with Beautiful Soup
+Parameters:
+
+  Stage:
+    Default: dev
+    Type: String
+    AllowedValues:
+      - dev
+      - prod
+
+Mappings:
+  StageMap:
+    dev:
+      biorxivTable: biorxiv_dev
+      DatabaseName: web_scraping_dev
+    
+    prod:
+      biorxivTable: biorxiv
+      DatabaseName: web_scraping
+
+Resources:
+
+  WebscrapingDatabase:
+    Type: AWS::Glue::Database
+    Properties:
+      CatalogId: !Ref AWS::AccountId
+      DatabaseInput:
+        Description: "This database contains tables holding data scraped from the web"
+        Name: !FindInMap [StageMap, !Ref Stage, DatabaseName]
+
+  BiorxivTable:
+    Type: AWS::Glue::Table
+    DependsOn: WebscrapingDatabase
+    Properties:
+      CatalogId: !Ref AWS::AccountId
+      DatabaseName: !FindInMap [StageMap, !Ref Stage, DatabaseName]
+      TableInput:
+        Name: !FindInMap [StageMap, !Ref Stage, biorxivTable]
+        Description: "This table contains the historical record of biorxiv from October 26th 2023."
+        StorageDescriptor: 
+          Location: 's3://agbiome-temp-biorxiv/parquet'
+          InputFormat: org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat
+          OutputFormat: org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat
+          SerdeInfo:
+            SerializationLibrary: org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe
+            Parameters: 
+              serialization.format: 1
+          Columns:
+            - Name: title
+              Type: string
+              Comment: "The title of the paper."
+            - Name: abstract
+              Type: string
+              Comment: "The text extracted from the abstract of the paper."
+            - Name: article_id
+              Type: string
+              Comment: "The digital object identifier of the paper."
+            - Name: date_accepted
+              Type: date
+              Comment: "The date biorxiv accepted the paper."
+            - Name: text_body_object_id
+              Type: string
+              Comment: "The file name with the corresponding paper text not including the abstract."
+            - Name: biorxiv_keyname
+              Type: string
+              Comment: "The location of the zipfile from which the text was extracted in biorxiv's bucket."
+            - Name: parquet_file_id
+              Type: string
+              Comment: "The file name located in owners bucket"
+        Parameters:
+          Classification: parquet
+        TableType: EXTERNAL_TABLE
+        PartitionKeys:
+          - Name: category
+            Type: string
+            Comment: "The biorxiv category the document falls under."

@@ -1,0 +1,112 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+
+Description: "This template builds a bucket and a lambda. It then creates the correct permissions in lakeformation to where the lambda creates a table that is deposited in a path in the bucke that's shared across accounts"
+
+Resources:
+  
+  LakeFormationExampleBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: "somebucket-lf-example"
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: True
+        BlockPublicPolicy: True
+        IgnorePublicAcls: True
+        RestrictPublicBuckets: True
+
+  RegisterS3Bucket:
+    Type: AWS::LakeFormation::Resource
+    Properties:
+      ResourceArn: !Join
+          - ''
+          - - !GetAtt LakeFormationExampleBucket.Arn
+            - '/some_path'
+      UseServiceLinkedRole: True
+
+  LakeFormationExampleTemplateRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: "lambda.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      Policies:
+        - PolicyName: "ExampleLakeFormationLambdaPolicy"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: 'logs:CreateLogGroup'
+                Resource: !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*'
+              - Effect: Allow
+                Action:
+                  - 'logs:CreateLogStream'
+                  - 'logs:PutLogEvents'
+                Resource:
+                  - !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/*:*'
+              - Effect: Allow,
+                Action: 
+                  - "s3:GetBucketLocation",
+                  - "s3:GetObject",
+                  - "s3:ListBucket",
+                  - "s3:PutObject",
+                Resource: 
+                  - "arn:aws:s3:::aws-athena-query-results-*"
+              - Effect: Allow
+                Action: 
+                  - "s3:PutObject"
+                  - "s3:GetObject"
+                Resource: 
+                  - !Join
+                    - ''
+                    - - !GetAtt LakeFormationExampleBucket.Arn
+                      - '/some_path/*'
+              - Effect: Allow
+                Action: 
+                  - "s3:ListBucket"
+                  - "s3:GetBucketLocation"
+                Resource: !GetAtt LakeFormationExampleBucket.Arn
+              - Effect: Allow
+                Action:
+                  - "lakeformation:GetDataAccess"
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - "athena:StartQueryExecution"
+                  - "athena:GetQueryResults"
+                  - "athena:GetQueryExecution"
+                Resource: "*"
+  
+  QueryTableLambdaExample:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: testing.create_table
+      Timeout: 60
+      Runtime: python3.9
+      FunctionName: LFExampleTestLambda 
+      Role: !GetAtt LakeFormationExampleTemplateRole.Arn
+      Environment:
+        Variables:
+          BUCKET: !Ref LakeFormationExampleBucket
+
+  PermissionsToQueryCheckm:
+    Type: AWS::LakeFormation::PrincipalPermissions
+    Properties:
+      Catalog: !Ref AWS::AccountId
+      Permissions:
+        - SELECT 
+        - DESCRIBE
+      Principal:
+        DataLakePrincipalIdentifier: !GetAtt LakeFormationExampleTemplateRole.Arn
+      PermissionsWithGrantOption: []
+      Resource:
+        Table:
+          DatabaseName: "genomics"
+          CatalogId: !Ref AWS::AccountId
+          Name: "gtdbtk_parquet"
+

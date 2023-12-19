@@ -1,0 +1,148 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+
+Description: "This template builds a state machine that automtically handles updates a table show all LakeFormation permissions"
+
+Parameters:
+  
+  StartQueryLambda:
+    Type: String
+    Default: "StartQueryLambda"
+
+  StartQueryMonitor:
+    Type: String
+    Default: "TriggerStartQueryLambda"
+
+  FailedQuery:
+    Type: String
+    Default: FailedQueryLambda
+
+  FailedQueryMonitor:
+    Type: String
+    Default: TriggerFailedQueryMonitor
+
+  Chat: 
+    Type: String
+    Default: testing
+
+Resources:
+  
+  StartQueryFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: start_query.monitor
+      Timeout: 60
+      Runtime: python3.9
+      FunctionName: !Ref StartQueryLambda
+      Environment:
+        Variables:
+          BUCKET: !ImportValue LakeFormationBucket
+          CHAT: !Ref Chat
+      Policies:
+        - S3WritePolicy:
+            BucketName: !ImportValue LakeFormationBucket
+
+  StartQueryMonitorRule:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: "This event monitors for the 'StartQueryExeuction' api call from Athena in CloudTrail"
+      Name: !Ref StartQueryMonitor
+      EventPattern:
+        source:
+          - aws.athena
+        detail-type:
+          - AWS API Call via CloudTrail
+        detail:
+          eventSource:
+            - athena.amazonaws.com
+          eventName:
+            - StartQueryExecution
+
+      State: "ENABLED"
+      Targets: 
+        - Arn: !GetAtt StartQueryFunction.Arn
+          Id: "StartQueryLambdaTarget"
+
+  StartQueryLambdaPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref StartQueryLambda
+      Action: lambda:InvokeFunction
+      Principal: "events.amazonaws.com"
+      SourceArn: !GetAtt StartQueryMonitorRule.Arn
+
+  LakeFormationFailedObjectsRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: "lambda.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      Policies:
+        - PolicyName: "TriggerFailedQueryPolicy"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: 'logs:CreateLogGroup'
+                Resource: !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*'
+              - Effect: Allow
+                Action:
+                  - 'logs:CreateLogStream'
+                  - 'logs:PutLogEvents'
+                Resource:
+                  - !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/*:*'
+              - Effect: Allow
+                Action: 
+                  - "s3:GetObject"
+                Resource: 
+                  - !Join
+                    - ''
+                    - - 'arn:aws:s3:::'
+                      - !ImportValue LakeFormationBucket
+                      - '/query_objects/*'
+              - Effect: Allow
+                Action: 
+                  - "s3:ListBucket"
+                  - "s3:GetBucketLocation"
+                Resource: !Join
+                  - ''
+                  - - 'arn:aws:s3:::'
+                    - !ImportValue LakeFormationBucket
+              - Effect: Allow
+                Action:
+                  - "athena:GetQueryExecution"
+                Resource: "*"
+
+  FailedQueryLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: failed_query.monitor
+      Timeout: 60
+      Runtime: python3.9
+      FunctionName: !Ref FailedQuery
+      Environment:
+        Variables:
+          BUCKET: !ImportValue LakeFormationBucket
+      Events:
+        TriggerFailedLambda:
+          Type: SNS
+          Properties:
+            Topic: !ImportValue LakeFormationTopic
+      Role: !GetAtt LakeFormationFailedObjectsRole.Arn
+
+  FailedQueryPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref FailedQueryLambda
+      Action: lambda:InvokeFunction
+      Principal: "s3.amazonaws.com"
+      SourceArn: !Join 
+        - ''
+        - - 'arn:aws:s3:::'
+          - !ImportValue LakeFormationBucket
+

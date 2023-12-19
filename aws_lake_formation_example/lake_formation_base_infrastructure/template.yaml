@@ -1,0 +1,135 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+
+Description: "This template builds a state machine that automtically handles updates a table show all LakeFormation permissions"
+
+Parameters:
+  Stage:
+    Default: dev
+    Type: String
+    AllowedValues:
+      - dev
+      - prod
+
+Mappings:
+  StageMap:
+    dev:
+      Bucket: {bucketname}-lakeformation-metadata-dev
+      DatabaseName: lakeformation_dev
+      DynamoPermissions: lakeformation-permissions-state-dev
+
+
+    prod:
+      Bucket: {bucketname}-lakeformation-metadata
+      DatabaseName: lakeformation
+      DynamoPermissions: lakeformation-permissions-state
+
+Resources:
+  
+  # The lifecycle policy is only for query objects because so many are generated per day.
+  {ResourceName}LakeFormationBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !FindInMap [StageMap, !Ref Stage, Bucket]
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: True
+        BlockPublicPolicy: True
+        IgnorePublicAcls: True
+        RestrictPublicBuckets: True
+      LifecycleConfiguration:
+        Rules:
+          - Id: DeleteQueryObjects
+            Prefix: "query_objects"
+            Status: Enabled
+            ExpirationInDays: 1
+      NotificationConfiguration:
+        TopicConfigurations:
+          - Topic: !Ref LakeFormationTopic
+            Event: s3:ObjectCreated:*
+            Filter:
+              S3Key:
+                Rules:
+                  - Name: prefix
+                    Value: query_objects
+
+  LakeFormationTopic:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: LakeFormationTopic
+
+  LakeFormationTopicPolicy:
+    Type: AWS::SNS::TopicPolicy
+    Properties:
+      Topics:
+        - !Ref LakeFormationTopic
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: Allow
+            Action: sns:Publish
+            Resource: !Ref LakeFormationTopic
+            Condition:
+              ArnLike:
+                aws:SourceArn: !Sub
+                  - arn:aws:s3:::${bucket}
+                  - { bucket : !Ref {ResourceName}LakeFormationBucket }
+            Principal:
+              AWS: '*'
+  
+  LakeFormationDatabase:
+    Type: AWS::Glue::Database
+    Properties:
+      CatalogId: !Ref AWS::AccountId
+      DatabaseInput:
+        Description: "This database consists of tables representing data about all {ResourceName} AWS infrastructure centralizing it in one place."
+        Name: !FindInMap [StageMap, !Ref Stage, DatabaseName]
+
+  LakeFormationDynamoDB:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      BillingMode: "PAY_PER_REQUEST"
+      TableName: !FindInMap [StageMap, !Ref Stage, DynamoPermissions]
+      KeySchema:
+        - AttributeName: "tableName"
+          KeyType: "HASH"
+        - AttributeName: "databaseName"
+          KeyType: "RANGE"
+      AttributeDefinitions:
+        - AttributeName: "tableName"
+          AttributeType: "S"
+        - AttributeName: "databaseName"
+          AttributeType: "S"
+
+Outputs:
+  
+  LakeFormationBucket:
+    Description: "The lake formation bucket name"
+    Export:
+      Name: LakeFormationBucket
+    Value: !Ref {ResourceName}LakeFormationBucket
+
+  LakeFormationDynamoDBArn:
+    Description: "The ARN of the dynamodb database that saves lakeformation permissions state"
+    Export:
+      Name: LakeFormationDynamoDBArn
+    Value: !GetAtt LakeFormationDynamoDB.Arn
+  
+  LakeFormationDynamoDBName:
+    Description: "The NAME of the dynamodb database that saves lakeformation permissions state"
+    Export:
+      Name: LakeFormationDynamoDBName
+    Value: !Ref LakeFormationDynamoDB
+
+  LakeFormationDatabaseOutput:
+    Description: "The name of the lake formation database"
+    Export:
+      Name: LakeFormationDatabase
+    Value: !Ref LakeFormationDatabase
+
+  LakeFormationSNSTopic:
+    Description: "The arn of the topic."
+    Export:
+      Name: LakeFormationTopic
+    Value: !Ref LakeFormationTopic
+
+ 

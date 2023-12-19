@@ -1,0 +1,59 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+
+Description: "This template builds all the tables for the lakeformation engine"
+
+Parameters:
+  Stage:
+    Default: dev
+    Type: String
+    AllowedValues:
+      - dev
+      - prod
+Mappings:
+  StageMap:
+    dev:
+      table: example_table_dev
+      bucketpath: example_bucket_path_dev
+
+    prod:
+      table: example_table_dev
+      bucketpath: example_bucket_path_dev
+        
+Resources:
+
+  RegisteredResourcesTable:
+    Type: AWS::Glue::Table
+    Properties:                                                                                                         
+      CatalogId: !Ref AWS::AccountId
+      DatabaseName: !ImportValue LakeFormationDatabase 
+      TableInput:
+        Name: !FindInMap [StageMap, !Ref Stage, ResourceTable]
+        Description: "This table displays s3 buckets and paths registered with lake formation"
+        StorageDescriptor:
+          InputFormat: "org.apache.hadoop.mapred.TextInputFormat"
+          OutputFormat: "org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat"
+          SerdeInfo:
+            SerializationLibrary: "org.openx.data.jsonserde.JsonSerDe"
+          Location: !Join 
+              - ''
+              - - 's3://'
+                - !ImportValue LakeFormationBucket
+                - '/'
+                - !FindInMap [StageMap, !Ref Stage, ResourceTable]
+          Columns:
+            - Name: "arn"
+              Type: string
+              Comment: "The arn of the registered bucket and it's path."
+            - Name: "bucket"
+              Type: string
+              Comment: "The name of the bucket."
+            - Name: "data_path"
+              Type: string
+              Comment: "The bucket and path where data is located."
+        TableType: "EXTERNAL_TABLE"
+        Parameters:
+          classification: "json"
+  
+ 
+

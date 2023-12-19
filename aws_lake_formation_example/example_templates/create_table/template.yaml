@@ -1,0 +1,156 @@
+/WSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+
+Description: "This template builds a bucket and a lambda. It then creates the correct permissions in lakeformation to where the lambda creates a table that is deposited in a path in the bucke that's shared across accounts"
+
+Resources:
+  
+  LakeFormationExampleBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: "somebucket-lf-example"
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: True
+        BlockPublicPolicy: True
+        IgnorePublicAcls: True
+        RestrictPublicBuckets: True
+
+  RegisterS3Bucket:
+    Type: AWS::LakeFormation::Resource
+    Properties:
+      ResourceArn: !Join
+          - ''
+          - - !GetAtt LakeFormationExampleBucket.Arn
+            - '/some_path'
+      UseServiceLinkedRole: True
+
+  LakeFormationExampleTemplateRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: "lambda.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      Policies:
+        - PolicyName: "ExampleLakeFormationLambdaPolicy"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: 'logs:CreateLogGroup'
+                Resource: !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*'
+              - Effect: Allow
+                Action:
+                  - 'logs:CreateLogStream'
+                  - 'logs:PutLogEvents'
+                Resource:
+                  - !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/*:*'
+              - Effect: Allow
+                Action: 
+                  - "s3:PutObject"
+                  - "s3:GetObject"
+                  - "s3:DeleteObject"
+                Resource: 
+                  - !Join
+                    - ''
+                    - - !GetAtt LakeFormationExampleBucket.Arn
+                      - '/some_path/*'
+              - Effect: Allow
+                Action: 
+                  - "s3:ListBucket"
+                  - "s3:GetBucketLocation"
+                Resource: !GetAtt LakeFormationExampleBucket.Arn
+              - Effect: Allow
+                Action:
+                  - "lakeformation:GetDataAccess"
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - "athena:StartQueryExecution"
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - "glue:GetTable"
+                  - "glue:CreateTable"
+                Resource: "*"
+  
+  BuildExampleTableFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: testing.create_table
+      Timeout: 60
+      Runtime: python3.9
+      FunctionName: LFExampleTestLambda 
+      Role: !GetAtt LakeFormationExampleTemplateRole.Arn
+      Environment:
+        Variables:
+          BUCKET: !Ref LakeFormationExampleBucket
+
+  PermissionsToCreateTableOnDatabase:
+    Type: AWS::LakeFormation::PrincipalPermissions
+    Properties:
+      Catalog: !Ref AWS::AccountId
+      Permissions:
+        - CREATE_TABLE
+      Principal:
+        DataLakePrincipalIdentifier: !GetAtt LakeFormationExampleTemplateRole.Arn
+      PermissionsWithGrantOption: []
+      Resource:
+        Database: 
+          Name: "lakeformation"
+          CatalogId: !Ref AWS::AccountId
+
+  PermissionsToQueryGTDB:
+    Type: AWS::LakeFormation::PrincipalPermissions
+    Properties:
+      Catalog: !Ref AWS::AccountId
+      Permissions:
+        - SELECT
+        - DESCRIBE
+      Principal:
+        DataLakePrincipalIdentifier: !GetAtt LakeFormationExampleTemplateRole.Arn
+      PermissionsWithGrantOption: []
+      Resource:
+        Table:
+          DatabaseName: "genomics"
+          CatalogId: !Ref AWS::AccountId
+          Name: "checkm_o2_parquet"
+  
+  PermissionsToQueryCheckm:
+    Type: AWS::LakeFormation::PrincipalPermissions
+    Properties:
+      Catalog: !Ref AWS::AccountId
+      Permissions:
+        - SELECT 
+        - DESCRIBE
+      Principal:
+        DataLakePrincipalIdentifier: !GetAtt LakeFormationExampleTemplateRole.Arn
+      PermissionsWithGrantOption: []
+      Resource:
+        Table:
+          DatabaseName: "genomics"
+          CatalogId: !Ref AWS::AccountId
+          Name: "gtdbtk_parquet"
+
+  PermissionsOnBucketPath:
+    Type: AWS::LakeFormation::PrincipalPermissions
+    Properties:
+      Catalog: !Ref AWS::AccountId
+      Permissions: 
+        - DATA_LOCATION_ACCESS
+      Principal:
+        DataLakePrincipalIdentifier: !GetAtt LakeFormationExampleTemplateRole.Arn
+      PermissionsWithGrantOption: []
+      Resource:
+        DataLocation:
+          CatalogId: !Ref AWS::AccountId
+          ResourceArn: !Join
+            - ''
+            - - !GetAtt LakeFormationExampleBucket.Arn
+              - '/some_path'
+
+  

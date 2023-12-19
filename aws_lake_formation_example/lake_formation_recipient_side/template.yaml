@@ -1,0 +1,210 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: 'AWS::Serverless-2016-10-31'
+
+Description: "This template builds a state machine that automtically handles updates a table show all LakeFormation permissions"
+
+Parameters:
+  
+  Bucket:
+    Type: String
+    Default: lakeformation-metadata-dev
+
+  LakeLambda:
+    Type: String
+    Default: LakeFormationDevEngine
+
+  CrossAccountRole:
+    Type: String
+    Default: "arn:aws:iam:::role/LakeFormationCrossAccount-CreateTableNotificationL-155WJH7X3D6LD"
+
+  EngineEventRule:
+    Type: String
+    Default: TriggerLFEngineRule
+
+Resources:
+  
+  SomeNameHereLakeFormationDevBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref Bucket 
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: True
+        BlockPublicPolicy: True
+        IgnorePublicAcls: True
+        RestrictPublicBuckets: True
+      NotificationConfiguration:
+        EventBridgeConfiguration:
+          EventBridgeEnabled: True
+
+  SomeNameHereLakeFormationBucketPolicy:
+    Type: AWS::S3::BucketPolicy
+    Properties:
+      Bucket: !Ref SomeNameHereLakeFormationDevBucket
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+            Effect: Allow
+            Principal:
+              AWS: 
+                - !Ref CrossAccountRole
+            Action:
+              - 's3:PutObject'
+              - 's3:PutObjectAcl'
+            Resource: !Join
+              - ''
+              - - !GetAtt SomeNameHereLakeFormationDevBucket.Arn 
+                - '/*'
+            Condition:
+              StringEquals:
+                's3:x-amz-acl': bucket-owner-full-control
+
+  CrossAccountEngineLambdaRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: "lambda.amazonaws.com"
+            Action:
+              - "sts:AssumeRole"
+      Policies:
+        - PolicyName: "CrossAccountLambdaEngine"
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action: 'logs:CreateLogGroup'
+                Resource: !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:*'
+              - Effect: Allow
+                Action:
+                  - "glue:GetTable"
+                  - "glue:GetTables"
+                  - "glue:GetPartition"
+                  - "glue:GetPartitions"
+                  - "glue:BatchGetPartition"
+                  - "glue:PutResourcePolicy"
+                  - "glue:DeleteResourcePolicy"
+                  - "glue:GetResourcePolicy"
+                  - "glue:GetResourcePolicies"
+                  - "glue:CreateTable"
+                  - "glue:DeleteTable"
+                  - "lakeformation:GetDataAccess"
+                  - "lakeformation:BatchGrantPermissions"
+                  - "lakeformation:ListResources"
+                  - "lakeformation:RegisterResource"
+                  - "lakeformation:DeregisterResource"
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - 'logs:CreateLogStream'
+                  - 'logs:PutLogEvents'
+                Resource:
+                  - !Sub 'arn:aws:logs:${AWS::Region}:${AWS::AccountId}:log-group:/aws/lambda/*:*'
+              - Effect: Allow
+                Action:
+                  - 'iam:GetRole'
+                  - 'iam:GetRolePolicy'
+                  - 'iam:PutRolePolicy'
+                Resource:
+                  - 'arn:aws:iam:::role/aws-service-role/lakeformation.amazonaws.com/AWSServiceRoleForLakeFormationDataAccess'
+              - Effect: Allow
+                Action:
+                  - "athena:StartQueryExecution"
+                  - "athena:GetQueryResults"
+                Resource: "*"
+              - Effect: Allow
+                Action:
+                  - "s3:GetObject"
+                  - "s3:ListBucket"
+                  - "s3:GetBucketLocation"
+                  - "s3:DeleteObject"
+                Resource: 
+                  - !GetAtt SomeNameHereLakeFormationDevBucket.Arn
+                  - !Join
+                    - ''
+                    - - !GetAtt SomeNameHereLakeFormationDevBucket.Arn 
+                      - '/*'
+  LambdaLakeFormationAdmin:
+    Type: AWS::LakeFormation::DataLakeSettings
+    Properties:
+      Admins:
+        - DataLakePrincipalIdentifier: !GetAtt CrossAccountEngineLambdaRole.Arn
+
+  LakeFormationCrossAccountEngine:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: dev_engine.engine
+      Timeout: 60
+      Runtime: python3.9
+      Role: !GetAtt CrossAccountEngineLambdaRole.Arn
+      FunctionName: !Ref LakeLambda
+      Environment:
+        Variables:
+          BUCKET: !Ref Bucket
+
+  TriggerLFEngineRule:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: "This triggers a lambda to check for shared resources from production"
+      Name: !Ref EngineEventRule
+      EventPattern:
+        source:
+          - "aws.s3"
+        detail-type:
+          - "Object Created"
+        detail:
+          bucket:
+            name: 
+              - !Ref Bucket
+      State: "ENABLED"
+      Targets: 
+        - Arn: !GetAtt LakeFormationCrossAccountEngine.Arn
+          Id: "CreateDeleteLambda"
+
+  BucketPermissionLFEngineLambda:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref LakeFormationCrossAccountEngine
+      Action: lambda:InvokeFunction
+      Principal: "events.amazonaws.com"
+      SourceArn: !GetAtt TriggerLFEngineRule.Arn
+
+  AddCreateTableLambdaPermissionLambda:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: add_database.create_table
+      Timeout: 60
+      Runtime: python3.9
+      Role: !GetAtt CrossAccountEngineLambdaRole.Arn
+      FunctionName: "AddCreateTableLambda"
+
+  TriggerAddCreateTableRule:
+    Type: AWS::Events::Rule
+    Properties:
+      Description: "This triggers a lambda to check for shared resources from production"
+      Name: CreateDatabaseEventRule
+      EventPattern:
+        source:
+          - "aws.glue"
+        detail-type:
+          - "Glue Data Catalog Database State Change"
+        detail:
+          eventSource:
+            - "glue.amazonaws.com"
+          eventName:
+            - "CreateDatabase"
+      State: "ENABLED"
+      Targets: 
+        - Arn: !GetAtt AddCreateTableLambdaPermissionLambda.Arn
+          Id: "AddCreateTableLambda"
+
+  CreateDatabaseTriggerPermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      FunctionName: !Ref AddCreateTableLambdaPermissionLambda
+      Action: lambda:InvokeFunction
+      Principal: "events.amazonaws.com"
+      SourceArn: !GetAtt TriggerAddCreateTableRule.Arn
+
