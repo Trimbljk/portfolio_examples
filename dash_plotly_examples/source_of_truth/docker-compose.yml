@@ -1,0 +1,28 @@
+---
+version: '3'
+
+services:
+
+  nginx-proxy:
+    image: "728348960442.dkr.ecr.us-west-2.amazonaws.com/fargate/\
+      ecosystem_nginx:${TAG}"
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    ports:
+      - 80:80
+      # uncomment for OSX
+      # command: >
+      #   bash -c "sed -i 's/localhost/host.docker.internal\
+      #     /g' /etc/nginx/conf.d/app.conf  && nginx -g 'daemon off;'"
+
+  app:
+    image: "728348960442.dkr.ecr.us-west-2.amazonaws.com/fargate/\
+      ecosystem_app:${TAG}"
+    environment:
+      BASE_PATHNAME: '${BASE_PATHNAME}'
+    build:
+      context: .
+      dockerfile: app/Dockerfile
+    ports:
+      - 5000:5000

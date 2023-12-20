@@ -1,0 +1,23 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+boto3 = "*"
+cfn-flip = "*"
+pytest = "*"
+requests-mock = "*"
+awscli = "*"
+black = "*"
+flake8 = "*"
+isort = "*"
+
+[packages]
+dash = "*"
+pandas = "*"
+dash-bootstrap-components = "*"
+gunicorn = "*"
+
+[requires]
+python_version = "3.11"

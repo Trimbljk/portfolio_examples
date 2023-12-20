@@ -1,0 +1,28 @@
+---
+version: '3'
+
+services:
+
+  nginx-proxy:
+    image: "${ACCOUNT}.dkr.ecr.us-west-2.amazonaws.\
+      com/fargate/restricteduse_nginx:${TAG}"
+    build:
+      context: .
+      dockerfile: nginx/Dockerfile
+    ports:
+      - 80:80
+      # uncomment for OSX
+      # command: >
+      #   bash -c "sed -i 's/localhost/host.docker.interna\
+      #     l/g' /etc/nginx/conf.d/app.conf && nginx -g 'daemon off;'"
+
+  app:
+    image: "${ACCOUNT}.dkr.ecr.us-west-2.amazonaws\
+      .com/fargate/restricteduse_app:${TAG}"
+    environment:
+      BASE_PATHNAME: '${BASE_PATHNAME}'
+    build:
+      context: .
+      dockerfile: app/Dockerfile
+    ports:
+      - 5000:5000

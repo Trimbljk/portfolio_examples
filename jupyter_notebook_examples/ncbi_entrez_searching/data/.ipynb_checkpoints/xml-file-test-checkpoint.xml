@@ -1,0 +1,467 @@
+<?xml version="1.0" ?>
+<!DOCTYPE Entrezgene-Set PUBLIC "-//NLM//DTD NCBI-Entrezgene, 21st January 2005//EN" "https://www.ncbi.nlm.nih.gov/data_specs/dtd/NCBI_Entrezgene.dtd">
+<Entrezgene-Set>
+<Entrezgene>
+  <Entrezgene_track-info>
+    <Gene-track>
+      <Gene-track_geneid>5097413</Gene-track_geneid>
+      <Gene-track_status value="discontinued">2</Gene-track_status>
+      <Gene-track_create-date>
+        <Date>
+          <Date_std>
+            <Date-std>
+              <Date-std_year>2007</Date-std_year>
+              <Date-std_month>5</Date-std_month>
+              <Date-std_day>9</Date-std_day>
+              <Date-std_hour>8</Date-std_hour>
+              <Date-std_minute>11</Date-std_minute>
+              <Date-std_second>0</Date-std_second>
+            </Date-std>
+          </Date_std>
+        </Date>
+      </Gene-track_create-date>
+      <Gene-track_update-date>
+        <Date>
+          <Date_std>
+            <Date-std>
+              <Date-std_year>2015</Date-std_year>
+              <Date-std_month>7</Date-std_month>
+              <Date-std_day>1</Date-std_day>
+              <Date-std_hour>11</Date-std_hour>
+              <Date-std_minute>7</Date-std_minute>
+              <Date-std_second>52</Date-std_second>
+            </Date-std>
+          </Date_std>
+        </Date>
+      </Gene-track_update-date>
+      <Gene-track_discontinue-date>
+        <Date>
+          <Date_std>
+            <Date-std>
+              <Date-std_year>2015</Date-std_year>
+              <Date-std_month>2</Date-std_month>
+              <Date-std_day>4</Date-std_day>
+              <Date-std_hour>2</Date-std_hour>
+              <Date-std_minute>20</Date-std_minute>
+              <Date-std_second>0</Date-std_second>
+            </Date-std>
+          </Date_std>
+        </Date>
+      </Gene-track_discontinue-date>
+    </Gene-track>
+  </Entrezgene_track-info>
+  <Entrezgene_type value="protein-coding">6</Entrezgene_type>
+  <Entrezgene_source>
+    <BioSource>
+      <BioSource_genome value="chromosome">21</BioSource_genome>
+      <BioSource_org>
+        <Org-ref>
+          <Org-ref_taxname>Pseudomonas stutzeri A1501</Org-ref_taxname>
+          <Org-ref_db>
+            <Dbtag>
+              <Dbtag_db>taxon</Dbtag_db>
+              <Dbtag_tag>
+                <Object-id>
+                  <Object-id_id>379731</Object-id_id>
+                </Object-id>
+              </Dbtag_tag>
+            </Dbtag>
+          </Org-ref_db>
+          <Org-ref_orgname>
+            <OrgName>
+              <OrgName_name>
+                <OrgName_name_binomial>
+                  <BinomialOrgName>
+                    <BinomialOrgName_genus>Pseudomonas</BinomialOrgName_genus>
+                    <BinomialOrgName_species>stutzeri</BinomialOrgName_species>
+                  </BinomialOrgName>
+                </OrgName_name_binomial>
+              </OrgName_name>
+              <OrgName_mod>
+                <OrgMod>
+                  <OrgMod_subtype value="strain">2</OrgMod_subtype>
+                  <OrgMod_subname>A1501</OrgMod_subname>
+                </OrgMod>
+              </OrgName_mod>
+              <OrgName_lineage>Bacteria; Proteobacteria; Gammaproteobacteria; Pseudomonadales; Pseudomonadaceae; Pseudomonas</OrgName_lineage>
+              <OrgName_gcode>11</OrgName_gcode>
+              <OrgName_div>BCT</OrgName_div>
+            </OrgName>
+          </Org-ref_orgname>
+        </Org-ref>
+      </BioSource_org>
+    </BioSource>
+  </Entrezgene_source>
+  <Entrezgene_gene>
+    <Gene-ref>
+      <Gene-ref_locus>nifH</Gene-ref_locus>
+      <Gene-ref_locus-tag>PST_1326</Gene-ref_locus-tag>
+    </Gene-ref>
+  </Entrezgene_gene>
+  <Entrezgene_prot>
+    <Prot-ref>
+      <Prot-ref_name>
+        <Prot-ref_name_E>Fe protein, nitrogenase reductase NifH</Prot-ref_name_E>
+      </Prot-ref_name>
+    </Prot-ref>
+  </Entrezgene_prot>
+  <Entrezgene_gene-source>
+    <Gene-source>
+      <Gene-source_src>Entrez Genomes</Gene-source_src>
+      <Gene-source_src-int>146280397</Gene-source_src-int>
+      <Gene-source_src-str1>NC_009434</Gene-source_src-str1>
+      <Gene-source_src-str2>PST_1326</Gene-source_src-str2>
+    </Gene-source>
+  </Entrezgene_gene-source>
+  <Entrezgene_locus>
+    <Gene-commentary>
+      <Gene-commentary_type value="genomic">1</Gene-commentary_type>
+      <Gene-commentary_accession>NC_009434</Gene-commentary_accession>
+      <Gene-commentary_version>1</Gene-commentary_version>
+      <Gene-commentary_seqs>
+        <Seq-loc>
+          <Seq-loc_int>
+            <Seq-interval>
+              <Seq-interval_from>1432263</Seq-interval_from>
+              <Seq-interval_to>1433144</Seq-interval_to>
+              <Seq-interval_strand>
+                <Na-strand value="plus"/>
+              </Seq-interval_strand>
+              <Seq-interval_id>
+                <Seq-id>
+                  <Seq-id_gi>146280397</Seq-id_gi>
+                </Seq-id>
+              </Seq-interval_id>
+            </Seq-interval>
+          </Seq-loc_int>
+        </Seq-loc>
+      </Gene-commentary_seqs>
+      <Gene-commentary_products>
+        <Gene-commentary>
+          <Gene-commentary_type value="peptide">8</Gene-commentary_type>
+          <Gene-commentary_label>Fe protein, nitrogenase reductase NifH</Gene-commentary_label>
+          <Gene-commentary_accession>YP_001171863</Gene-commentary_accession>
+          <Gene-commentary_version>1</Gene-commentary_version>
+          <Gene-commentary_refs>
+            <Pub>
+              <Pub_pmid>
+                <PubMedId>18495935</PubMedId>
+              </Pub_pmid>
+            </Pub>
+          </Gene-commentary_refs>
+          <Gene-commentary_genomic-coords>
+            <Seq-loc>
+              <Seq-loc_int>
+                <Seq-interval>
+                  <Seq-interval_from>1432263</Seq-interval_from>
+                  <Seq-interval_to>1433144</Seq-interval_to>
+                  <Seq-interval_strand>
+                    <Na-strand value="plus"/>
+                  </Seq-interval_strand>
+                  <Seq-interval_id>
+                    <Seq-id>
+                      <Seq-id_gi>146280397</Seq-id_gi>
+                    </Seq-id>
+                  </Seq-interval_id>
+                </Seq-interval>
+              </Seq-loc_int>
+            </Seq-loc>
+          </Gene-commentary_genomic-coords>
+          <Gene-commentary_seqs>
+            <Seq-loc>
+              <Seq-loc_whole>
+                <Seq-id>
+                  <Seq-id_gi>146281710</Seq-id_gi>
+                </Seq-id>
+              </Seq-loc_whole>
+            </Seq-loc>
+          </Gene-commentary_seqs>
+          <Gene-commentary_comment>
+            <Gene-commentary>
+              <Gene-commentary_type value="comment">254</Gene-commentary_type>
+              <Gene-commentary_text>Code: P; COG: COG1348</Gene-commentary_text>
+            </Gene-commentary>
+          </Gene-commentary_comment>
+        </Gene-commentary>
+      </Gene-commentary_products>
+    </Gene-commentary>
+  </Entrezgene_locus>
+  <Entrezgene_comments>
+    <Gene-commentary>
+      <Gene-commentary_type value="comment">254</Gene-commentary_type>
+      <Gene-commentary_heading>NCBI Reference Sequences (RefSeq)</Gene-commentary_heading>
+      <Gene-commentary_comment>
+        <Gene-commentary>
+          <Gene-commentary_type value="comment">254</Gene-commentary_type>
+          <Gene-commentary_heading>Genome Annotation</Gene-commentary_heading>
+          <Gene-commentary_products>
+            <Gene-commentary>
+              <Gene-commentary_type value="genomic">1</Gene-commentary_type>
+              <Gene-commentary_heading>Reference assembly</Gene-commentary_heading>
+              <Gene-commentary_accession>NC_009434</Gene-commentary_accession>
+              <Gene-commentary_version>1</Gene-commentary_version>
+              <Gene-commentary_source>
+                <Other-source>
+                  <Other-source_src>
+                    <Dbtag>
+                      <Dbtag_db>Nucleotide</Dbtag_db>
+                      <Dbtag_tag>
+                        <Object-id>
+                          <Object-id_id>146280397</Object-id_id>
+                        </Object-id>
+                      </Dbtag_tag>
+                    </Dbtag>
+                  </Other-source_src>
+                </Other-source>
+              </Gene-commentary_source>
+              <Gene-commentary_seqs>
+                <Seq-loc>
+                  <Seq-loc_int>
+                    <Seq-interval>
+                      <Seq-interval_from>1432263</Seq-interval_from>
+                      <Seq-interval_to>1433144</Seq-interval_to>
+                      <Seq-interval_strand>
+                        <Na-strand value="plus"/>
+                      </Seq-interval_strand>
+                      <Seq-interval_id>
+                        <Seq-id>
+                          <Seq-id_gi>146280397</Seq-id_gi>
+                        </Seq-id>
+                      </Seq-interval_id>
+                    </Seq-interval>
+                  </Seq-loc_int>
+                </Seq-loc>
+              </Gene-commentary_seqs>
+              <Gene-commentary_products>
+                <Gene-commentary>
+                  <Gene-commentary_type value="peptide">8</Gene-commentary_type>
+                  <Gene-commentary_heading>Product</Gene-commentary_heading>
+                  <Gene-commentary_accession>YP_001171863</Gene-commentary_accession>
+                  <Gene-commentary_version>1</Gene-commentary_version>
+                  <Gene-commentary_source>
+                    <Other-source>
+                      <Other-source_src>
+                        <Dbtag>
+                          <Dbtag_db>Protein</Dbtag_db>
+                          <Dbtag_tag>
+                            <Object-id>
+                              <Object-id_id>146281710</Object-id_id>
+                            </Object-id>
+                          </Dbtag_tag>
+                        </Dbtag>
+                      </Other-source_src>
+                      <Other-source_anchor>YP_001171863</Other-source_anchor>
+                      <Other-source_post-text>Fe protein, nitrogenase reductase NifH [Pseudomonas stutzeri A1501]</Other-source_post-text>
+                    </Other-source>
+                  </Gene-commentary_source>
+                  <Gene-commentary_seqs>
+                    <Seq-loc>
+                      <Seq-loc_whole>
+                        <Seq-id>
+                          <Seq-id_gi>146281710</Seq-id_gi>
+                        </Seq-id>
+                      </Seq-loc_whole>
+                    </Seq-loc>
+                  </Gene-commentary_seqs>
+                  <Gene-commentary_comment>
+                    <Gene-commentary>
+                      <Gene-commentary_type value="comment">254</Gene-commentary_type>
+                      <Gene-commentary_label>RefSeq Status</Gene-commentary_label>
+                      <Gene-commentary_text>PROVISIONAL</Gene-commentary_text>
+                    </Gene-commentary>
+                  </Gene-commentary_comment>
+                </Gene-commentary>
+              </Gene-commentary_products>
+            </Gene-commentary>
+          </Gene-commentary_products>
+        </Gene-commentary>
+      </Gene-commentary_comment>
+    </Gene-commentary>
+    <Gene-commentary>
+      <Gene-commentary_type value="comment">254</Gene-commentary_type>
+      <Gene-commentary_heading>Related Sequences</Gene-commentary_heading>
+      <Gene-commentary_products>
+        <Gene-commentary>
+          <Gene-commentary_type value="genomic">1</Gene-commentary_type>
+          <Gene-commentary_heading>Genomic</Gene-commentary_heading>
+          <Gene-commentary_accession>CP000304</Gene-commentary_accession>
+          <Gene-commentary_version>1</Gene-commentary_version>
+          <Gene-commentary_source>
+            <Other-source>
+              <Other-source_src>
+                <Dbtag>
+                  <Dbtag_db>Nucleotide</Dbtag_db>
+                  <Dbtag_tag>
+                    <Object-id>
+                      <Object-id_id>145568602</Object-id_id>
+                    </Object-id>
+                  </Dbtag_tag>
+                </Dbtag>
+              </Other-source_src>
+              <Other-source_anchor>CP000304</Other-source_anchor>
+            </Other-source>
+          </Gene-commentary_source>
+          <Gene-commentary_seqs>
+            <Seq-loc>
+              <Seq-loc_whole>
+                <Seq-id>
+                  <Seq-id_gi>145568602</Seq-id_gi>
+                </Seq-id>
+              </Seq-loc_whole>
+            </Seq-loc>
+          </Gene-commentary_seqs>
+          <Gene-commentary_products>
+            <Gene-commentary>
+              <Gene-commentary_type value="peptide">8</Gene-commentary_type>
+              <Gene-commentary_accession>ABP79021</Gene-commentary_accession>
+              <Gene-commentary_version>1</Gene-commentary_version>
+              <Gene-commentary_source>
+                <Other-source>
+                  <Other-source_src>
+                    <Dbtag>
+                      <Dbtag_db>Protein</Dbtag_db>
+                      <Dbtag_tag>
+                        <Object-id>
+                          <Object-id_id>145569915</Object-id_id>
+                        </Object-id>
+                      </Dbtag_tag>
+                    </Dbtag>
+                  </Other-source_src>
+                  <Other-source_anchor>ABP79021</Other-source_anchor>
+                </Other-source>
+              </Gene-commentary_source>
+              <Gene-commentary_seqs>
+                <Seq-loc>
+                  <Seq-loc_whole>
+                    <Seq-id>
+                      <Seq-id_gi>145569915</Seq-id_gi>
+                    </Seq-id>
+                  </Seq-loc_whole>
+                </Seq-loc>
+              </Gene-commentary_seqs>
+            </Gene-commentary>
+          </Gene-commentary_products>
+        </Gene-commentary>
+        <Gene-commentary>
+          <Gene-commentary_type value="other">255</Gene-commentary_type>
+          <Gene-commentary_text>None</Gene-commentary_text>
+          <Gene-commentary_products>
+            <Gene-commentary>
+              <Gene-commentary_type value="peptide">8</Gene-commentary_type>
+              <Gene-commentary_accession>A4VJ70</Gene-commentary_accession>
+              <Gene-commentary_version>1</Gene-commentary_version>
+              <Gene-commentary_source>
+                <Other-source>
+                  <Other-source_src>
+                    <Dbtag>
+                      <Dbtag_db>Protein</Dbtag_db>
+                      <Dbtag_tag>
+                        <Object-id>
+                          <Object-id_id>259512049</Object-id_id>
+                        </Object-id>
+                      </Dbtag_tag>
+                    </Dbtag>
+                  </Other-source_src>
+                  <Other-source_anchor>A4VJ70</Other-source_anchor>
+                </Other-source>
+              </Gene-commentary_source>
+              <Gene-commentary_seqs>
+                <Seq-loc>
+                  <Seq-loc_whole>
+                    <Seq-id>
+                      <Seq-id_gi>259512049</Seq-id_gi>
+                    </Seq-id>
+                  </Seq-loc_whole>
+                </Seq-loc>
+              </Gene-commentary_seqs>
+            </Gene-commentary>
+          </Gene-commentary_products>
+        </Gene-commentary>
+      </Gene-commentary_products>
+    </Gene-commentary>
+    <Gene-commentary>
+      <Gene-commentary_type value="comment">254</Gene-commentary_type>
+      <Gene-commentary_heading>RefSeq Status</Gene-commentary_heading>
+      <Gene-commentary_label>PROVISIONAL</Gene-commentary_label>
+    </Gene-commentary>
+    <Gene-commentary>
+      <Gene-commentary_type value="comment">254</Gene-commentary_type>
+      <Gene-commentary_heading>Annotation Information</Gene-commentary_heading>
+      <Gene-commentary_properties>
+        <Gene-commentary>
+          <Gene-commentary_type value="property">16</Gene-commentary_type>
+          <Gene-commentary_label>Genome Annotation Scope Change</Gene-commentary_label>
+          <Gene-commentary_text>All Gene records for this genome have been discontinued due to a change in scope for prokaryotic genomes in Gene. At the time this Gene record was discontinued, the RefSeq genome was re-annotated with the following features at this location:</Gene-commentary_text>
+          <Gene-commentary_properties>
+            <Gene-commentary>
+              <Gene-commentary_type value="property">16</Gene-commentary_type>
+              <Gene-commentary_label>annotation change</Gene-commentary_label>
+              <Gene-commentary_text>identical gene and protein</Gene-commentary_text>
+            </Gene-commentary>
+            <Gene-commentary>
+              <Gene-commentary_type value="property">16</Gene-commentary_type>
+              <Gene-commentary_label>locus_tag</Gene-commentary_label>
+              <Gene-commentary_text>PST_RS06760</Gene-commentary_text>
+            </Gene-commentary>
+            <Gene-commentary>
+              <Gene-commentary_type value="genomic">1</Gene-commentary_type>
+              <Gene-commentary_accession>NC_009434</Gene-commentary_accession>
+              <Gene-commentary_version>1</Gene-commentary_version>
+              <Gene-commentary_seqs>
+                <Seq-loc>
+                  <Seq-loc_int>
+                    <Seq-interval>
+                      <Seq-interval_from>1432263</Seq-interval_from>
+                      <Seq-interval_to>1433144</Seq-interval_to>
+                      <Seq-interval_strand>
+                        <Na-strand value="plus"/>
+                      </Seq-interval_strand>
+                      <Seq-interval_id>
+                        <Seq-id>
+                          <Seq-id_gi>146280397</Seq-id_gi>
+                        </Seq-id>
+                      </Seq-interval_id>
+                    </Seq-interval>
+                  </Seq-loc_int>
+                </Seq-loc>
+              </Gene-commentary_seqs>
+              <Gene-commentary_products>
+                <Gene-commentary>
+                  <Gene-commentary_type value="peptide">8</Gene-commentary_type>
+                  <Gene-commentary_accession>WP_003298004</Gene-commentary_accession>
+                  <Gene-commentary_version>1</Gene-commentary_version>
+                </Gene-commentary>
+              </Gene-commentary_products>
+            </Gene-commentary>
+          </Gene-commentary_properties>
+        </Gene-commentary>
+      </Gene-commentary_properties>
+    </Gene-commentary>
+  </Entrezgene_comments>
+  <Entrezgene_unique-keys></Entrezgene_unique-keys>
+  <Entrezgene_xtra-iq>
+    <Xtra-Terms>
+      <Xtra-Terms_tag>NUCLEOTIDE</Xtra-Terms_tag>
+      <Xtra-Terms_value>145568602</Xtra-Terms_value>
+    </Xtra-Terms>
+    <Xtra-Terms>
+      <Xtra-Terms_tag>PROTEIN</Xtra-Terms_tag>
+      <Xtra-Terms_value>145569915</Xtra-Terms_value>
+    </Xtra-Terms>
+    <Xtra-Terms>
+      <Xtra-Terms_tag>PROTEIN</Xtra-Terms_tag>
+      <Xtra-Terms_value>259512049</Xtra-Terms_value>
+    </Xtra-Terms>
+  </Entrezgene_xtra-iq>
+  <Entrezgene_non-unique-keys>
+    <Dbtag>
+      <Dbtag_db>ID</Dbtag_db>
+      <Dbtag_tag>
+        <Object-id>
+          <Object-id_id>146280397</Object-id_id>
+        </Object-id>
+      </Dbtag_tag>
+    </Dbtag>
+  </Entrezgene_non-unique-keys>
+</Entrezgene>
+</Entrezgene-Set>

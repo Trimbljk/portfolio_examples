@@ -1,0 +1,251 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+
+Parameters:
+  EcsClusterStackName:
+    Type: String
+    Default: AgbiomeFargateClusterStack
+
+  Stage:
+    Type: String
+    AllowedValues:
+      - dev
+      - prod
+    Default: dev
+
+  NginxImage:
+    Type: String
+    Default: ''
+
+  AppImage:
+    Type: String
+    Default: ''
+
+Mappings:
+  StageMap:
+    AppPath:
+      dev: /dev/restricteduse
+      prod: /restricteduse
+    TableName:
+      dev: restricted_microbe_metadata_dev
+      prod: restricted_microbe_metadata
+    StagingPartition:
+      '293593232735': "s3://agbiome-serverless-applications-dev/Unsaved/"
+      '728348960442': "s3://aws-athena-query-results-728348960442-us-west-2"
+    StagingBucket:
+      '293593232735': "arn:aws:s3:::agbiome-serverless-applications-dev"
+      '728348960442': "arn:aws:s3:::aws-athena-query-results-728348960442-us-west-2"
+
+Outputs:
+  TaskRoleArn:
+    Description: Task IAM Role for the Restricted Use Dashboard
+    Value: !GetAtt TaskRole.Arn
+    Export:
+      Name: !Sub "${AWS::StackName}-TaskRoleArn"
+
+Resources:
+
+  TaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      ContainerDefinitions:
+        - Name: nginx
+          Image: !Ref NginxImage
+          Essential: true
+          Memory: 512
+          Cpu: 256
+          PortMappings:
+            - ContainerPort: 80
+              Protocol: tcp
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group:
+                Fn::ImportValue:
+                  !Sub '${EcsClusterStackName}-LogGroup'
+              awslogs-region: us-west-2
+              awslogs-stream-prefix: nginx
+        - Name: app
+          Environment:
+            - Name: ATHENA_STAGING_BUCKET
+              Value: !FindInMap [StageMap, StagingPartition, !Ref AWS::AccountId]
+            - Name: BASE_PATHNAME
+              Value:
+                Fn::Sub:
+                  - '${Path}/'
+                  - Path: !FindInMap [StageMap, AppPath, !Ref Stage]
+          Image: !Ref AppImage
+          Essential: true
+          Memory: 512
+          Cpu: 256
+          PortMappings:
+            - ContainerPort: 5000
+              Protocol: tcp
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group:
+                Fn::ImportValue:
+                  !Sub '${EcsClusterStackName}-LogGroup'
+              awslogs-region: us-west-2
+              awslogs-stream-prefix: app
+      Family: restricteduse-app-stack
+      Cpu: 512
+      Memory: 1024
+      NetworkMode: awsvpc
+      RequiresCompatibilities:
+        - FARGATE
+      ExecutionRoleArn:
+        Fn::ImportValue:
+          !Sub '${EcsClusterStackName}-ECSTaskExecutionRole'
+      TaskRoleArn: !Ref TaskRole
+
+  TaskRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument: {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Sid": "",
+            "Effect": "Allow",
+            "Principal": {
+              "Service": "ecs-tasks.amazonaws.com",
+              "AWS": "arn:aws:iam::728348960442:root"
+            },
+            "Action": "sts:AssumeRole"
+          }
+        ]
+      }
+      Policies:
+        -
+          PolicyName: restricted-athena-access
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: "Allow"
+                Action: ["s3:ListBucket", "s3:GetBucketLocation"]
+                Resource: !FindInMap [StageMap, StagingBucket, !Ref AWS::AccountId]
+              - Effect: "Allow"
+                Action: ["s3:GetObject", 's3:PutObject']
+                Resource:
+                  Fn::Sub:
+                    - "${Path}/*"
+                    - Path: !FindInMap [StageMap, StagingBucket, !Ref AWS::AccountId]
+        -
+          PolicyName: restricted-access
+            # The policy grants access to the production account data through Lake Formation. That's why the production bucket arn is specificed"
+          PolicyDocument: {
+            "Version": "2012-10-17",
+            "Statement": [
+              {
+                "Sid": "LakeFormationPermissions",
+                "Effect": "Allow",
+                "Resource": [ "*" ],
+                "Action": [ "lakeformation:GetDataAccess" ]
+              },
+              {
+                "Effect": "Allow",
+                "Action": ["s3:ListBucket"],
+                "Resource": "arn:aws:s3:::agbiome-restricted-microbe-metadata"
+              },
+              {
+                "Effect": "Allow",
+                "Action": [
+                  "s3:GetObject",
+                ],
+                "Resource": "arn:aws:s3:::agbiome-restricted-microbe-metadata/*"
+              }
+            ]
+          }
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSQuicksightAthenaAccess
+
+  Service:
+    Type: AWS::ECS::Service
+    DependsOn: LoadBalancerRule
+    Properties:
+      Cluster:
+        Fn::ImportValue:
+          !Sub '${EcsClusterStackName}-ClusterName'
+      LaunchType: FARGATE
+      DesiredCount: 1
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          AssignPublicIp: ENABLED
+          SecurityGroups:
+            - Fn::ImportValue:
+                !Sub '${EcsClusterStackName}-FargateContainerSecurityGroup'
+          Subnets: !Split
+            - ','
+            - Fn::ImportValue:
+                !Sub '${EcsClusterStackName}-Subnets'
+      TaskDefinition: !Ref 'TaskDefinition'
+      LoadBalancers:
+        - ContainerName: nginx
+          ContainerPort: 80
+          TargetGroupArn: !Ref 'TargetGroup'
+
+  TargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      HealthCheckIntervalSeconds: 20
+      HealthCheckPath:
+        Fn::Sub:
+          - '${Path}/'
+          - Path: !FindInMap [StageMap, AppPath, !Ref Stage]
+      HealthCheckProtocol: HTTP
+      HealthCheckTimeoutSeconds: 5
+      HealthyThresholdCount: 2
+      TargetType: ip
+      Port: 80
+      Protocol: HTTP
+      UnhealthyThresholdCount: 2
+      VpcId:
+        Fn::ImportValue:
+          !Sub '${EcsClusterStackName}-VpcId'
+
+  LoadBalancerRule:
+    Type: AWS::ElasticLoadBalancingV2::ListenerRule
+    Properties:
+      Actions:
+        - TargetGroupArn: !Ref 'TargetGroup'
+          Type: forward
+      Conditions:
+        - Field: path-pattern
+          Values:
+            - Fn::Sub:
+                - '${Path}/*'
+                - Path: !FindInMap [StageMap, AppPath, !Ref Stage]
+            - !FindInMap [StageMap, AppPath, !Ref Stage]
+      ListenerArn:
+        Fn::ImportValue:
+          !Sub '${EcsClusterStackName}-LoadBalancerListener'
+      Priority: 50000
+
+  LakeFormationPermissionsData:
+    Type: AWS::LakeFormation::Permissions
+    Properties:
+      DataLakePrincipal:
+        DataLakePrincipalIdentifier: !GetAtt TaskRole.Arn
+      Permissions:
+        - "SELECT"
+        - "DESCRIBE"
+      Resource:
+        TableResource:
+          DatabaseName: restricted_use
+          Name: !FindInMap [StageMap, TableName, !Ref Stage]
+          CatalogId: '728348960442'
+  LakeFormationResourceLinkPermission:
+    Type: AWS::LakeFormation::Permissions
+    Properties:
+      DataLakePrincipal:
+        DataLakePrincipalIdentifier: !GetAtt TaskRole.Arn
+      Permissions:
+        - "DESCRIBE"
+      Resource:
+        TableResource:
+          DatabaseName: restricted_use
+          Name: !FindInMap [StageMap, TableName, !Ref Stage]
+          CatalogId: !Ref AWS::AccountId
+

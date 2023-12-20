@@ -1,0 +1,544 @@
+env_description_level_3,env_description_level_4,aim_number,afs_number,latitude,longitude,origin_country,ncbi_taxonomy_id,taxonomic_classification,completeness,contamination,row_number,aim,asm,pident,bitscore,length,_16S_id
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015264,AFS078584,35.896928,-78.880882,US,4530.0,Allorhizobium sp900473245,[100.0],[0.0],,,,,,,
+soil,Site:  Eric's yard.  Soil from chicken coop,AIM018532,AFS012150,35.941880,-78.964148,US,,,[100.0],[90.49],,,,,,,
+,,AIM037716,,,,,,Paenibacillus polymyxa_D,[98.28],[0.0],1,37716,43805,98.578,2732,1547,Paenibacillus polymyxa
+,,AIM037716,,,,,,Paenibacillus polymyxa_D,[98.28],[0.0],2,37716,43805,98.515,2730,1549,Paenibacillus polymyxa
+,,AIM037716,,,,,,Paenibacillus polymyxa_D,[98.28],[0.0],3,37716,43805,98.452,2724,1550,Paenibacillus polymyxa
+,,AIM037716,,,,,,Paenibacillus polymyxa_D,[98.28],[0.0],4,37716,43805,98.449,2723,1547,Paenibacillus polymyxa
+,,AIM037716,,,,,,Paenibacillus polymyxa_D,[98.28],[0.0],5,37716,43805,98.572,2723,1541,Paenibacillus peoriae KCTC 3763
+,,AIM037716,,,,,,Paenibacillus polymyxa_D,[98.28],[0.0],1,37716,43805,98.578,2732,1547,Paenibacillus polymyxa
+,,AIM037716,,,,,,Paenibacillus polymyxa_D,[98.28],[0.0],2,37716,43805,98.515,2730,1549,Paenibacillus polymyxa
+,,AIM037716,,,,,,Paenibacillus polymyxa_D,[98.28],[0.0],3,37716,43805,98.452,2724,1550,Paenibacillus polymyxa
+,,AIM037716,,,,,,Paenibacillus polymyxa_D,[98.28],[0.0],4,37716,43805,98.449,2723,1547,Paenibacillus polymyxa
+,,AIM037716,,,,,,Paenibacillus polymyxa_D,[98.28],[0.0],5,37716,43805,98.572,2723,1541,Paenibacillus peoriae KCTC 3763
+,,AIM037716,,,,,,Paenibacillus polymyxa_D,[98.28],[0.0],1,37716,43805,98.578,2732,1547,Paenibacillus polymyxa
+,,AIM037716,,,,,,Paenibacillus polymyxa_D,[98.28],[0.0],2,37716,43805,98.515,2730,1549,Paenibacillus polymyxa
+,,AIM037716,,,,,,Paenibacillus polymyxa_D,[98.28],[0.0],3,37716,43805,98.452,2724,1550,Paenibacillus polymyxa
+,,AIM037716,,,,,,Paenibacillus polymyxa_D,[98.28],[0.0],4,37716,43805,98.449,2723,1547,Paenibacillus polymyxa
+,,AIM037716,,,,,,Paenibacillus polymyxa_D,[98.28],[0.0],5,37716,43805,98.572,2723,1541,Paenibacillus peoriae KCTC 3763
+,,AIM037716,,,,,,Paenibacillus polymyxa_D,[98.28],[0.0],1,37716,43805,98.578,2732,1547,Paenibacillus polymyxa
+,,AIM037716,,,,,,Paenibacillus polymyxa_D,[98.28],[0.0],2,37716,43805,98.515,2730,1549,Paenibacillus polymyxa
+,,AIM037716,,,,,,Paenibacillus polymyxa_D,[98.28],[0.0],3,37716,43805,98.452,2724,1550,Paenibacillus polymyxa
+,,AIM037716,,,,,,Paenibacillus polymyxa_D,[98.28],[0.0],4,37716,43805,98.449,2723,1547,Paenibacillus polymyxa
+,,AIM037716,,,,,,Paenibacillus polymyxa_D,[98.28],[0.0],5,37716,43805,98.572,2723,1541,Paenibacillus peoriae KCTC 3763
+plant_rhizosphere,Nematode field (field B8A-B) corn core,AIM037716,AFS078776,35.669711,-78.491692,US,381124.0,Paenibacillus polymyxa_D,[98.28],[0.0],1,37716,43805,98.578,2732,1547,Paenibacillus polymyxa
+plant_rhizosphere,Nematode field (field B8A-B) corn core,AIM037716,AFS078776,35.669711,-78.491692,US,381124.0,Paenibacillus polymyxa_D,[98.28],[0.0],2,37716,43805,98.515,2730,1549,Paenibacillus polymyxa
+plant_rhizosphere,Nematode field (field B8A-B) corn core,AIM037716,AFS078776,35.669711,-78.491692,US,381124.0,Paenibacillus polymyxa_D,[98.28],[0.0],3,37716,43805,98.452,2724,1550,Paenibacillus polymyxa
+plant_rhizosphere,Nematode field (field B8A-B) corn core,AIM037716,AFS078776,35.669711,-78.491692,US,381124.0,Paenibacillus polymyxa_D,[98.28],[0.0],4,37716,43805,98.449,2723,1547,Paenibacillus polymyxa
+plant_rhizosphere,Nematode field (field B8A-B) corn core,AIM037716,AFS078776,35.669711,-78.491692,US,381124.0,Paenibacillus polymyxa_D,[98.28],[0.0],5,37716,43805,98.572,2723,1541,Paenibacillus peoriae KCTC 3763
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab, Red Spring Wheat",AIM015441,AFS027732,35.896928,-78.880882,US,4564.0,Azospirillum oryzae,[100.0],[3.45],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012796,AFS032123,35.667223,-78.493503,US,3635.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+plant_rhizosphere,Nematode field (field B8A-B) corn core,AIM037119,AFS082653,35.669711,-78.491692,US,381124.0,Paenibacillus kribbensis,[94.36],[5.17],1,37119,43205,99.1,2595,1444,Paenibacillus peoriae KCTC 3763
+plant_rhizosphere,Nematode field (field B8A-B) corn core,AIM037119,AFS082653,35.669711,-78.491692,US,381124.0,Paenibacillus kribbensis,[94.36],[5.17],2,37119,43205,99.1,2593,1444,Paenibacillus polymyxa
+plant_rhizosphere,Nematode field (field B8A-B) corn core,AIM037119,AFS082653,35.669711,-78.491692,US,381124.0,Paenibacillus kribbensis,[94.36],[5.17],3,37119,43205,99.032,2591,1446,Paenibacillus polymyxa
+plant_rhizosphere,Nematode field (field B8A-B) corn core,AIM037119,AFS082653,35.669711,-78.491692,US,381124.0,Paenibacillus kribbensis,[94.36],[5.17],4,37119,43205,98.893,2580,1446,Paenibacillus polymyxa
+plant_rhizosphere,Nematode field (field B8A-B) corn core,AIM037119,AFS082653,35.669711,-78.491692,US,381124.0,Paenibacillus kribbensis,[94.36],[5.17],5,37119,43205,98.892,2577,1444,Paenibacillus polymyxa
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012863,AFS002635,35.667223,-78.493503,US,3635.0,,[100.0],[0.0],,,,,,,
+plant_corpus,"Variety: Unknown, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM063153,AFS009404,1.781060,33.631540,UG,4120.0,Kosakonia radicincitans,[100.0],[0.0],,,,,,,
+soil,Dirt by front gate,AIM031322,AFS094944,36.0266630,-95.8810100,US,1427524.0,,[100.0],[47.61],,,,,,,
+plant_rhizosphere,Plot 38 Row 7,AIM037424,AFS089685,39.8284800,-90.5294000,US,381124.0,Herbaspirillum aquaticum,[98.28],[0.0],1,37424,43513,99.799,2736,1490,Herbaspirillum huttiense
+plant_rhizosphere,Plot 38 Row 7,AIM037424,AFS089685,39.8284800,-90.5294000,US,381124.0,Herbaspirillum aquaticum,[98.28],[0.0],2,37424,43513,98.885,2723,1525,Herbaspirillum seropedicae
+plant_rhizosphere,Plot 38 Row 7,AIM037424,AFS089685,39.8284800,-90.5294000,US,381124.0,Herbaspirillum aquaticum,[98.28],[0.0],3,37424,43513,99.462,2699,1487,Herbaspirillum huttiense subsp. putei IAM 15032
+plant_rhizosphere,Plot 38 Row 7,AIM037424,AFS089685,39.8284800,-90.5294000,US,381124.0,Herbaspirillum aquaticum,[98.28],[0.0],4,37424,43513,99.931,2684,1455,Herbaspirillum aquaticum
+plant_rhizosphere,Plot 38 Row 7,AIM037424,AFS089685,39.8284800,-90.5294000,US,381124.0,Herbaspirillum aquaticum,[98.28],[0.0],5,37424,43513,99.259,2682,1485,Herbaspirillum rubrisubalbicans
+soil,Soil from side of house/ sandy,AIM068164,AFS016502,35.81046600,-78.83695200,US,,,[98.28],[0.0],,,,,,,
+soil,no description provided,AIM034879,AFS086700,33.307816,-83.686210,US,,Paenibacillus polymyxa_B,[98.28],[1.72],,,,,,,
+plant_corpus,"Variety: Unknown, Weevil Damage: none, Flesh Color: cream, Skin: cream",AIM061982,AFS075230,1.976370,32.495860,UG,4120.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+plant_corpus,"Variety: Ekampala, Weevil Damage: Light, Flesh Color: cream, Skin Color: red; Weevil in potato",AIM062551,AFS032258,1.712660,33.697620,UG,4120.0,Klebsiella variicola,[97.07],[4.31],,,,,,,
+plant_rhizosphere,Wild garlic/onion-core,AIM037596,AFS023587,35.809919,-78.974571,US,4679.0,Paenibacillus polymyxa_B,[98.28],[1.72],,,,,,,
+unknown-missing,18951 Unidentified White mushroom with vertical lamellae,AIM057499,AFS081594,42.82896200,-74.87654000,US,32644.0,Rahnella aquatilis_B,[100.0],[1.72],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014737,AFS020545,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[100.0],[0.0],1,14737,26476,99.672,2791,1526,Burkholderia vietnamiensis
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014737,AFS020545,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[100.0],[0.0],2,14737,26476,99.41,2769,1526,Burkholderia ambifaria
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014737,AFS020545,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[100.0],[0.0],3,14737,26476,99.346,2765,1530,Burkholderia lata
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014737,AFS020545,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[100.0],[0.0],4,14737,26476,99.8,2758,1502,Burkholderia latens
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014737,AFS020545,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[100.0],[0.0],5,14737,26476,99.866,2739,1489,Burkholderia vietnamiensis
+plant_rhizosphere,"Variety: Organic Covington. landowner is shipper-access period is irrelevant; due to system, edited original collection date to fall within access period, ate was changed to allow data entry.",AIM036686,AFS045512,35.10779570,-78.24043700,US,4120.0,,[85.58],[0.0],,,,,,,
+soil,"Front yard, garden bed. Dug down about 3 inches. Recently mulched",AIM088539,AFS697876,35.810458,-78.837007,US,,,[98.28],[26.46],,,,,,,
+plant_corpus,"Variety: Osukut, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM063161,AFS057726,1.478010,33.864400,UG,4120.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+plant_rhizosphere,"Site: Meredosia, IL Plot: 13 Range: 41 Row: 6",AIM095055,AFS447014,39.827280,-90.532960,US,381124.0,,[98.28],[54.22],1,95055,113373,99.935,2846,1544,Bacillus toyonensis
+plant_rhizosphere,"Site: Meredosia, IL Plot: 13 Range: 41 Row: 6",AIM095055,AFS447014,39.827280,-90.532960,US,381124.0,,[98.28],[54.22],2,95055,113373,99.74,2822,1540,Bacillus wiedmannii
+plant_rhizosphere,"Site: Meredosia, IL Plot: 13 Range: 41 Row: 6",AIM095055,AFS447014,39.827280,-90.532960,US,381124.0,,[98.28],[54.22],3,95055,113373,99.739,2813,1535,Bacillus cereus
+plant_rhizosphere,"Site: Meredosia, IL Plot: 13 Range: 41 Row: 6",AIM095055,AFS447014,39.827280,-90.532960,US,381124.0,,[98.28],[54.22],4,95055,113373,99.934,2782,1509,Bacillus paranthracis
+plant_rhizosphere,"Site: Meredosia, IL Plot: 13 Range: 41 Row: 6",AIM095055,AFS447014,39.827280,-90.532960,US,381124.0,,[98.28],[54.22],5,95055,113373,99.867,2776,1509,Bacillus pacificus
+plant_rhizosphere,"Variety: Organic Covington. landowner is shipper-access period is irrelevant; due to system, edited original collection date to fall within access period, ate was changed to allow data entry.",AIM037457,AFS032084,35.10779570,-78.24043700,US,4120.0,,[100.0],[88.09],,,,,,,
+soil,Soil from side of house/ sandy,AIM068105,AFS089958,35.81046600,-78.83695200,US,,,[100.0],[0.0],,,,,,,
+plant_rhizosphere,"Site: Montauk New York, roots by bramble",AIM012365,AFS057327,41.031940,-71.949170,US,47299.0,Raoultella terrigena,[97.77],[0.0],,,,,,,
+soil,sub-alpine mixed aspen/evergreen forest; drainage next to trail,AIM075379,AFS011674,43.657333,-110.795806,US,,,[100.0],[76.03],,,,,,,
+plant_rhizosphere,Plot 38 Row 7,AIM037221,AFS054166,39.8284800,-90.5294000,US,381124.0,Herbaspirillum aquaticum,[98.28],[0.0],1,37221,43307,99.799,2736,1490,Herbaspirillum huttiense
+plant_rhizosphere,Plot 38 Row 7,AIM037221,AFS054166,39.8284800,-90.5294000,US,381124.0,Herbaspirillum aquaticum,[98.28],[0.0],2,37221,43307,98.885,2723,1525,Herbaspirillum seropedicae
+plant_rhizosphere,Plot 38 Row 7,AIM037221,AFS054166,39.8284800,-90.5294000,US,381124.0,Herbaspirillum aquaticum,[98.28],[0.0],3,37221,43307,99.462,2699,1487,Herbaspirillum huttiense subsp. putei IAM 15032
+plant_rhizosphere,Plot 38 Row 7,AIM037221,AFS054166,39.8284800,-90.5294000,US,381124.0,Herbaspirillum aquaticum,[98.28],[0.0],4,37221,43307,99.931,2684,1455,Herbaspirillum aquaticum
+plant_rhizosphere,Plot 38 Row 7,AIM037221,AFS054166,39.8284800,-90.5294000,US,381124.0,Herbaspirillum aquaticum,[98.28],[0.0],5,37221,43307,99.259,2682,1485,Herbaspirillum rubrisubalbicans
+plant_rhizosphere,"Variety: Organic Covington. landowner is shipper-access period is irrelevant; due to system, edited original collection date to fall within access period, ate was changed to allow data entry.",AIM037458,AFS031592,35.10779570,-78.24043700,US,4120.0,,[100.0],[0.0],,,,,,,
+plant_rhizosphere,"Randomization 023, Plot 41",AIM059996,AFS060608,43.2423800,-94.6487700,US,381124.0,Paenibacillus sp000758525,[98.28],[5.17],1,59996,71090,97.602,2641,1543,Paenibacillus borealis
+plant_rhizosphere,"Randomization 023, Plot 41",AIM059996,AFS060608,43.2423800,-94.6487700,US,381124.0,Paenibacillus sp000758525,[98.28],[5.17],2,59996,71090,96.993,2621,1563,Paenibacillus sabinae
+plant_rhizosphere,"Randomization 023, Plot 41",AIM059996,AFS060608,43.2423800,-94.6487700,US,381124.0,Paenibacillus sp000758525,[98.28],[5.17],3,59996,71090,96.793,2593,1559,Paenibacillus sabinae
+plant_rhizosphere,"Randomization 023, Plot 41",AIM059996,AFS060608,43.2423800,-94.6487700,US,381124.0,Paenibacillus sp000758525,[98.28],[5.17],4,59996,71090,96.611,2590,1564,Paenibacillus sabinae
+plant_rhizosphere,"Randomization 023, Plot 41",AIM059996,AFS060608,43.2423800,-94.6487700,US,381124.0,Paenibacillus sp000758525,[98.28],[5.17],5,59996,71090,96.545,2582,1563,Paenibacillus sabinae
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012871,AFS086405,35.667223,-78.493503,US,3635.0,,[98.28],[11.47],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012826,AFS000889,35.667223,-78.493503,US,3635.0,,[100.0],[162.81],,,,,,,
+soil,creek bank soil/mud left side,AIM039080,AFS027662,32.5734550,-80.1655950,US,,,[100.0],[110.45],,,,,,,
+soil,Soil from side of house/ sandy,AIM068154,AFS030859,35.81046600,-78.83695200,US,,,[79.86],[3.95],,,,,,,
+soil,sub-alpine mixed aspen/evergreen forest; drainage next to trail,AIM075372,AFS040604,43.657333,-110.795806,US,,Rahnella aquatilis_B,[100.0],[1.33],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015102,AFS094845,35.896928,-78.880882,US,4564.0,Azospirillum oryzae,[100.0],[1.72],,,,,,,
+plant_rhizosphere,206,AIM094475,AFS631667,48.756250,-98.339710,US,4564.0,,[100.0],[48.84],,,,,,,
+plant_corpus,"Variety: Akuleakule, Weevil Damage: , Flesh Color: cream, Skin Color: pink",AIM062011,AFS010046,1.970370,32.686550,UG,4120.0,Klebsiella variicola,[97.07],[0.0],,,,,,,
+plant_corpus,"Variety: Unknown, Weevil Damage: none, Flesh Color: cream, Skin: red",AIM047976,AFS008623,3.114190,30.967390,UG,4120.0,Klebsiella variicola,[97.07],[1.72],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014773,AFS017547,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[100.0],[0.0],1,14773,26496,99.737,2785,1520,Burkholderia vietnamiensis
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014773,AFS017547,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[100.0],[0.0],2,14773,26496,99.41,2769,1526,Burkholderia ambifaria
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014773,AFS017547,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[100.0],[0.0],3,14773,26496,99.346,2765,1530,Burkholderia lata
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014773,AFS017547,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[100.0],[0.0],4,14773,26496,99.8,2758,1502,Burkholderia latens
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014773,AFS017547,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[100.0],[0.0],5,14773,26496,99.866,2739,1489,Burkholderia vietnamiensis
+soil,Soil from side of house/ sandy,AIM068113,AFS041411,35.81046600,-78.83695200,US,,,[100.0],[0.0],,,,,,,
+soil,Soil from side of house/ sandy,AIM068158,AFS046990,35.81046600,-78.83695200,US,,,[98.28],[15.78],,,,,,,
+soil,bulk soil collected for sure-select experiments,AIM076088,AFS079341,36.148378,-78.879792,US,,,[98.28],[100.0],,,,,,,
+plant_corpus,"Variety: Ekampala, Weevil Damage: None, Flesh Color: cream, Skin Color: red",AIM062507,AFS031800,1.781060,33.631540,UG,4120.0,,[99.66],[11.27],,,,,,,
+plant_corpus,"Variety: NASPOT1, Weevil Damage: , Flesh Color: yellow, Skin Color: Purple Red",AIM057280,AFS061402,0.703070,32.510720,UG,4120.0,,[100.0],[269.13],,,,,,,
+soil,Soil from side of house/ sandy,AIM068109,AFS023564,35.81046600,-78.83695200,US,,,[100.0],[2.74],,,,,,,
+soil,no description provided,AIM075364,AFS094020,-7.290650,39.140289,TZ,,,[100.0],[192.07],,,,,,,
+plant_rhizosphere,"Variety: Organic Covington. landowner is shipper-access period is irrelevant; due to system, edited original collection date to fall within access period, ate was changed to allow data entry.",AIM036733,AFS041899,35.10779570,-78.24043700,US,4120.0,,[94.83],[0.0],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 1 root",AIM015210,AFS095683,35.667223,-78.493503,US,3635.0,,[100.0],[24.2],,,,,,,
+soil,Soil from front graden bed. Clay sli,AIM068014,AFS058963,35.81046600,-78.83695200,US,,,[100.0],[0.0],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015409,AFS077782,35.896928,-78.880882,US,4530.0,Azospirillum oryzae,[100.0],[1.72],,,,,,,
+soil,"Soil with grass. landowner is shipper-access period is irrelevant; due to system, edited original collection date to fall within access period, ate was changed to allow data entry.",AIM075385,AFS090801,43.64514200,-70.24215600,US,,,[100.0],[93.29],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM016163,AFS095513,35.896928,-78.880882,US,4498.0,Allorhizobium sp900473245,[100.0],[0.0],,,,,,,
+plant_corpus,"Variety: Ekampala, Weevil Damage: None, Flesh Color: cream, Skin Color: red",AIM062505,AFS061614,1.781060,33.631540,UG,4120.0,Klebsiella variicola,[97.07],[5.17],,,,,,,
+plant_corpus,"Variety: Araka Red, Weevil Damage: None, Flesh Color: orange, Skin Color: red;",AIM063184,AFS066806,1.434620,33.976920,UG,4120.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+animal_corpus,"Jacob's father's land, Fall Army Worm",AIM003274,AFS046399,35.765253,-78.387373,US,7108.0,,"[98.28, 97.93]","[1.72, 0.0]",,,,,,,
+plant_corpus,"Bought from the farmers market. Variety: Beauregard Tart L and G Farms, Johnston County, NC",AIM037815,AFS072273,35.799009,-78.775285,US,4120.0,Paenibacillus sp001447315,[98.28],[0.34],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012812,AFS065160,35.667223,-78.493503,US,3635.0,,[100.0],[73.49],,,,,,,
+plant_corpus,"Variety: Araka white, Weevil Damage: light, Flesh Color: cream, Skin Color: cream",AIM061084,AFS095407,2.036730,33.628470,UG,4120.0,,[96.55],[62.19],,,,,,,
+plant_rhizosphere,Plot 38 Row 7,AIM037222,AFS022132,39.8284800,-90.5294000,US,381124.0,Herbaspirillum aquaticum,[98.28],[0.0],1,37222,43308,99.799,2736,1490,Herbaspirillum huttiense
+plant_rhizosphere,Plot 38 Row 7,AIM037222,AFS022132,39.8284800,-90.5294000,US,381124.0,Herbaspirillum aquaticum,[98.28],[0.0],2,37222,43308,98.885,2723,1525,Herbaspirillum seropedicae
+plant_rhizosphere,Plot 38 Row 7,AIM037222,AFS022132,39.8284800,-90.5294000,US,381124.0,Herbaspirillum aquaticum,[98.28],[0.0],3,37222,43308,99.462,2699,1487,Herbaspirillum huttiense subsp. putei IAM 15032
+plant_rhizosphere,Plot 38 Row 7,AIM037222,AFS022132,39.8284800,-90.5294000,US,381124.0,Herbaspirillum aquaticum,[98.28],[0.0],4,37222,43308,99.931,2684,1455,Herbaspirillum aquaticum
+plant_rhizosphere,Plot 38 Row 7,AIM037222,AFS022132,39.8284800,-90.5294000,US,381124.0,Herbaspirillum aquaticum,[98.28],[0.0],5,37222,43308,99.259,2682,1485,Herbaspirillum rubrisubalbicans
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012888,AFS015195,35.667223,-78.493503,US,3635.0,,"[98.28, 98.28, 98.28]","[0.0, 0.0, 0.0]",,,,,,,
+soil,"Front yard, garden bed. Dug down about 3 inches. Recently mulched",AIM087971,AFS221151,35.810458,-78.837007,US,,,[100.0],[16.14],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012821,AFS087120,35.667223,-78.493503,US,3635.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+plant_rhizosphere,"Site: Arenzville, IL Plot: 10 Range: 2 Row: 1",AIM031715,AFS074235,39.863410,-90.455310,US,381124.0,Klebsiella variicola,[97.93],[4.78],1,31715,35832,99.543,2795,1533,Klebsiella pneumoniae
+plant_rhizosphere,"Site: Arenzville, IL Plot: 10 Range: 2 Row: 1",AIM031715,AFS074235,39.863410,-90.455310,US,381124.0,Klebsiella variicola,[97.93],[4.78],2,31715,35832,99.542,2785,1529,Klebsiella pneumoniae
+plant_rhizosphere,"Site: Arenzville, IL Plot: 10 Range: 2 Row: 1",AIM031715,AFS074235,39.863410,-90.455310,US,381124.0,Klebsiella variicola,[97.93],[4.78],3,31715,35832,99.477,2780,1529,Klebsiella pneumoniae
+plant_rhizosphere,"Site: Arenzville, IL Plot: 10 Range: 2 Row: 1",AIM031715,AFS074235,39.863410,-90.455310,US,381124.0,Klebsiella variicola,[97.93],[4.78],4,31715,35832,99.411,2774,1529,Klebsiella pneumoniae
+plant_rhizosphere,"Site: Arenzville, IL Plot: 10 Range: 2 Row: 1",AIM031715,AFS074235,39.863410,-90.455310,US,381124.0,Klebsiella variicola,[97.93],[4.78],5,31715,35832,99.411,2774,1529,Klebsiella pneumoniae
+plant_corpus,"Variety: Nyambaro, Weevil Damage: , Flesh Color: cream, Skin Color: Purple red",AIM057288,AFS044553,2.483200,31.168300,UG,4120.0,,[97.07],[91.45],,,,,,,
+plant_corpus,"Variety: Okwetorumbe, Weevil Damage: None, Flesh Color: cream, Skin Color: pink",AIM062515,AFS098426,1.825880,33.501420,UG,4120.0,,[96.55],[81.92],,,,,,,
+soil,"Front yard, garden bed. Dug down about 3 inches. Recently mulched",AIM087999,AFS540585,35.810458,-78.837007,US,,,[100.0],[8.1],,,,,,,
+soil,Sygenta fields:  Soil from Soybean - 79 Stress,AIM062722,AFS028979,40.331980,-104.727243,US,,,[100.0],[205.37],,,,,,,
+plant_corpus,"Variety: Unknown, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM062570,AFS086545,1.987300,33.701450,UG,4120.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+soil,Dirt by front gate,AIM031314,AFS057801,36.0266630,-95.8810100,US,1427524.0,Paenibacillus polymyxa_D,[98.28],[0.0],,,,,,,
+soil,Dirt by front gate,AIM031309,AFS029660,36.0266630,-95.8810100,US,1427524.0,Paenibacillus polymyxa_D,[98.28],[0.0],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012853,AFS046600,35.667223,-78.493503,US,3635.0,Enterobacter cloacae_M,[99.66],[0.0],,,,,,,
+unknown-missing,18951 Unidentified White mushroom with vertical lamellae,AIM057501,AFS078986,42.82896200,-74.87654000,US,32644.0,,[100.0],[99.66],,,,,,,
+plant_rhizosphere,"Site: Vernon Center, Crop: Soy, Genotype 1603 46, Replicate 190, Block 1603 190, Subplot 46 - soybeans more yellow here",AIM094722,AFS851414,43.979338,-94.101610,US,3847.0,,[100.0],[113.32],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012806,AFS037983,35.667223,-78.493503,US,3635.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015519,AFS091007,35.896928,-78.880882,US,4564.0,Burkholderia vietnamiensis,[100.0],[1.72],,,,,,,
+plant_corpus,"Variety: Osuwat, Weevil Damage: None, Flesh Color: orange, Skin Color: cream; intercropped with maize",AIM062499,AFS067412,1.408850,33.919210,UG,4120.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+plant_corpus,"Variety: Unknown, Weevil Damage: None, Flesh Color: orange, Skin Color: red; intercropped with maize",AIM062491,AFS015731,1.408850,33.919210,UG,4120.0,,[100.0],[123.43],,,,,,,
+plant_corpus,"Variety: Araka red, Weevil Damage: None, Flesh Color: cream, Skin Color: purple-red",AIM062532,AFS085345,2.165030,33.542300,UG,4120.0,,[90.06],[6.82],,,,,,,
+soil,Soil from side of house/ sandy,AIM068093,AFS070984,35.81046600,-78.83695200,US,,,[100.0],[78.15],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012881,AFS046718,35.667223,-78.493503,US,3635.0,,[100.0],[104.31],,,,,,,
+plant_rhizosphere,"Site: Arenzville, IL Plot: 18 Range: 3 Row: 8",AIM031887,AFS016322,39.863620,-90.455410,US,381124.0,,[98.28],[0.0],1,31887,36004,99.73,2717,1483,Paenibacillus silagei
+plant_rhizosphere,"Site: Arenzville, IL Plot: 18 Range: 3 Row: 8",AIM031887,AFS016322,39.863620,-90.455410,US,381124.0,,[98.28],[0.0],2,31887,36004,97.735,2656,1545,Paenibacillus borealis
+plant_rhizosphere,"Site: Arenzville, IL Plot: 18 Range: 3 Row: 8",AIM031887,AFS016322,39.863620,-90.455410,US,381124.0,,[98.28],[0.0],3,31887,36004,98.655,2636,1487,Paenibacillus rhizoplanae
+plant_rhizosphere,"Site: Arenzville, IL Plot: 18 Range: 3 Row: 8",AIM031887,AFS016322,39.863620,-90.455410,US,381124.0,,[98.28],[0.0],4,31887,36004,97.297,2564,1517,Paenibacillus tritici
+plant_rhizosphere,"Site: Arenzville, IL Plot: 18 Range: 3 Row: 8",AIM031887,AFS016322,39.863620,-90.455410,US,381124.0,,[98.28],[0.0],5,31887,36004,97.576,2538,1485,Paenibacillus azotifigens
+plant_corpus,"Variety: Awekamake, Weevil Damage: none, Flesh Color: cream, Skin: red",AIM048617,AFS049019,2.921300,30.999030,UG,4120.0,Klebsiella variicola,[97.07],[0.0],,,,,,,
+soil,"Front yard, garden bed. Dug down about 3 inches. Recently mulched",AIM088538,AFS118230,35.810458,-78.837007,US,,,[90.52],[29.35],,,,,,,
+plant_rhizosphere,"Site: Owensboro, KY Randomization: 013 Plot #: 20",AIM059118,AFS009558,37.735040,-87.216900,US,3847.0,,[98.28],[216.88],,,,,,,
+animal_corpus,Tenebrio carcass from soil baiting. Soil originated from African sample 13.6,AIM076145,AFS027660,35.895027,-78.880823,US,7067.0,Paenibacillus jamilae,[98.28],[1.72],,,,,,,
+soil,Location: Kumi,AIM054814,AFS040756,1.408850,33.919210,UG,,Paenibacillus jamilae,[98.28],[1.72],,,,,,,
+plant_corpus,"Variety: Socadido, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM062556,AFS011246,1.478010,33.864400,UG,4120.0,,[99.5],[18.97],,,,,,,
+soil,Backyard by fence post,AIM031898,AFS093704,36.0266630,-95.8810100,US,,,[100.0],[82.21],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab, NipponBare",AIM015190,AFS084302,35.896928,-78.880882,US,4530.0,Allorhizobium sp900473245,[100.0],[0.0],,,,,,,
+soil,"Soil under bird feeder that has been there for 10 years - no vegetation. Property was cotton and cowpeas prior to 1940, returned to wild pines and some hardwoods, then the property was cleared in 1977 to build several houses.",AIM034034,AFS006484,33.6007667,-84.6533222,US,,Rahnella aquatilis,[100.0],[1.72],,,,,,,
+plant_corpus,"Variety: Araka white, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM061088,AFS087482,2.201050,33.605940,UG,4120.0,Klebsiella variicola,[97.93],[1.72],,,,,,,
+soil,Soil from side of house/ sandy,AIM068181,AFS035691,35.81046600,-78.83695200,US,,,[98.28],[2.3],,,,,,,
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006642,AFS050793,41.630004,-90.737647,US,381124.0,,[99.66],[0.0],1,6642,5810,99.345,2765,1527,Leclercia adecarboxylata
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006642,AFS050793,41.630004,-90.737647,US,381124.0,,[99.66],[0.0],2,6642,5810,99.603,2761,1513,Enterobacter ludwigii
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006642,AFS050793,41.630004,-90.737647,US,381124.0,,[99.66],[0.0],3,6642,5810,98.896,2750,1540,Klebsiella aerogenes KCTC 2190
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006642,AFS050793,41.630004,-90.737647,US,381124.0,,[99.66],[0.0],4,6642,5810,98.639,2730,1543,Enterobacter cloacae
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006642,AFS050793,41.630004,-90.737647,US,381124.0,,[99.66],[0.0],5,6642,5810,98.691,2713,1528,Enterobacter cloacae
+soil,"Front yard, garden bed. Dug down about 3 inches. Recently mulched",AIM088562,AFS597019,35.810458,-78.837007,US,,,[100.0],[0.86],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015261,AFS076268,35.896928,-78.880882,US,4530.0,Allorhizobium sp900473245,[100.0],[0.0],,,,,,,
+plant_corpus,"Variety: Nyambaro, Weevil Damage: , Flesh Color: cream, Skin Color: Purple red",AIM051294,AFS033843,2.483200,31.168300,UG,4120.0,Enterobacter cloacae_I,[100.0],[0.0],,,,,,,
+plant_rhizosphere,"Field 2 B1.1, Crop: Corn",AIM018099,AFS030168,39.251786,-88.406489,US,381124.0,Paraburkholderia_B ferrariae,[100.0],[1.72],1,18099,14218,99.934,2808,1522,Paraburkholderia ferrariae
+plant_rhizosphere,"Field 2 B1.1, Crop: Corn",AIM018099,AFS030168,39.251786,-88.406489,US,381124.0,Paraburkholderia_B ferrariae,[100.0],[1.72],2,18099,14218,97.717,2636,1533,Paraburkholderia dokdonella
+plant_rhizosphere,"Field 2 B1.1, Crop: Corn",AIM018099,AFS030168,39.251786,-88.406489,US,381124.0,Paraburkholderia_B ferrariae,[100.0],[1.72],3,18099,14218,97.439,2597,1523,Paraburkholderia silvatlantica SRMrh-20
+plant_rhizosphere,"Field 2 B1.1, Crop: Corn",AIM018099,AFS030168,39.251786,-88.406489,US,381124.0,Paraburkholderia_B ferrariae,[100.0],[1.72],4,18099,14218,97.177,2571,1523,Paraburkholderia sacchari
+plant_rhizosphere,"Field 2 B1.1, Crop: Corn",AIM018099,AFS030168,39.251786,-88.406489,US,381124.0,Paraburkholderia_B ferrariae,[100.0],[1.72],5,18099,14218,97.453,2542,1492,Paraburkholderia caffeinitolerans
+plant_corpus,"Variety: NASPOT1, Weevil Damage: , Flesh Color: yellow, Skin Color: Purple Red",AIM057260,AFS029430,0.703070,32.510720,UG,4120.0,,[100.0],[194.04],,,,,,,
+plant_corpus,"Variety: Awekamake, Weevil Damage: none, Flesh Color: cream, Skin: red",AIM048621,AFS073958,2.921300,30.999030,UG,4120.0,,[100.0],[100.0],,,,,,,
+aerosol,"Site: Pocahontas, Crop: Soybean, Grainbin dust",AIM004972,AFS022388,42.744101,-94.637937,US,,,"[98.28, 98.28]","[1.72, 1.72]",,,,,,,
+soil,"Soil under bird feeder that has been there for 10 years - no vegetation. Property was cotton and cowpeas prior to 1940, returned to wild pines and some hardwoods, then the property was cleared in 1977 to build several houses.",AIM033639,AFS055820,33.6007667,-84.6533222,US,,Rahnella aquatilis,[100.0],[1.72],,,,,,,
+plant_rhizosphere,same plant as AES 2340,AIM094452,AFS140940,43.067710,-92.590110,US,4564.0,,[98.28],[87.13],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012879,AFS019036,35.667223,-78.493503,US,3635.0,Klebsiella variicola,[97.93],[2.04],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012801,AFS054988,35.667223,-78.493503,US,3635.0,,[97.07],[18.69],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Corn, Genotype: BBP, Row 1 (Rows 1, 2, and 3 are consecutive rows)",AIM023501,AFS098494,35.666269,-78.511339,US,381124.0,Paenibacillus polymyxa_B,[98.28],[1.72],2,23501,24792,99.611,2813,1541,Paenibacillus peoriae KCTC 3763
+plant_rhizosphere,"Site: Clayton, Crop: Corn, Genotype: BBP, Row 1 (Rows 1, 2, and 3 are consecutive rows)",AIM023501,AFS098494,35.666269,-78.511339,US,381124.0,Paenibacillus polymyxa_B,[98.28],[1.72],1,23501,24792,99.611,2813,1541,Paenibacillus peoriae KCTC 3763
+plant_rhizosphere,"Site: Clayton, Crop: Corn, Genotype: BBP, Row 1 (Rows 1, 2, and 3 are consecutive rows)",AIM023501,AFS098494,35.666269,-78.511339,US,381124.0,Paenibacillus polymyxa_B,[98.28],[1.72],3,23501,24792,99.481,2802,1541,Paenibacillus peoriae KCTC 3763
+plant_rhizosphere,"Site: Clayton, Crop: Corn, Genotype: BBP, Row 1 (Rows 1, 2, and 3 are consecutive rows)",AIM023501,AFS098494,35.666269,-78.511339,US,381124.0,Paenibacillus polymyxa_B,[98.28],[1.72],4,23501,24792,99.354,2800,1547,Paenibacillus polymyxa
+plant_rhizosphere,"Site: Clayton, Crop: Corn, Genotype: BBP, Row 1 (Rows 1, 2, and 3 are consecutive rows)",AIM023501,AFS098494,35.666269,-78.511339,US,381124.0,Paenibacillus polymyxa_B,[98.28],[1.72],5,23501,24792,99.29,2798,1549,Paenibacillus polymyxa
+soil,Soil from side of house/ sandy,AIM068172,AFS094775,35.81046600,-78.83695200,US,,,[98.28],[0.0],,,,,,,
+soil,sub-alpine mixed aspen/evergreen forest; drainage next to trail,AIM075377,AFS070224,43.657333,-110.795806,US,,Rahnella aquatilis_B,[100.0],[9.56],,,,,,,
+plant_rhizosphere,"Site: Arenzville, IL Plot: 10 Range: 2 Row: 1",AIM031716,AFS078450,39.863410,-90.455310,US,381124.0,,[100.0],[103.56],1,31716,35833,99.935,2817,1529,Bacillus aryabhattai B8W22
+plant_rhizosphere,"Site: Arenzville, IL Plot: 10 Range: 2 Row: 1",AIM031716,AFS078450,39.863410,-90.455310,US,381124.0,,[100.0],[103.56],2,31716,35833,99.543,2795,1533,Klebsiella pneumoniae
+plant_rhizosphere,"Site: Arenzville, IL Plot: 10 Range: 2 Row: 1",AIM031716,AFS078450,39.863410,-90.455310,US,381124.0,,[100.0],[103.56],3,31716,35833,99.542,2785,1529,Klebsiella pneumoniae
+plant_rhizosphere,"Site: Arenzville, IL Plot: 10 Range: 2 Row: 1",AIM031716,AFS078450,39.863410,-90.455310,US,381124.0,,[100.0],[103.56],4,31716,35833,99.477,2780,1529,Klebsiella pneumoniae
+plant_rhizosphere,"Site: Arenzville, IL Plot: 10 Range: 2 Row: 1",AIM031716,AFS078450,39.863410,-90.455310,US,381124.0,,[100.0],[103.56],5,31716,35833,99.411,2774,1529,Klebsiella pneumoniae
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014788,AFS062473,35.896928,-78.880882,US,381124.0,,[98.28],[0.0],1,14788,26511,99.011,2719,1517,Acidovorax avenae
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014788,AFS062473,35.896928,-78.880882,US,381124.0,,[98.28],[0.0],3,14788,26511,98.94,2700,1510,Acidovorax avenae
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014788,AFS062473,35.896928,-78.880882,US,381124.0,,[98.28],[0.0],2,14788,26511,98.94,2700,1510,Acidovorax citrulli
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014788,AFS062473,35.896928,-78.880882,US,381124.0,,[98.28],[0.0],4,14788,26511,98.808,2689,1510,Acidovorax cattleyae
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014788,AFS062473,35.896928,-78.880882,US,381124.0,,[98.28],[0.0],5,14788,26511,98.935,2686,1502,Acidovorax wautersii
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab, NipponBare",AIM015177,AFS020895,35.896928,-78.880882,US,4530.0,,[100.0],[15.13],,,,,,,
+soil,Soil brought from Amy's yard. Samples are used for GALT experiment,AIM050515,AFS059172,35.81383000,-78.79055500,US,,,[98.28],[0.0],,,,,,,
+plant_rhizosphere,"Site:  Field3, Crop: Corn, Genotype: A, Row 6 Range 21",AIM010390,AFS018710,39.713410,-85.835144,US,381124.0,Herbaspirillum frisingense,[98.28],[0.0],1,10390,12112,98.689,2706,1525,Herbaspirillum seropedicae
+plant_rhizosphere,"Site:  Field3, Crop: Corn, Genotype: A, Row 6 Range 21",AIM010390,AFS018710,39.713410,-85.835144,US,381124.0,Herbaspirillum frisingense,[98.28],[0.0],2,10390,12112,99.659,2680,1466,Herbaspirillum frisingense
+plant_rhizosphere,"Site:  Field3, Crop: Corn, Genotype: A, Row 6 Range 21",AIM010390,AFS018710,39.713410,-85.835144,US,381124.0,Herbaspirillum frisingense,[98.28],[0.0],3,10390,12112,99.128,2680,1490,Herbaspirillum huttiense
+plant_rhizosphere,"Site:  Field3, Crop: Corn, Genotype: A, Row 6 Range 21",AIM010390,AFS018710,39.713410,-85.835144,US,381124.0,Herbaspirillum frisingense,[98.28],[0.0],4,10390,12112,99.657,2667,1458,Herbaspirillum frisingense
+plant_rhizosphere,"Site:  Field3, Crop: Corn, Genotype: A, Row 6 Range 21",AIM010390,AFS018710,39.713410,-85.835144,US,381124.0,Herbaspirillum frisingense,[98.28],[0.0],5,10390,12112,99.118,2651,1474,Herbaspirillum chlorophenolicum
+plant_corpus,"Variety: Refer to sheet, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM062525,AFS080385,2.165030,33.542300,UG,4120.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+plant_rhizosphere,Plot 39 Row 1,AIM037389,AFS055406,39.8286100,-90.5295600,US,381124.0,Herbaspirillum aquaticum,[98.28],[0.0],1,37389,43478,99.799,2736,1490,Herbaspirillum huttiense
+plant_rhizosphere,Plot 39 Row 1,AIM037389,AFS055406,39.8286100,-90.5295600,US,381124.0,Herbaspirillum aquaticum,[98.28],[0.0],2,37389,43478,98.885,2723,1525,Herbaspirillum seropedicae
+plant_rhizosphere,Plot 39 Row 1,AIM037389,AFS055406,39.8286100,-90.5295600,US,381124.0,Herbaspirillum aquaticum,[98.28],[0.0],3,37389,43478,99.462,2699,1487,Herbaspirillum huttiense subsp. putei IAM 15032
+plant_rhizosphere,Plot 39 Row 1,AIM037389,AFS055406,39.8286100,-90.5295600,US,381124.0,Herbaspirillum aquaticum,[98.28],[0.0],4,37389,43478,99.931,2684,1455,Herbaspirillum aquaticum
+plant_rhizosphere,Plot 39 Row 1,AIM037389,AFS055406,39.8286100,-90.5295600,US,381124.0,Herbaspirillum aquaticum,[98.28],[0.0],5,37389,43478,99.259,2682,1485,Herbaspirillum rubrisubalbicans
+soil,"Front yard, garden bed. Dug down about 3 inches. Recently mulched",AIM088569,AFS649146,35.810458,-78.837007,US,,,[98.28],[0.0],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM016229,AFS060607,35.896928,-78.880882,US,4498.0,Azospirillum oryzae,[100.0],[1.72],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015256,AFS035789,35.896928,-78.880882,US,4530.0,Allorhizobium sp900465605,[100.0],[0.0],,,,,,,
+plant_rhizosphere,"Site: Wilton, IA Randomization: 054 Plot #: 02",AIM094299,AFS554437,41.6069733,-91.0347361,US,3847.0,,[100.0],[174.56],,,,,,,
+plant_rhizosphere,"Field 2 B1.1, Crop: Corn",AIM018100,AFS096510,39.251786,-88.406489,US,381124.0,Paraburkholderia_B ferrariae,[98.28],[3.45],1,18100,14219,99.934,2808,1522,Paraburkholderia ferrariae
+plant_rhizosphere,"Field 2 B1.1, Crop: Corn",AIM018100,AFS096510,39.251786,-88.406489,US,381124.0,Paraburkholderia_B ferrariae,[98.28],[3.45],2,18100,14219,97.717,2636,1533,Paraburkholderia dokdonella
+plant_rhizosphere,"Field 2 B1.1, Crop: Corn",AIM018100,AFS096510,39.251786,-88.406489,US,381124.0,Paraburkholderia_B ferrariae,[98.28],[3.45],3,18100,14219,97.439,2597,1523,Paraburkholderia silvatlantica SRMrh-20
+plant_rhizosphere,"Field 2 B1.1, Crop: Corn",AIM018100,AFS096510,39.251786,-88.406489,US,381124.0,Paraburkholderia_B ferrariae,[98.28],[3.45],4,18100,14219,97.177,2571,1523,Paraburkholderia sacchari
+plant_rhizosphere,"Field 2 B1.1, Crop: Corn",AIM018100,AFS096510,39.251786,-88.406489,US,381124.0,Paraburkholderia_B ferrariae,[98.28],[3.45],5,18100,14219,97.453,2542,1492,Paraburkholderia caffeinitolerans
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012861,AFS027171,35.667223,-78.493503,US,3635.0,,[99.66],[59.96],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012831,AFS021103,35.667223,-78.493503,US,3635.0,,[100.0],[101.18],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012858,AFS018350,35.667223,-78.493503,US,3635.0,,[100.0],[0.0],,,,,,,
+unknown-missing,Pond Scum,AIM042764,AFS017569,35.809770,-78.975340,US,32644.0,,[98.28],[86.44],,,,,,,
+plant_rhizosphere,from the same plant as AES 2249 and 2250,AIM057116,AFS070695,41.744490,-93.284100,US,3847.0,Paenibacillus sp000758525,[98.28],[1.72],,,,,,,
+plant_rhizosphere,Nematode field (field B8A-B) corn core,AIM037715,AFS064415,35.669711,-78.491692,US,381124.0,,[100.0],[61.5],1,37715,43804,98.229,1875,1073,Paenibacillus catalpae
+plant_rhizosphere,Nematode field (field B8A-B) corn core,AIM037715,AFS064415,35.669711,-78.491692,US,381124.0,,[100.0],[61.5],2,37715,43804,98.669,1864,1052,Paenibacillus glycanilyticus
+plant_rhizosphere,Nematode field (field B8A-B) corn core,AIM037715,AFS064415,35.669711,-78.491692,US,381124.0,,[100.0],[61.5],3,37715,43804,98.555,1842,1038,Paenibacillus glycanilyticus
+plant_rhizosphere,Nematode field (field B8A-B) corn core,AIM037715,AFS064415,35.669711,-78.491692,US,381124.0,,[100.0],[61.5],4,37715,43804,97.207,1808,1074,Paenibacillus lupini
+plant_rhizosphere,Nematode field (field B8A-B) corn core,AIM037715,AFS064415,35.669711,-78.491692,US,381124.0,,[100.0],[61.5],5,37715,43804,96.651,1779,1075,Paenibacillus endophyticus
+plant_corpus,"Variety: Nyambale, Weevil Damage: , Flesh Color: cream, Skin Color: purple red",AIM056214,AFS011582,2.412430,31.202990,UG,4120.0,,[98.12],[119.63],,,,,,,
+soil,Soil under Spirea shrub/Blue Tail Lizard,AIM034527,AFS088883,35.2333333,-106.6644444,US,,Paenibacillus polymyxa_B,[98.28],[1.72],,,,,,,
+soil,no description provided,AIM072817,AFS060614,-3.179910,37.239080,TZ,,Bacillus toyonensis,[98.28],[6.19],,,,,,,
+soil,Sygenta fields: Soil from Corn - 28 Season Long Stress,AIM062812,AFS061520,40.331852,-104.722534,US,,,[98.28],[138.51],,,,,,,
+soil,Soil from side of house/ sandy,AIM068112,AFS013501,35.81046600,-78.83695200,US,,,[100.0],[0.0],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM016009,AFS068283,35.896928,-78.880882,US,4530.0,Allorhizobium sp900473245,[100.0],[0.0],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012842,AFS089379,35.667223,-78.493503,US,3635.0,,[100.0],[101.88],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015099,AFS019335,35.896928,-78.880882,US,4564.0,Azospirillum oryzae,[96.55],[1.72],,,,,,,
+plant_corpus,"Variety: Ekampala, Weevil Damage: Light, Flesh Color: cream, Skin Color: red; Weevil in potato",AIM062554,AFS048949,1.712660,33.697620,UG,4120.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+soil,Soil from side of house/ sandy,AIM068090,AFS032174,35.81046600,-78.83695200,US,,,[100.0],[0.0],,,,,,,
+plant_corpus,"Variety: Akuleakule, Weevil Damage: , Flesh Color: cream, Skin Color: pink",AIM062015,AFS067432,1.970370,32.686550,UG,4120.0,Klebsiella variicola,[97.07],[0.0],,,,,,,
+plant_rhizosphere,same plant as AES 2340,AIM094557,AFS266845,43.067710,-92.590110,US,4564.0,,[100.0],[93.04],,,,,,,
+soil,Soil from side of house/ sandy,AIM068108,AFS027544,35.81046600,-78.83695200,US,,,[98.28],[0.0],,,,,,,
+unknown-missing,18951 Unidentified White mushroom with vertical lamellae,AIM057500,AFS093863,42.82896200,-74.87654000,US,32644.0,Rahnella aquatilis_B,[100.0],[1.88],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM016003,AFS020062,35.896928,-78.880882,US,4530.0,Allorhizobium sp900473245,[100.0],[0.0],,,,,,,
+plant_corpus,"Variety: Nyambale, Weevil Damage: , Flesh Color: cream, Skin Color: purple red",AIM056224,AFS005356,2.412430,31.202990,UG,4120.0,Klebsiella variicola,[97.07],[8.78],,,,,,,
+soil,"Site: Wonderful Farms, CA",AIM039294,AFS011309,35.514032,-119.681205,US,,Paenibacillus polymyxa_B,[98.28],[4.18],,,,,,,
+soil,Soil from side of house/ sandy,AIM068139,AFS025615,35.81046600,-78.83695200,US,,,[100.0],[0.0],,,,,,,
+plant_corpus,"Variety: Osukut, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM063160,AFS055417,1.478010,33.864400,UG,4120.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+soil,"Soil with grass. landowner is shipper-access period is irrelevant; due to system, edited original collection date to fall within access period, ate was changed to allow data entry.",AIM075383,AFS098063,43.64514200,-70.24215600,US,,,[100.0],[118.1],,,,,,,
+soil,Soil from side of house/ sandy,AIM068128,AFS056061,35.81046600,-78.83695200,US,,,[98.28],[0.0],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab, NipponBare",AIM015203,AFS033821,35.896928,-78.880882,US,4530.0,,[100.0],[0.0],,,,,,,
+animal_proximal_gut,"Swab location: Ileum. NCSU Nutrition Barn, Pig-58",AIM090776,AFS498992,35.872703,-76.658864,US,9825.0,Paenibacillus polymyxa_B,[98.28],[1.72],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab, NipponBare",AIM015218,AFS035826,35.896928,-78.880882,US,4530.0,,[100.0],[57.2],,,,,,,
+soil,Soil from side of house/ sandy,AIM068146,AFS012230,35.81046600,-78.83695200,US,,,[100.0],[0.0],,,,,,,
+plant_corpus,"Variety: NASPOT1, Weevil Damage: , Flesh Color: yellow, Skin Color: Purple Red",AIM057281,AFS047468,0.703070,32.510720,UG,4120.0,,[100.0],[196.36],,,,,,,
+,,AIM017947,,,,,,,"[99.66, 99.66]","[0.0, 0.16]",,,,,,,
+soil,"Site: Montauk New York, soil under bottom of stone fence",AIM017947,AFS008703,41.031940,-71.949170,US,,,"[99.66, 99.66]","[0.0, 0.16]",,,,,,,
+soil,"Richardson Bay mud sample at low tide, north of Dietz Pier",AIM041581,AFS055694,37.8847220,-122.4994440,US,,Paenibacillus jamilae,[98.28],[1.72],,,,,,,
+plant_corpus,"Variety: White Olam, Weevil Damage: , Flesh Color: cream, Skin Color: Purple red",AIM056270,AFS027052,2.935890,30.898000,UG,4120.0,Klebsiella variicola,[97.93],[3.61],,,,,,,
+plant_corpus,"Variety: Osukut, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM063164,AFS071705,1.478010,33.864400,UG,4120.0,Klebsiella variicola,[97.07],[0.0],,,,,,,
+plant_rhizosphere,same plant as AES 2167 and 2168,AIM094186,AFS777397,41.6849700,-94.1439700,US,4564.0,(Species unknown) biovar Thuringiensis; B. Thuringiensis,[98.28],[5.04],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM016182,AFS008659,35.896928,-78.880882,US,4498.0,Allorhizobium sp900473245,[100.0],[0.0],,,,,,,
+plant_corpus,"Variety: Nyambaro, Weevil Damage: , Flesh Color: cream, Skin Color: Purple red",AIM051278,AFS048930,2.483200,31.168300,UG,4120.0,,[100.0],[81.99],,,,,,,
+soil,Soil from side of house/ sandy,AIM068175,AFS007509,35.81046600,-78.83695200,US,,,[100.0],[0.0],,,,,,,
+plant_corpus,"Variety: Osuwat, Weevil Damage: None, Flesh Color: orange, Skin Color: cream; intercropped with maize",AIM062498,AFS060858,1.408850,33.919210,UG,4120.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+plant_rhizosphere,"Site: Arenzville, IL Plot: 15 Range: 3 Row: 3",AIM095245,AFS278083,39.881500,-90.424060,US,381124.0,,[100.0],[97.23],1,95245,112738,99.869,2809,1527,Pseudomonas frederiksbergensis
+plant_rhizosphere,"Site: Arenzville, IL Plot: 15 Range: 3 Row: 3",AIM095245,AFS278083,39.881500,-90.424060,US,381124.0,,[100.0],[97.23],2,95245,112738,99.545,2804,1539,Pseudomonas silesiensis
+plant_rhizosphere,"Site: Arenzville, IL Plot: 15 Range: 3 Row: 3",AIM095245,AFS278083,39.881500,-90.424060,US,381124.0,,[100.0],[97.23],3,95245,112738,99.609,2800,1533,Klebsiella pneumoniae
+plant_rhizosphere,"Site: Arenzville, IL Plot: 15 Range: 3 Row: 3",AIM095245,AFS278083,39.881500,-90.424060,US,381124.0,,[100.0],[97.23],4,95245,112738,99.608,2791,1529,Klebsiella pneumoniae
+plant_rhizosphere,"Site: Arenzville, IL Plot: 15 Range: 3 Row: 3",AIM095245,AFS278083,39.881500,-90.424060,US,381124.0,,[100.0],[97.23],5,95245,112738,99.542,2785,1529,Klebsiella pneumoniae
+plant_corpus,"Variety: Isipu, Weevil Damage: Light, Flesh Color: cream, Skin Color: cream; Weevil in potato; Army worm damage on cultivated maize in field",AIM062555,AFS059398,1.550370,33.991580,UG,4120.0,Klebsiella variicola,[95.89],[2.9],,,,,,,
+plant_corpus,"Variety: NASPOT1, Weevil Damage: , Flesh Color: yellow, Skin Color: Purple Red",AIM057266,AFS032402,0.703070,32.510720,UG,4120.0,,[100.0],[116.9],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab, Accent PRM Pink F1",AIM009653,AFS051125,35.896928,-78.880882,US,47299.0,Azospirillum oryzae,[100.0],[3.45],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012866,AFS041080,35.667223,-78.493503,US,3635.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012869,AFS020668,35.667223,-78.493503,US,3635.0,,[100.0],[78.95],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012804,AFS065605,35.667223,-78.493503,US,3635.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+animal_corpus,Green Tree Frog (Hyla cinerea),AIM044878,AFS039315,35.8099190,-78.9745700,US,8422.0,,[97.93],[0.57],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab, NipponBare",AIM015200,AFS053354,35.896928,-78.880882,US,4530.0,Allorhizobium sp900473245,[100.0],[0.0],,,,,,,
+plant_corpus,"Variety: Osukut, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM063162,AFS032998,1.478010,33.864400,UG,4120.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+soil,no description provided,AIM069614,AFS075875,-7.290650,39.140289,TZ,,,[100.0],[129.39],,,,,,,
+soil,Location: Soroti,AIM091136,AFS662374,1.781060,33.631540,UG,,Paenibacillus jamilae,[98.28],[1.72],,,,,,,
+plant_corpus,"Variety: Socadido, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM063157,AFS052398,1.478010,33.864400,UG,4120.0,Klebsiella variicola,[97.07],[0.0],,,,,,,
+plant_corpus,"Variety: Osuwat, Weevil Damage: None, Flesh Color: orange, Skin Color: cream; intercropped with maize",AIM062519,AFS009868,1.408850,33.919210,UG,4120.0,,[97.07],[23.59],,,,,,,
+plant_rhizosphere,"Site: Glidden, Crop: Soybean, Variety: 1607 26,  Rep: 1, same plant as AES242 and AES243",AIM091821,AFS418482,42.129952,-94.720460,US,3847.0,,[100.0],[0.0],,,,,,,
+unknown-missing,Pond Scum,AIM042722,AFS016451,35.809770,-78.975340,US,32644.0,,[97.41],[91.24],,,,,,,
+plant_corpus,"Variety: Unknown, Weevil Damage: , Flesh Color: cream, Skin Color: cream",AIM056262,AFS025620,3.395830,31.787220,UG,4120.0,,[100.0],[96.21],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab, Red Spring Wheat",AIM015442,AFS031656,35.896928,-78.880882,US,4564.0,Azospirillum oryzae,[100.0],[1.72],,,,,,,
+plant_corpus,"Variety: Osiki, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM062508,AFS028828,1.825880,33.501420,UG,4120.0,Klebsiella variicola,[97.07],[3.45],,,,,,,
+plant_corpus,"Variety: Unknown, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM062549,AFS001052,1.987300,33.701450,UG,4120.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+plant_corpus,"Starch Variety: Conventional Beauregard. landowner is shipper-access period is irrelevant; due to system, edited original collection date to fall within access period, ate was changed to allow data entry.",AIM039017,AFS091758,35.11959000,-78.24434000,US,4120.0,,[95.69],[55.32],,,,,,,
+plant_rhizosphere,"Site: Arenzville, IL Plot: 1 Range: 2 Row: 10",AIM094983,AFS715334,39.863690,-90.455340,US,381124.0,,[100.0],[70.88],1,94983,113215,99.154,2771,1537,Aeromonas hydrophila
+plant_rhizosphere,"Site: Arenzville, IL Plot: 1 Range: 2 Row: 10",AIM094983,AFS715334,39.863690,-90.455340,US,381124.0,,[100.0],[70.88],2,94983,113215,99.154,2767,1537,Aeromonas hydrophila
+plant_rhizosphere,"Site: Arenzville, IL Plot: 1 Range: 2 Row: 10",AIM094983,AFS715334,39.863690,-90.455340,US,381124.0,,[100.0],[70.88],3,94983,113215,98.96,2750,1538,Aeromonas hydrophila
+plant_rhizosphere,"Site: Arenzville, IL Plot: 1 Range: 2 Row: 10",AIM094983,AFS715334,39.863690,-90.455340,US,381124.0,,[100.0],[70.88],4,94983,113215,99.401,2726,1503,Aeromonas taiwanensis
+plant_rhizosphere,"Site: Arenzville, IL Plot: 1 Range: 2 Row: 10",AIM094983,AFS715334,39.863690,-90.455340,US,381124.0,,[100.0],[70.88],5,94983,113215,99.203,2717,1506,Aeromonas enteropelogenes
+plant_rhizosphere,Plot 39 Row 4,AIM037353,AFS061198,39.8285400,-90.5295200,US,381124.0,,[98.28],[0.0],1,37353,43442,99.799,2736,1490,Herbaspirillum huttiense
+plant_rhizosphere,Plot 39 Row 4,AIM037353,AFS061198,39.8285400,-90.5295200,US,381124.0,,[98.28],[0.0],2,37353,43442,98.754,2712,1525,Herbaspirillum seropedicae
+plant_rhizosphere,Plot 39 Row 4,AIM037353,AFS061198,39.8285400,-90.5295200,US,381124.0,,[98.28],[0.0],3,37353,43442,99.462,2699,1487,Herbaspirillum huttiense subsp. putei IAM 15032
+plant_rhizosphere,Plot 39 Row 4,AIM037353,AFS061198,39.8285400,-90.5295200,US,381124.0,,[98.28],[0.0],4,37353,43442,99.794,2676,1458,Herbaspirillum huttiense
+plant_rhizosphere,Plot 39 Row 4,AIM037353,AFS061198,39.8285400,-90.5295200,US,381124.0,,[98.28],[0.0],5,37353,43442,99.794,2673,1455,Herbaspirillum aquaticum
+soil,sub-alpine mixed aspen/evergreen forest; drainage next to trail,AIM075371,AFS056310,43.657333,-110.795806,US,,Rahnella aquatilis_B,[100.0],[1.72],,,,,,,
+plant_rhizosphere,"Site: Kahoka, Crop: Soy, Genotype 1609 12, replicate 170, Block 1609 170, subplot 12",AIM003790,AFS028494,40.591715,-91.780488,US,3847.0,Paenibacillus polymyxa_B,[98.28],[1.72],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015407,AFS006057,35.896928,-78.880882,US,4530.0,Azospirillum oryzae,[98.28],[3.45],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012793,AFS082925,35.667223,-78.493503,US,3635.0,Enterobacter cloacae_M,[99.66],[0.0],,,,,,,
+plant_rhizosphere,Border Row Sample B 2 meters from A,AIM063976,AFS072019,35.6687580,-78.4882280,US,381124.0,,[98.28],[55.35],1,63976,79001,99.806,2835,1544,Bacillus toyonensis
+plant_rhizosphere,Border Row Sample B 2 meters from A,AIM063976,AFS072019,35.6687580,-78.4882280,US,381124.0,,[98.28],[55.35],2,63976,79001,99.61,2811,1540,Bacillus wiedmannii
+plant_rhizosphere,Border Row Sample B 2 meters from A,AIM063976,AFS072019,35.6687580,-78.4882280,US,381124.0,,[98.28],[55.35],3,63976,79001,99.608,2795,1531,Bacillus mycoides
+plant_rhizosphere,Border Row Sample B 2 meters from A,AIM063976,AFS072019,35.6687580,-78.4882280,US,381124.0,,[98.28],[55.35],4,63976,79001,99.479,2791,1535,Bacillus cereus
+plant_rhizosphere,Border Row Sample B 2 meters from A,AIM063976,AFS072019,35.6687580,-78.4882280,US,381124.0,,[98.28],[55.35],5,63976,79001,99.867,2776,1509,Bacillus mobilis
+soil,Soil from side of house/ sandy,AIM068151,AFS008193,35.81046600,-78.83695200,US,,,[98.28],[1.72],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015259,AFS019058,35.896928,-78.880882,US,4530.0,Allorhizobium sp900466005,[100.0],[0.0],,,,,,,
+plant_rhizosphere,"Site: Alexis, IL,Randomization: 100 Plot: 1, Same as 8025-40 from previous years",AIM092806,AFS500555,41.009150,-90.646670,US,381124.0,,[93.81],[5.6],1,92806,111376,98.127,2695,1548,Paenibacillus polymyxa
+plant_rhizosphere,"Site: Alexis, IL,Randomization: 100 Plot: 1, Same as 8025-40 from previous years",AIM092806,AFS500555,41.009150,-90.646670,US,381124.0,,[93.81],[5.6],3,92806,111376,98.183,2691,1541,Paenibacillus peoriae KCTC 3763
+plant_rhizosphere,"Site: Alexis, IL,Randomization: 100 Plot: 1, Same as 8025-40 from previous years",AIM092806,AFS500555,41.009150,-90.646670,US,381124.0,,[93.81],[5.6],2,92806,111376,98.123,2691,1545,Paenibacillus polymyxa
+plant_rhizosphere,"Site: Alexis, IL,Randomization: 100 Plot: 1, Same as 8025-40 from previous years",AIM092806,AFS500555,41.009150,-90.646670,US,381124.0,,[93.81],[5.6],5,92806,111376,98.123,2691,1545,Paenibacillus polymyxa
+plant_rhizosphere,"Site: Alexis, IL,Randomization: 100 Plot: 1, Same as 8025-40 from previous years",AIM092806,AFS500555,41.009150,-90.646670,US,381124.0,,[93.81],[5.6],4,92806,111376,98.123,2691,1545,Paenibacillus polymyxa
+soil,"Site: Wonderful Farm, CA",AIM042655,AFS054073,35.557457,-119.772279,US,,,[16.8],[2.95],,,,,,,
+plant_rhizosphere,"Site: Meredosia, IL Plot: 30 Range: 43 Row: 3",AIM031857,AFS058523,39.827160,-90.532840,US,381124.0,Bacillus_C megaterium,[98.28],[7.48],1,31857,35974,99.935,2817,1529,Bacillus aryabhattai B8W22
+plant_rhizosphere,"Site: Meredosia, IL Plot: 30 Range: 43 Row: 3",AIM031857,AFS058523,39.827160,-90.532840,US,381124.0,Bacillus_C megaterium,[98.28],[7.48],2,31857,35974,99.799,2747,1495,Bacillus megaterium
+plant_rhizosphere,"Site: Meredosia, IL Plot: 30 Range: 43 Row: 3",AIM031857,AFS058523,39.827160,-90.532840,US,381124.0,Bacillus_C megaterium,[98.28],[7.48],3,31857,35974,98.823,2723,1529,Bacillus flexus
+plant_rhizosphere,"Site: Meredosia, IL Plot: 30 Range: 43 Row: 3",AIM031857,AFS058523,39.827160,-90.532840,US,381124.0,Bacillus_C megaterium,[98.28],[7.48],4,31857,35974,99.865,2717,1477,Bacillus megaterium NBRC 15308 = ATCC 14581
+plant_rhizosphere,"Site: Meredosia, IL Plot: 30 Range: 43 Row: 3",AIM031857,AFS058523,39.827160,-90.532840,US,381124.0,Bacillus_C megaterium,[98.28],[7.48],5,31857,35974,99.596,2712,1486,Bacillus megaterium
+soil,"Side garden bed, dug down about 3 inches. Recently mulched",AIM088605,AFS478786,35.810458,-78.837007,US,,,[100.0],[33.45],,,,,,,
+plant_rhizosphere,"Variety: Conventional Covington. landowner is shipper-access period is irrelevant; due to system, edited original collection date to fall within access period, ate was changed to allow data entry.",AIM037086,AFS094119,35.113054,-78.2401480,US,4120.0,Paenibacillus sp000758525,[98.28],[3.45],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab, NipponBare",AIM009635,AFS089453,35.896928,-78.880882,US,4530.0,Azospirillum oryzae,[100.0],[3.45],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015263,AFS004856,35.896928,-78.880882,US,4530.0,Allorhizobium sp900473245,[100.0],[1.72],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab, NipponBare",AIM015235,AFS086647,35.896928,-78.880882,US,4530.0,Allorhizobium sp900473245,[100.0],[0.0],,,,,,,
+soil,Location: Amuria,AIM062521,AFS090360,2.036730,33.628470,UG,,Klebsiella variicola,[97.07],[6.9],,,,,,,
+plant_corpus,"Variety: Unknown, Weevil Damage: none, Flesh Color: cream, Skin: red",AIM047977,AFS075580,3.114190,30.967390,UG,4120.0,Klebsiella variicola,[97.07],[0.0],,,,,,,
+plant_rhizosphere,"Site: Arenzville, IL Plot: 15 Range: 3 Row: 3",AIM095250,AFS595475,39.881500,-90.424060,US,381124.0,,[97.93],[38.59],1,95250,112749,99.609,2800,1533,Klebsiella pneumoniae
+plant_rhizosphere,"Site: Arenzville, IL Plot: 15 Range: 3 Row: 3",AIM095250,AFS595475,39.881500,-90.424060,US,381124.0,,[97.93],[38.59],2,95250,112749,99.608,2791,1529,Klebsiella pneumoniae
+plant_rhizosphere,"Site: Arenzville, IL Plot: 15 Range: 3 Row: 3",AIM095250,AFS595475,39.881500,-90.424060,US,381124.0,,[97.93],[38.59],3,95250,112749,99.542,2785,1529,Klebsiella pneumoniae
+plant_rhizosphere,"Site: Arenzville, IL Plot: 15 Range: 3 Row: 3",AIM095250,AFS595475,39.881500,-90.424060,US,381124.0,,[97.93],[38.59],4,95250,112749,99.477,2780,1529,Klebsiella pneumoniae
+plant_rhizosphere,"Site: Arenzville, IL Plot: 15 Range: 3 Row: 3",AIM095250,AFS595475,39.881500,-90.424060,US,381124.0,,[97.93],[38.59],5,95250,112749,99.477,2780,1529,Klebsiella pneumoniae
+plant_corpus,"Variety: Araka white, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM062560,AFS042079,2.119350,33.653440,UG,4120.0,,[100.0],[117.43],,,,,,,
+plant_rhizosphere,"Variety: Organic Covington. landowner is shipper-access period is irrelevant; due to system, edited original collection date to fall within access period, ate was changed to allow data entry.",AIM036728,AFS038271,35.10779570,-78.24043700,US,4120.0,Klebsiella variicola,[97.07],[4.47],,,,,,,
+plant_corpus,"Variety: Unknown, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM062573,AFS082106,1.987300,33.701450,UG,4120.0,,[100.0],[91.58],,,,,,,
+soil,no description provided,AIM067987,AFS036775,-6.780992,38.972746,TZ,,Paraburkholderia_B kururiensis,[98.28],[0.0],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012877,AFS071201,35.667223,-78.493503,US,3635.0,Bacillus_C aryabhattai,[98.28],[1.72],,,,,,,
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006482,AFS050822,41.630004,-90.737647,US,381124.0,,[99.66],[0.0],1,6482,5670,99.345,2765,1527,Leclercia adecarboxylata
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006482,AFS050822,41.630004,-90.737647,US,381124.0,,[99.66],[0.0],2,6482,5670,99.603,2761,1513,Enterobacter ludwigii
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006482,AFS050822,41.630004,-90.737647,US,381124.0,,[99.66],[0.0],3,6482,5670,98.896,2750,1540,Klebsiella aerogenes KCTC 2190
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006482,AFS050822,41.630004,-90.737647,US,381124.0,,[99.66],[0.0],4,6482,5670,98.639,2730,1543,Enterobacter cloacae
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006482,AFS050822,41.630004,-90.737647,US,381124.0,,[99.66],[0.0],5,6482,5670,98.691,2713,1528,Enterobacter cloacae
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015252,AFS049288,35.896928,-78.880882,US,4530.0,Allorhizobium sp900473245,[100.0],[0.0],,,,,,,
+plant_corpus,"Variety: Ekampala, Weevil Damage: Light, Flesh Color: cream, Skin Color: red; Weevil in potato",AIM062550,AFS042113,1.712660,33.697620,UG,4120.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+plant_corpus,"Variety: Unknown, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM062572,AFS074258,1.987300,33.701450,UG,4120.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015275,AFS014015,35.896928,-78.880882,US,4530.0,Kosakonia oryzae,[100.0],[3.61],,,,,,,
+soil,Location: Amuria,AIM072441,AFS066014,2.165030,33.542300,UG,,Paenibacillus polymyxa_C,[98.28],[2.59],,,,,,,
+unknown-missing,Muck/Pond Scum from Biopond,AIM042777,AFS009274,35.809770,-78.975340,US,32644.0,,[100.0],[117.96],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012850,AFS047976,35.667223,-78.493503,US,3635.0,,[98.28],[96.82],,,,,,,
+plant_corpus,"Variety: Araka white, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM061089,AFS057004,2.201050,33.605940,UG,4120.0,,[89.04],[62.93],,,,,,,
+plant_corpus,"Variety: Unknown, Weevil Damage: none, Flesh Color: cream, Skin: red",AIM047980,AFS073341,3.114190,30.967390,UG,4120.0,Klebsiella variicola,[97.07],[0.0],,,,,,,
+plant_corpus,"Variety: Unknown, Weevil Damage: none, Flesh Color: cream, Skin: cream",AIM061981,AFS098186,1.976370,32.495860,UG,4120.0,,[97.07],[13.79],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012809,AFS030788,35.667223,-78.493503,US,3635.0,,[98.79],[15.52],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014527,AFS009628,35.896928,-78.880882,US,4530.0,Allorhizobium sp900473245,[100.0],[0.0],,,,,,,
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006522,AFS085962,41.630004,-90.737647,US,381124.0,,[99.66],[0.0],1,6522,5708,99.411,2771,1527,Leclercia adecarboxylata
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006522,AFS085962,41.630004,-90.737647,US,381124.0,,[99.66],[0.0],2,6522,5708,99.67,2767,1513,Enterobacter ludwigii
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006522,AFS085962,41.630004,-90.737647,US,381124.0,,[99.66],[0.0],3,6522,5708,98.896,2750,1540,Klebsiella aerogenes KCTC 2190
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006522,AFS085962,41.630004,-90.737647,US,381124.0,,[99.66],[0.0],4,6522,5708,98.704,2736,1543,Enterobacter cloacae
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006522,AFS085962,41.630004,-90.737647,US,381124.0,,[99.66],[0.0],5,6522,5708,98.757,2719,1528,Enterobacter cloacae
+plant_corpus,"Starch Variety: Conventional Beauregard. landowner is shipper-access period is irrelevant; due to system, edited original collection date to fall within access period, ate was changed to allow data entry.",AIM039025,AFS075237,35.11959000,-78.24434000,US,4120.0,Azospirillum sp003116065,[99.14],[1.72],,,,,,,
+plant_corpus,"Variety: Osiki, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM062509,AFS058178,1.825880,33.501420,UG,4120.0,,[100.0],[89.0],,,,,,,
+plant_corpus,"Variety: Refer to sheet, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM062524,AFS014187,2.165030,33.542300,UG,4120.0,Klebsiella variicola,[97.07],[0.0],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM016161,AFS002781,35.896928,-78.880882,US,4498.0,Allorhizobium sp900473245,[100.0],[0.0],,,,,,,
+plant_rhizosphere,"Site: Montauk New York, roots by bramble",AIM012600,AFS068322,41.031940,-71.949170,US,47299.0,,[97.93],[0.0],,,,,,,
+plant_rhizosphere,"Site: Montauk New York, roots by bramble",AIM012354,AFS007243,41.031940,-71.949170,US,47299.0,,[99.66],[0.0],,,,,,,
+plant_corpus,"Variety: Unknown, Weevil Damage: none, Flesh Color: cream, Skin: red",AIM047967,AFS075576,3.114190,30.967390,UG,4120.0,Klebsiella variicola,[97.93],[0.31],,,,,,,
+plant_corpus,"Variety: Nyambaro, Weevil Damage: , Flesh Color: cream, Skin Color: Purple red",AIM057289,AFS094498,2.483200,31.168300,UG,4120.0,,[97.93],[11.44],,,,,,,
+animal_corpus,Juvenile Fowlers Toad (Anaxyrus fowleri),AIM044829,AFS071883,35.8099190,-78.9745700,US,192200.0,,[97.93],[0.0],,,,,,,
+soil,"Soil under bird feeder that has been there for 10 years - no vegetation. Property was cotton and cowpeas prior to 1940, returned to wild pines and some hardwoods, then the property was cleared in 1977 to build several houses.",AIM034811,AFS000761,33.6007667,-84.6533222,US,,,[98.28],[3.45],,,,,,,
+soil,Location: Amuria,AIM072719,AFS055657,2.036730,33.628470,UG,,,[97.96],[12.3],,,,,,,
+soil,no description provided,AIM071014,AFS010112,-7.702234,38.956952,TZ,,Paenibacillus jamilae,[98.28],[1.72],,,,,,,
+plant_corpus,"Variety: Acilcil, Weevil Damage: none, Flesh Color: yellow, Skin Color: cream",AIM061940,AFS002227,1.970240,32.686590,UG,4120.0,,[100.0],[97.07],,,,,,,
+soil,"Front yard, garden bed. Dug down about 3 inches. Recently mulched",AIM088897,AFS461231,35.810458,-78.837007,US,,,[55.49],[2.41],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015251,AFS066724,35.896928,-78.880882,US,4530.0,Allorhizobium sp900473245,[100.0],[0.0],,,,,,,
+soil,outback gate grasss,AIM073566,AFS011192,46.585646,-112.020897,US,,Paenibacillus polymyxa_B,[100.0],[5.77],,,,,,,
+plant_rhizosphere,"Plot 11 Row 1, Dry",AIM093324,AFS477451,39.8659900,-90.4559600,US,381124.0,Klebsiella variicola,[97.93],[0.0],1,93324,115105,99.346,2769,1529,Klebsiella pneumoniae
+plant_rhizosphere,"Plot 11 Row 1, Dry",AIM093324,AFS477451,39.8659900,-90.4559600,US,381124.0,Klebsiella variicola,[97.93],[0.0],2,93324,115105,99.087,2756,1533,Klebsiella pneumoniae
+plant_rhizosphere,"Plot 11 Row 1, Dry",AIM093324,AFS477451,39.8659900,-90.4559600,US,381124.0,Klebsiella variicola,[97.93],[0.0],3,93324,115105,98.896,2750,1540,Klebsiella aerogenes KCTC 2190
+plant_rhizosphere,"Plot 11 Row 1, Dry",AIM093324,AFS477451,39.8659900,-90.4559600,US,381124.0,Klebsiella variicola,[97.93],[0.0],4,93324,115105,99.084,2747,1529,Klebsiella pneumoniae
+plant_rhizosphere,"Plot 11 Row 1, Dry",AIM093324,AFS477451,39.8659900,-90.4559600,US,381124.0,Klebsiella variicola,[97.93],[0.0],5,93324,115105,99.019,2741,1529,Klebsiella pneumoniae
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015406,AFS032148,35.896928,-78.880882,US,4530.0,Azospirillum oryzae,[100.0],[3.45],,,,,,,
+plant_rhizosphere,"Site: Wilton, IA Randomization: 054 Plot #: 02",AIM094434,AFS695424,41.6069733,-91.0347361,US,3847.0,,[100.0],[103.76],,,,,,,
+plant_rhizosphere,"Site: Kahoka, Crop: Soy, Genotype 1609 12, replicate 170, Block 1609 170, subplot 12",AIM003847,AFS096078,40.591715,-91.780488,US,3847.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+plant_rhizosphere,Wild garlic/onion-core,AIM037770,AFS003477,35.809919,-78.974571,US,4679.0,,[100.0],[65.86],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab, Red Spring Wheat",AIM015430,AFS085154,35.896928,-78.880882,US,4564.0,Azospirillum oryzae,[100.0],[3.45],,,,,,,
+plant_corpus,"Variety: Unknown, Weevil Damage: None, Flesh Color: orange, Skin Color: red; intercropped with maize",AIM062490,AFS093030,1.408850,33.919210,UG,4120.0,Klebsiella variicola,[97.07],[0.0],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015753,AFS013628,35.896928,-78.880882,US,4498.0,,[100.0],[41.77],,,,,,,
+plant_corpus,"Variety: Unknown, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM062576,AFS008033,1.987300,33.701450,UG,4120.0,,[97.07],[15.52],,,,,,,
+soil,no description provided,AIM070980,AFS065939,-7.702234,38.956952,TZ,,Paenibacillus kribbensis,[98.28],[6.54],,,,,,,
+plant_rhizosphere,"Site: Arenzville, IL Plot: 10 Range: 2 Row: 1",AIM031722,AFS074597,39.863410,-90.455310,US,381124.0,,[100.0],[108.23],1,31722,35839,99.804,2806,1529,Bacillus aryabhattai B8W22
+plant_rhizosphere,"Site: Arenzville, IL Plot: 10 Range: 2 Row: 1",AIM031722,AFS074597,39.863410,-90.455310,US,381124.0,,[100.0],[108.23],2,31722,35839,99.543,2795,1533,Klebsiella pneumoniae
+plant_rhizosphere,"Site: Arenzville, IL Plot: 10 Range: 2 Row: 1",AIM031722,AFS074597,39.863410,-90.455310,US,381124.0,,[100.0],[108.23],3,31722,35839,99.542,2785,1529,Klebsiella pneumoniae
+plant_rhizosphere,"Site: Arenzville, IL Plot: 10 Range: 2 Row: 1",AIM031722,AFS074597,39.863410,-90.455310,US,381124.0,,[100.0],[108.23],4,31722,35839,99.477,2780,1529,Klebsiella pneumoniae
+plant_rhizosphere,"Site: Arenzville, IL Plot: 10 Range: 2 Row: 1",AIM031722,AFS074597,39.863410,-90.455310,US,381124.0,,[100.0],[108.23],5,31722,35839,99.411,2774,1529,Klebsiella pneumoniae
+plant_corpus,"Starch Variety: Conventional Beauregard. landowner is shipper-access period is irrelevant; due to system, edited original collection date to fall within access period, ate was changed to allow data entry.",AIM039042,AFS051637,35.11959000,-78.24434000,US,4120.0,Azospirillum sp003116065,[98.28],[1.72],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014718,AFS002128,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[98.28],[0.0],1,14718,26457,99.346,2765,1530,Burkholderia lata
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014718,AFS002128,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[98.28],[0.0],2,14718,26457,99.345,2763,1526,Burkholderia ambifaria
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014718,AFS002128,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[98.28],[0.0],3,14718,26457,99.8,2758,1502,Burkholderia latens
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014718,AFS002128,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[98.28],[0.0],4,14718,26457,99.933,2736,1484,Burkholderia vietnamiensis
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014718,AFS002128,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[98.28],[0.0],5,14718,26457,99.799,2734,1489,Burkholderia vietnamiensis
+soil,"Front yard, garden bed. Dug down about 3 inches. Recently mulched",AIM088582,AFS863972,35.810458,-78.837007,US,,,[100.0],[3.11],,,,,,,
+plant_rhizosphere,"Site: Walcott, Crop: Oats, Certified Organic Cover Crop Oats, Soil sample",AIM016631,AFS008702,41.630004,-90.737647,US,4498.0,Paenibacillus polymyxa_B,[98.28],[1.72],,,,,,,
+soil,"Front yard, garden bed. Dug down about 3 inches. Recently mulched",AIM088010,AFS617196,35.810458,-78.837007,US,,,[100.0],[6.66],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012817,AFS076519,35.667223,-78.493503,US,3635.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+soil,Site:  Eric's yard.  Soil from chicken coop,AIM018753,AFS038666,35.941880,-78.964148,US,,,[98.28],[22.94],,,,,,,
+plant_corpus,"Variety: NASPOT1, Weevil Damage: , Flesh Color: yellow, Skin Color: Purple Red",AIM057265,AFS063749,0.703070,32.510720,UG,4120.0,,[100.0],[100.52],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015521,AFS093919,35.896928,-78.880882,US,4564.0,,"[100.0, 98.28]","[0.0, 0.0]",,,,,,,
+,,AIM015521,,,,,,,"[100.0, 98.28]","[0.0, 0.0]",,,,,,,
+soil,"Side garden bed, dug down about 3 inches. Recently mulched",AIM088612,AFS647350,35.810458,-78.837007,US,,,[98.28],[42.89],,,,,,,
+plant_corpus,"Variety: Ewekamaku, Weevil Damage: , Flesh Color: cream, Skin Color: purple red",AIM062096,AFS065074,2.921370,30.999030,UG,4120.0,,[97.07],[11.52],,,,,,,
+plant_rhizosphere,"Plot 11 Row 1, Dry",AIM093325,AFS479602,39.8659900,-90.4559600,US,381124.0,,[6.53],[0.86],1,93325,115048,99.042,1123,626,Klebsiella aerogenes KCTC 2190
+plant_rhizosphere,"Plot 11 Row 1, Dry",AIM093325,AFS479602,39.8659900,-90.4559600,US,381124.0,,[6.53],[0.86],2,93325,115048,99.04,1122,625,Klebsiella pneumoniae
+plant_rhizosphere,"Plot 11 Row 1, Dry",AIM093325,AFS479602,39.8659900,-90.4559600,US,381124.0,,[6.53],[0.86],3,93325,115048,98.88,1116,625,Klebsiella pneumoniae
+plant_rhizosphere,"Plot 11 Row 1, Dry",AIM093325,AFS479602,39.8659900,-90.4559600,US,381124.0,,[6.53],[0.86],4,93325,115048,98.88,1116,625,Klebsiella pneumoniae
+plant_rhizosphere,"Plot 11 Row 1, Dry",AIM093325,AFS479602,39.8659900,-90.4559600,US,381124.0,,[6.53],[0.86],5,93325,115048,98.722,1112,626,Enterobacter cloacae
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015414,AFS019483,35.896928,-78.880882,US,4530.0,Azospirillum oryzae,[100.0],[3.45],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015254,AFS003181,35.896928,-78.880882,US,4530.0,Allorhizobium sp900466005,[100.0],[0.0],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015272,AFS068193,35.896928,-78.880882,US,4530.0,Kosakonia oryzae,[99.14],[0.0],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM016157,AFS000233,35.896928,-78.880882,US,4498.0,Allorhizobium sp900473245,[100.0],[0.0],,,,,,,
+plant_rhizosphere,"Randomization 130, Plot 4",AIM057104,AFS066110,43.2377400,-94.6152800,US,3847.0,,[98.28],[0.0],,,,,,,
+soil,Soil from side of house/ sandy,AIM068095,AFS006143,35.81046600,-78.83695200,US,,,[100.0],[1.08],,,,,,,
+soil,sub-alpine mixed aspen/evergreen forest; drainage next to trail,AIM075374,AFS051090,43.657333,-110.795806,US,,Rahnella aquatilis_B,[100.0],[0.0],,,,,,,
+plant_corpus,"Variety: Ombiuu, Weevil Damage: , Flesh Color: cream, Skin Color: cream",AIM062029,AFS011608,3.113600,30.924920,UG,4120.0,Kosakonia oryzae,[100.0],[0.0],,,,,,,
+soil,Soil from side of house/ sandy,AIM068174,AFS061474,35.81046600,-78.83695200,US,,,[79.83],[1.72],,,,,,,
+soil,"Front yard, garden bed. Dug down about 3 inches. Recently mulched",AIM088593,AFS209769,35.810458,-78.837007,US,,,[100.0],[10.25],,,,,,,
+plant_rhizosphere,"Site: Arenzville, IL Plot: 15 Range: 3 Row: 3",AIM095244,AFS744694,39.881500,-90.424060,US,381124.0,,[100.0],[96.05],1,95244,112730,99.867,2772,1507,Achromobacter mucicolens
+plant_rhizosphere,"Site: Arenzville, IL Plot: 15 Range: 3 Row: 3",AIM095244,AFS744694,39.881500,-90.424060,US,381124.0,,[100.0],[96.05],2,95244,112730,99.536,2745,1508,Achromobacter animicus
+plant_rhizosphere,"Site: Arenzville, IL Plot: 15 Range: 3 Row: 3",AIM095244,AFS744694,39.881500,-90.424060,US,381124.0,,[100.0],[96.05],3,95244,112730,98.949,2728,1523,Achromobacter denitrificans
+plant_rhizosphere,"Site: Arenzville, IL Plot: 15 Range: 3 Row: 3",AIM095244,AFS744694,39.881500,-90.424060,US,381124.0,,[100.0],[96.05],4,95244,112730,98.94,2697,1509,Achromobacter marplatensis
+plant_rhizosphere,"Site: Arenzville, IL Plot: 15 Range: 3 Row: 3",AIM095244,AFS744694,39.881500,-90.424060,US,381124.0,,[100.0],[96.05],5,95244,112730,99.131,2691,1496,Achromobacter xylosoxidans
+plant_corpus,"Variety: Awekamake, Weevil Damage: none, Flesh Color: cream, Skin: red",AIM048627,AFS090108,2.921300,30.999030,UG,4120.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+plant_rhizosphere,"Site: Walcott, Crop: Soybean, WS2620, non-treated, root",AIM010969,AFS030100,41.630004,-90.737647,US,3847.0,,[99.66],[0.0],,,,,,,
+soil,Soil from side of house/ sandy,AIM068092,AFS059216,35.81046600,-78.83695200,US,,,[98.28],[19.85],,,,,,,
+plant_rhizosphere,"Site: Arenzville, IL Plot: 1 Range: 2 Row: 10",AIM094975,AFS217501,39.863690,-90.455340,US,381124.0,,[100.0],[98.79],1,94975,113228,99.478,2789,1533,Klebsiella pneumoniae
+plant_rhizosphere,"Site: Arenzville, IL Plot: 1 Range: 2 Row: 10",AIM094975,AFS217501,39.863690,-90.455340,US,381124.0,,[100.0],[98.79],2,94975,113228,99.477,2780,1529,Klebsiella pneumoniae
+plant_rhizosphere,"Site: Arenzville, IL Plot: 1 Range: 2 Row: 10",AIM094975,AFS217501,39.863690,-90.455340,US,381124.0,,[100.0],[98.79],3,94975,113228,99.411,2774,1529,Klebsiella pneumoniae
+plant_rhizosphere,"Site: Arenzville, IL Plot: 1 Range: 2 Row: 10",AIM094975,AFS217501,39.863690,-90.455340,US,381124.0,,[100.0],[98.79],5,94975,113228,99.346,2769,1529,Klebsiella pneumoniae
+plant_rhizosphere,"Site: Arenzville, IL Plot: 1 Range: 2 Row: 10",AIM094975,AFS217501,39.863690,-90.455340,US,381124.0,,[100.0],[98.79],4,94975,113228,99.346,2769,1529,Klebsiella pneumoniae
+soil,"Front yard, garden bed. Dug down about 3 inches. Recently mulched",AIM088553,AFS883056,35.810458,-78.837007,US,,,[100.0],[18.19],,,,,,,
+plant_corpus,"Starch Variety: Conventional Beauregard. landowner is shipper-access period is irrelevant; due to system, edited original collection date to fall within access period, ate was changed to allow data entry.",AIM039026,AFS034723,35.11959000,-78.24434000,US,4120.0,Azospirillum sp003116065,[93.1],[5.17],,,,,,,
+soil,"Front yard, garden bed. Dug down about 3 inches. Recently mulched",AIM089053,AFS205543,35.810458,-78.837007,US,,Paraburkholderia xenovorans,[100.0],[0.0],,,,,,,
+unknown-contradictory,soil and full grass plant from from yard,AIM075599,AFS079223,35.738415,-78.859690,US,1427524.0,,[100.0],[244.29],,,,,,,
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006699,AFS010739,41.630004,-90.737647,US,381124.0,Herbaspirillum seropedicae,[98.28],[0.0],1,6699,5848,99.738,2795,1525,Herbaspirillum seropedicae
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006699,AFS010739,41.630004,-90.737647,US,381124.0,Herbaspirillum seropedicae,[98.28],[0.0],2,6699,5848,99.865,2721,1479,Herbaspirillum seropedicae
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006699,AFS010739,41.630004,-90.737647,US,381124.0,Herbaspirillum seropedicae,[98.28],[0.0],3,6699,5848,99.863,2682,1458,Herbaspirillum seropedicae
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006699,AFS010739,41.630004,-90.737647,US,381124.0,Herbaspirillum seropedicae,[98.28],[0.0],4,6699,5848,99.192,2676,1485,Herbaspirillum rubrisubalbicans
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006699,AFS010739,41.630004,-90.737647,US,381124.0,Herbaspirillum seropedicae,[98.28],[0.0],5,6699,5848,98.792,2652,1490,Herbaspirillum huttiense
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012833,AFS070334,35.667223,-78.493503,US,3635.0,,[100.0],[98.79],,,,,,,
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006475,AFS026234,41.630004,-90.737647,US,381124.0,,[99.66],[0.0],1,6475,5663,99.345,2765,1527,Leclercia adecarboxylata
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006475,AFS026234,41.630004,-90.737647,US,381124.0,,[99.66],[0.0],2,6475,5663,99.603,2761,1513,Enterobacter ludwigii
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006475,AFS026234,41.630004,-90.737647,US,381124.0,,[99.66],[0.0],3,6475,5663,98.896,2750,1540,Klebsiella aerogenes KCTC 2190
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006475,AFS026234,41.630004,-90.737647,US,381124.0,,[99.66],[0.0],4,6475,5663,98.639,2730,1543,Enterobacter cloacae
+plant_rhizosphere,"field with ""good"" WCRW infestation this year",AIM006475,AFS026234,41.630004,-90.737647,US,381124.0,,[99.66],[0.0],5,6475,5663,98.691,2713,1528,Enterobacter cloacae
+soil,Soil from side of house/ sandy,AIM068144,AFS080823,35.81046600,-78.83695200,US,,,[100.0],[0.0],,,,,,,
+plant_rhizosphere,"Variety: Conventional Beauregard. landowner is shipper-access period is irrelevant; due to system, edited original collection date to fall within access period, ate was changed to allow data entry.",AIM037432,AFS095769,35.11959000,-78.24434000,US,4120.0,,[100.0],[22.84],,,,,,,
+plant_corpus,"Variety: Unknown, Weevil Damage: , Flesh Color: cream, Skin Color: cream",AIM051359,AFS030891,3.395830,31.787220,UG,4120.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+plant_corpus,"Variety: Araka white, Weevil Damage: light, Flesh Color: cream, Skin Color: cream",AIM061085,AFS086478,2.036730,33.628470,UG,4120.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015276,AFS000066,35.896928,-78.880882,US,4530.0,Allorhizobium sp900465605,[100.0],[0.0],,,,,,,
+plant_corpus,"Variety: Unknown, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM062571,AFS094852,1.987300,33.701450,UG,4120.0,Klebsiella variicola,[97.93],[0.16],,,,,,,
+aerosol,"Site: Pocahontas, Crop: Corn, Grainbin dust",AIM004922,AFS000112,42.744101,-94.637937,US,,,"[98.28, 98.28]","[0.0, 0.0]",,,,,,,
+plant_rhizosphere,"Randomization 210, Plot 02, Note: Wet area in field, beans were stunted",AIM059970,AFS040660,42.0986800,-94.7077300,US,3847.0,,[100.0],[21.3],,,,,,,
+plant_corpus,"Variety: Ekampala, Weevil Damage: None, Flesh Color: cream, Skin Color: red",AIM062504,AFS057907,1.781060,33.631540,UG,4120.0,Klebsiella variicola,[97.07],[0.0],,,,,,,
+plant_corpus,"Variety: Osukut, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM062530,AFS000711,1.478010,33.864400,UG,4120.0,Klebsiella variicola,[97.93],[1.72],,,,,,,
+unknown-missing,Mud dauber nest,AIM012788,AFS087573,35.809919,-78.974571,US,32644.0,Brevibacillus brevis_B,[98.28],[4.31],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012829,AFS065962,35.667223,-78.493503,US,3635.0,,[100.0],[100.16],,,,,,,
+plant_rhizosphere,"Site: Clayton, Crop: Cotton, plant 2 root",AIM012859,AFS084577,35.667223,-78.493503,US,3635.0,Paenibacillus polymyxa_D,[98.28],[0.0],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014775,AFS083396,35.896928,-78.880882,US,381124.0,,[98.28],[0.0],1,14775,26498,99.931,2669,1449,Novosphingobium oryzae
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014775,AFS083396,35.896928,-78.880882,US,381124.0,,[98.28],[0.0],2,14775,26498,98.872,2529,1418,Novosphingobium lotistagni
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014775,AFS083396,35.896928,-78.880882,US,381124.0,,[98.28],[0.0],3,14775,26498,96.772,2477,1487,Novosphingobium guangzhouense
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014775,AFS083396,35.896928,-78.880882,US,381124.0,,[98.28],[0.0],4,14775,26498,97.445,2466,1448,Novosphingobium humi
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014775,AFS083396,35.896928,-78.880882,US,381124.0,,[98.28],[0.0],5,14775,26498,96.224,2427,1483,Novosphingobium naphthalenivorans
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015277,AFS067551,35.896928,-78.880882,US,4530.0,Allorhizobium sp900473245,[100.0],[1.72],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015408,AFS027575,35.896928,-78.880882,US,4530.0,Azospirillum oryzae,[99.14],[5.33],,,,,,,
+plant_rhizosphere,"Field 2 C1.1, Crop: Corn",AIM008522,AFS053631,39.251786,-88.406489,US,381124.0,,[100.0],[0.0],1,8522,2859,99.262,2449,1355,Skermanella aerolata
+plant_rhizosphere,"Field 2 C1.1, Crop: Corn",AIM008522,AFS053631,39.251786,-88.406489,US,381124.0,,[100.0],[0.0],2,8522,2859,97.117,2396,1422,Skermanella stibiiresistens SB22
+plant_rhizosphere,"Field 2 C1.1, Crop: Corn",AIM008522,AFS053631,39.251786,-88.406489,US,381124.0,,[100.0],[0.0],3,8522,2859,97.177,2390,1417,Skermanella rosea
+plant_rhizosphere,"Field 2 C1.1, Crop: Corn",AIM008522,AFS053631,39.251786,-88.406489,US,381124.0,,[100.0],[0.0],4,8522,2859,96.132,2350,1422,Skermanella parooensis
+plant_rhizosphere,"Field 2 C1.1, Crop: Corn",AIM008522,AFS053631,39.251786,-88.406489,US,381124.0,,[100.0],[0.0],5,8522,2859,96.674,2344,1413,Skermanella mucosa
+plant_corpus,"Variety: Unknown, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM062575,AFS024060,1.987300,33.701450,UG,4120.0,Klebsiella variicola,[97.93],[5.33],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014719,AFS028100,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[100.0],[0.0],1,14719,26458,99.671,2780,1520,Burkholderia vietnamiensis
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014719,AFS028100,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[100.0],[0.0],2,14719,26458,99.346,2765,1530,Burkholderia lata
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014719,AFS028100,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[100.0],[0.0],3,14719,26458,99.345,2763,1526,Burkholderia ambifaria
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014719,AFS028100,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[100.0],[0.0],4,14719,26458,99.8,2758,1502,Burkholderia latens
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014719,AFS028100,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[100.0],[0.0],5,14719,26458,99.799,2734,1489,Burkholderia vietnamiensis
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015269,AFS075981,35.896928,-78.880882,US,4530.0,Allorhizobium sp900473245,[100.0],[0.0],,,,,,,
+soil,Dirt by front gate,AIM031310,AFS086967,36.0266630,-95.8810100,US,1427524.0,,[98.28],[41.33],,,,,,,
+plant_rhizosphere,rhizosphere + roots from yellow foxtail weed in wheat regrowth stubble,AIM107594,AFS546521,43.936666,-87.99027778,US,305353.0,Klebsiella variicola,[97.07],[0.16],,,,,,,
+plant_rhizosphere,"Site: Kahoka, Crop: Soy, Genotype 1609 12, replicate 170, Block 1609 170, subplot 12",AIM003772,AFS089799,40.591715,-91.780488,US,3847.0,,[98.28],[0.0],,,,,,,
+soil,"Front yard, garden bed. Dug down about 3 inches. Recently mulched",AIM089776,AFS515184,35.810458,-78.837007,US,,Bradyrhizobium japonicum_D,[98.28],[0.0],,,,,,,
+soil,Soil from side of house/ sandy,AIM068148,AFS060642,35.81046600,-78.83695200,US,,,[100.0],[2.9],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015988,AFS064787,35.896928,-78.880882,US,4530.0,Allorhizobium sp900473245,[100.0],[0.0],,,,,,,
+soil,"Side garden bed, dug down about 3 inches. Recently mulched",AIM088604,AFS192319,35.810458,-78.837007,US,,,[100.0],[9.97],,,,,,,
+plant_rhizosphere,"Field 2 B1.1, Crop: Corn",AIM018069,AFS004443,39.251786,-88.406489,US,381124.0,Paraburkholderia_B ferrariae,[100.0],[1.72],1,18069,14188,99.934,2808,1522,Paraburkholderia ferrariae
+plant_rhizosphere,"Field 2 B1.1, Crop: Corn",AIM018069,AFS004443,39.251786,-88.406489,US,381124.0,Paraburkholderia_B ferrariae,[100.0],[1.72],2,18069,14188,97.717,2636,1533,Paraburkholderia dokdonella
+plant_rhizosphere,"Field 2 B1.1, Crop: Corn",AIM018069,AFS004443,39.251786,-88.406489,US,381124.0,Paraburkholderia_B ferrariae,[100.0],[1.72],3,18069,14188,97.439,2597,1523,Paraburkholderia silvatlantica SRMrh-20
+plant_rhizosphere,"Field 2 B1.1, Crop: Corn",AIM018069,AFS004443,39.251786,-88.406489,US,381124.0,Paraburkholderia_B ferrariae,[100.0],[1.72],4,18069,14188,97.177,2571,1523,Paraburkholderia sacchari
+plant_rhizosphere,"Field 2 B1.1, Crop: Corn",AIM018069,AFS004443,39.251786,-88.406489,US,381124.0,Paraburkholderia_B ferrariae,[100.0],[1.72],5,18069,14188,97.453,2542,1492,Paraburkholderia caffeinitolerans
+soil,creek bank soil/mud left side,AIM039087,AFS089802,32.5734550,-80.1655950,US,,,[100.0],[205.9],,,,,,,
+plant_corpus,"Variety: Araka white, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM062564,AFS003478,2.119350,33.653440,UG,4120.0,,[99.66],[35.88],,,,,,,
+soil,Soil from front graden bed. Clay sli,AIM068013,AFS071248,35.81046600,-78.83695200,US,,,[87.93],[1.88],,,,,,,
+plant_corpus,"Variety: Awekamake, Weevil Damage: none, Flesh Color: cream, Skin: red",AIM048612,AFS039819,2.921300,30.999030,UG,4120.0,Klebsiella variicola,[97.07],[0.0],,,,,,,
+soil,Sygenta fields:  Soil from Soybean - 79 Stress,AIM062707,AFS089409,40.331980,-104.727243,US,,Bacillus_C megaterium,[98.28],[5.22],,,,,,,
+soil,"Front yard, garden bed. Dug down about 3 inches. Recently mulched",AIM088590,AFS255981,35.810458,-78.837007,US,,,[100.0],[33.83],,,,,,,
+plant_corpus,"Variety: Akuleakule, Weevil Damage: , Flesh Color: cream, Skin Color: pink",AIM062014,AFS018057,1.970370,32.686550,UG,4120.0,Klebsiella variicola,[97.07],[0.0],,,,,,,
+soil,"Scott's pond under ""bridge"" #1; 3 rice mix",AIM076696,AFS025170,35.809919,-78.974570,US,,,[99.66],[205.93],,,,,,,
+soil,Soil from front graden bed. Clay sli,AIM068006,AFS028481,35.81046600,-78.83695200,US,,,[100.0],[0.0],,,,,,,
+soil,Soil from side of house/ sandy,AIM068182,AFS063912,35.81046600,-78.83695200,US,,,[100.0],[4.31],,,,,,,
+soil,Location: Amuria,AIM062523,AFS026330,2.036730,33.628470,UG,,Klebsiella variicola,[97.93],[0.0],,,,,,,
+plant_corpus,"Variety: Nyambale, Weevil Damage: , Flesh Color: cream, Skin Color: purple red",AIM056213,AFS020293,2.412430,31.202990,UG,4120.0,,[97.07],[11.35],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015516,AFS064169,35.896928,-78.880882,US,4564.0,Burkholderia vietnamiensis,[100.0],[0.47],,,,,,,
+plant_rhizosphere,"Randomization 023, Plot 29",AIM057096,AFS049394,43.2425000,-94.6484800,US,381124.0,,[98.28],[0.0],1,57096,73142,97.665,2643,1542,Paenibacillus borealis
+plant_rhizosphere,"Randomization 023, Plot 29",AIM057096,AFS049394,43.2425000,-94.6484800,US,381124.0,,[98.28],[0.0],2,57096,73142,97.487,2575,1512,Paenibacillus typhae
+plant_rhizosphere,"Randomization 023, Plot 29",AIM057096,AFS049394,43.2425000,-94.6484800,US,381124.0,,[98.28],[0.0],3,57096,73142,96.486,2571,1565,Paenibacillus sabinae
+plant_rhizosphere,"Randomization 023, Plot 29",AIM057096,AFS049394,43.2425000,-94.6484800,US,381124.0,,[98.28],[0.0],4,57096,73142,96.161,2540,1563,Paenibacillus sabinae
+plant_rhizosphere,"Randomization 023, Plot 29",AIM057096,AFS049394,43.2425000,-94.6484800,US,381124.0,,[98.28],[0.0],5,57096,73142,96.781,2534,1522,Paenibacillus stellifer
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015991,AFS054928,35.896928,-78.880882,US,4530.0,Allorhizobium sp900466005,[100.0],[0.0],,,,,,,
+plant_corpus,"Variety: Araka white, Weevil Damage: None, Flesh Color: cream, Skin Color: cream",AIM061086,AFS009943,2.201050,33.605940,UG,4120.0,,[94.87],[25.86],,,,,,,
+soil,"Front yard, garden bed. Dug down about 3 inches. Recently mulched",AIM088564,AFS605237,35.810458,-78.837007,US,,,[100.0],[5.0],,,,,,,
+soil,"soil with some rocks and plant material, Side of house near naturally growing plants. 3-4 inches depth.",AIM072074,AFS074265,33.83640100,-111.85658800,US,,,[100.0],[181.12],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab, NipponBare",AIM015191,AFS028971,35.896928,-78.880882,US,4530.0,Allorhizobium sp900473245,[100.0],[1.72],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015262,AFS019535,35.896928,-78.880882,US,4530.0,Allorhizobium sp900473245,[100.0],[0.0],,,,,,,
+plant_corpus,"Starch Variety: Conventional Beauregard. landowner is shipper-access period is irrelevant; due to system, edited original collection date to fall within access period, ate was changed to allow data entry.",AIM039024,AFS093216,35.11959000,-78.24434000,US,4120.0,,[100.0],[127.55],,,,,,,
+soil,"Front yard, garden bed. Dug down about 3 inches. Recently mulched",AIM088533,AFS157047,35.810458,-78.837007,US,,,[100.0],[110.14],,,,,,,
+plant_rhizosphere,B73 Root Row 1227,AIM095386,AFS398919,35.6682000,-78.5077000,US,381124.0,,[83.17],[17.88],1,95386,112867,99.866,2747,1494,Rhodococcus hoagii
+plant_rhizosphere,B73 Root Row 1227,AIM095386,AFS398919,35.6682000,-78.5077000,US,381124.0,,[83.17],[17.88],2,95386,112867,99.34,2743,1516,Paenibacillus sonchi X19-5
+plant_rhizosphere,B73 Root Row 1227,AIM095386,AFS398919,35.6682000,-78.5077000,US,381124.0,,[83.17],[17.88],3,95386,112867,99.338,2734,1510,Rhodococcus soli
+plant_rhizosphere,B73 Root Row 1227,AIM095386,AFS398919,35.6682000,-78.5077000,US,381124.0,,[83.17],[17.88],4,95386,112867,98.942,2702,1512,Rhodococcus agglutinans
+plant_rhizosphere,B73 Root Row 1227,AIM095386,AFS398919,35.6682000,-78.5077000,US,381124.0,,[83.17],[17.88],5,95386,112867,100.0,2662,1441,Rhodococcus hoagii
+plant_corpus,"Variety: Unknown, Weevil Damage: , Flesh Color: cream, Skin Color: cream",AIM051362,AFS093209,3.395830,31.787220,UG,4120.0,,[99.66],[141.64],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015273,AFS068650,35.896928,-78.880882,US,4530.0,Allorhizobium sp900465605,[98.28],[0.0],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM015397,AFS013974,35.896928,-78.880882,US,4498.0,Azospirillum oryzae,[99.43],[1.72],,,,,,,
+soil,Bagged soil collect from all 3 samples on farm 2 These were pulled for Sure-select samples but are from the same bag as AES06025,AIM046482,AFS057372,2.119350,33.653440,UG,,Paenibacillus polymyxa_C,[98.28],[1.72],,,,,,,
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014716,AFS030551,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[100.0],[0.0],1,14716,26455,99.607,2785,1526,Burkholderia vietnamiensis
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014716,AFS030551,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[100.0],[0.0],2,14716,26455,99.346,2765,1530,Burkholderia lata
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014716,AFS030551,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[100.0],[0.0],3,14716,26455,99.345,2763,1526,Burkholderia ambifaria
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014716,AFS030551,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[100.0],[0.0],4,14716,26455,99.8,2758,1502,Burkholderia latens
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014716,AFS030551,35.896928,-78.880882,US,381124.0,Burkholderia vietnamiensis,[100.0],[0.0],5,14716,26455,99.799,2734,1489,Burkholderia vietnamiensis
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014771,AFS056010,35.896928,-78.880882,US,381124.0,,[100.0],[0.0],1,14771,26494,99.468,2734,1504,Ideonella dechloratans
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014771,AFS056010,35.896928,-78.880882,US,381124.0,,[100.0],[0.0],2,14771,26494,98.125,2603,1493,Ideonella sakaiensis
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014771,AFS056010,35.896928,-78.880882,US,381124.0,,[100.0],[0.0],3,14771,26494,97.244,2577,1524,Leptothrix mobilis
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014771,AFS056010,35.896928,-78.880882,US,381124.0,,[100.0],[0.0],4,14771,26494,97.324,2532,1495,Rubrivivax benzoatilyticus JA2 = ATCC BAA-35
+plant_corpus,"plant grown in Metro-Mix 360, nonsterile, in AgBiome lab",AIM014771,AFS056010,35.896928,-78.880882,US,381124.0,,[100.0],[0.0],5,14771,26494,97.932,2514,1451,Aquincola tertiaricarbonis
+soil,"Soil from flower bed in front, top soil like",AIM068372,AFS005986,35.81046600,-78.83695200,US,,,[100.0],[19.91],,,,,,,
+plant_corpus,"Variety: Araka red, Weevil Damage: None, Flesh Color: cream, Skin Color: purple-red",AIM062534,AFS009797,2.165030,33.542300,UG,4120.0,Klebsiella variicola,[97.93],[0.0],,,,,,,
+plant_rhizosphere,"Variety: Conventional Beauregard. landowner is shipper-access period is irrelevant; due to system, edited original collection date to fall within access period, ate was changed to allow data entry.",AIM036800,AFS035888,35.11959000,-78.24434000,US,4120.0,Paenibacillus polymyxa_B,[100.0],[3.61],,,,,,,
+plant_rhizosphere,"Site: Vernon Center, MN",AIM032130,AFS091261,43.979570,-94.100220,US,3847.0,,[100.0],[256.64],,,,,,,

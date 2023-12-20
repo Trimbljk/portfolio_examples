@@ -1,0 +1,13 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+
+Resources:
+  NginxEcrRepository:
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: fargate/ecosystem_nginx
+
+  AppEcrRepository:
+    Type: AWS::ECR::Repository
+    Properties:
+      RepositoryName: fargate/ecosystem_app

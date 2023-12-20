@@ -1,0 +1,168 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+
+Parameters:
+  EcsClusterStackName:
+    Type: String
+    Default: AgbiomeFargateClusterStack
+
+  Stage:
+    Type: String
+    AllowedValues:
+      - dev
+      - prod
+    Default: dev
+
+  NginxImage:
+    Type: String
+    Default: ''
+
+  AppImage:
+    Type: String
+    Default: ''
+
+Mappings:
+  StageMap:
+    AppPath:
+      dev: /dev/ecosystem
+      prod: /ecosystem
+
+Outputs:
+  TaskRoleArn:
+    Description: Task IAM Role
+    Value: !GetAtt TaskRole.Arn
+
+Resources:
+
+  TaskDefinition:
+    Type: AWS::ECS::TaskDefinition
+    Properties:
+      ContainerDefinitions:
+        - Name: nginx
+          Image: !Ref NginxImage
+          Essential: true
+          Memory: 512
+          Cpu: 256
+          PortMappings:
+            - ContainerPort: 80
+              Protocol: tcp
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group:
+                Fn::ImportValue:
+                  !Sub '${EcsClusterStackName}-LogGroup'
+              awslogs-region: us-west-2
+              awslogs-stream-prefix: nginx
+        - Name: app
+          Environment:
+            - Name: BASE_PATHNAME
+              Value:
+                Fn::Sub:
+                  - '${Path}/'
+                  - Path: !FindInMap [StageMap, AppPath, !Ref Stage]
+          Image: !Ref AppImage
+          Essential: true
+          Memory: 512
+          Cpu: 256
+          PortMappings:
+            - ContainerPort: 5000
+              Protocol: tcp
+          LogConfiguration:
+            LogDriver: awslogs
+            Options:
+              awslogs-group:
+                Fn::ImportValue:
+                  !Sub '${EcsClusterStackName}-LogGroup'
+              awslogs-region: us-west-2
+              awslogs-stream-prefix: app
+      Family: "ecosystem-app-stack"
+      Cpu: 512
+      Memory: 1024
+      NetworkMode: awsvpc
+      RequiresCompatibilities:
+        - FARGATE
+      ExecutionRoleArn:
+        Fn::ImportValue:
+          !Sub '${EcsClusterStackName}-ECSTaskExecutionRole'
+      TaskRoleArn: !Ref TaskRole
+
+  TaskRole:
+    Type: AWS::IAM::Role
+    Properties:
+      AssumeRolePolicyDocument: {
+        "Version": "2012-10-17",
+        "Statement": [
+          {
+            "Sid": "",
+            "Effect": "Allow",
+            "Principal": {
+              "Service": "ecs-tasks.amazonaws.com",
+              "AWS": "arn:aws:iam::728348960442:root"
+            },
+            "Action": "sts:AssumeRole"
+          }
+        ]
+      }
+
+  Service:
+    Type: AWS::ECS::Service
+    DependsOn: LoadBalancerRule
+    Properties:
+      Cluster:
+        Fn::ImportValue:
+          !Sub '${EcsClusterStackName}-ClusterName'
+      LaunchType: FARGATE
+      DesiredCount: 1
+      NetworkConfiguration:
+        AwsvpcConfiguration:
+          AssignPublicIp: ENABLED
+          SecurityGroups:
+            - Fn::ImportValue:
+                !Sub '${EcsClusterStackName}-FargateContainerSecurityGroup'
+          Subnets: !Split
+            - ','
+            - Fn::ImportValue:
+                !Sub '${EcsClusterStackName}-Subnets'
+      TaskDefinition: !Ref 'TaskDefinition'
+      LoadBalancers:
+        - ContainerName: nginx
+          ContainerPort: 80
+          TargetGroupArn: !Ref 'TargetGroup'
+
+  TargetGroup:
+    Type: AWS::ElasticLoadBalancingV2::TargetGroup
+    Properties:
+      HealthCheckIntervalSeconds: 20
+      HealthCheckPath:
+        Fn::Sub:
+          - '${Path}/'
+          - Path: !FindInMap [StageMap, AppPath, !Ref Stage]
+      HealthCheckProtocol: HTTP
+      HealthCheckTimeoutSeconds: 5
+      HealthyThresholdCount: 2
+      TargetType: ip
+      Port: 80
+      Protocol: HTTP
+      UnhealthyThresholdCount: 2
+      VpcId:
+        Fn::ImportValue:
+          !Sub '${EcsClusterStackName}-VpcId'
+
+  LoadBalancerRule:
+    Type: AWS::ElasticLoadBalancingV2::ListenerRule
+    Properties:
+      Priority: 50000
+      Actions:
+        - TargetGroupArn: !Ref 'TargetGroup'
+          Type: forward
+      Conditions:
+        - Field: path-pattern
+          Values:
+            - Fn::Sub:
+                - '${Path}/*'
+                - Path: !FindInMap [StageMap, AppPath, !Ref Stage]
+            - !FindInMap [StageMap, AppPath, !Ref Stage]
+      ListenerArn:
+        Fn::ImportValue:
+          !Sub '${EcsClusterStackName}-LoadBalancerListener'

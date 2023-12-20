@@ -1,0 +1,23 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+neovim = "*"
+jedi = "*"
+boto3 = "*"
+cfn-flip = "*"
+pytest = "*"
+requests-mock = "*"
+awscli = "*"
+
+[packages]
+dash = "*"
+pandas = "*"
+dash-bootstrap-components = "*"
+gunicorn = "*"
+pyathena = "*"
+
+[requires]
+python_version = "3.7"
